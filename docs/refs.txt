@@ -1,0 +1,2 @@
+https://codeburst.io/typescript-node-starter-simplified-60c7b7d99e27
+https://github.com/Microsoft/TypeScript-Node-Starter
