@@ -1,63 +1,60 @@
-import DeviceGroupsController from '../model/controller/DeviceGroupsController';
-import LanbMapsCoorController from '../model/controller/LanbMapsCoorController';
-import LbCfgController from '../model/controller/LbCfgController';
-import MapDevicesController from '../model/controller/MapDevicesController';
-import MapDeviceTreeController from '../model/controller/MapDeviceTreeController';
-
-import MapperController from '../model/controller/MapperController';
+import GroupsController from '../model/controller/GroupsController';
+import UsersController from '../model/controller/UsersController';
+import UsersGroupsController from '../model/controller/UsersGroupsController';
+import WordsPairController from '../model/controller/WordsPairController';
 
 const routes: any[] = [
     {
         method: 'get',
-        route: '/dg',
-        controller: DeviceGroupsController,
-        action: 'all',
-    },
-    {
-        method: 'get',
-        route: '/lmc',
-        controller: LanbMapsCoorController,
-        action: 'all',
-    },
-    {
-        method: 'get',
-        route: '/lc',
-        controller: LbCfgController,
-        action: 'all',
-    },
-    {
-        method: 'get',
-        route: '/md',
-        controller: MapDevicesController,
-        action: 'all',
-    },
-    {
-        method: 'get',
-        route: '/mdt',
-        controller: MapDeviceTreeController,
+        route: '/g',
+        controller: GroupsController,
         action: 'all',
     },
 
     {
         method: 'get',
-        route: '/mapper/',
-        controller: MapperController,
-        action: 'info',
+        route: '/u',
+        controller: UsersController,
+        action: 'all',
+    },
+    {
+        method: 'post',
+        route: '/u',
+        controller: UsersController,
+        action: 'save',
+    },
+    {
+        method: 'get',
+        route: '/login',
+        controller: UsersController,
+        action: 'login',
+    },
+    {
+        method: 'get',
+        route: '/logout',
+        controller: UsersController,
+        action: 'logout',
+    },
+    {
+        method: 'put',
+        route: '/register',
+        controller: UsersController,
+        action: 'register',
     },
 
     {
         method: 'get',
-        route: '/mapper/lon/:lon/lat/:lat/zoom/:zoom',
-        controller: MapperController,
-        action: 'start',
+        route: '/ug',
+        controller: UsersGroupsController,
+        action: 'all',
     },
-
     {
         method: 'get',
-        route: '/mapper/lon/:lon/lat/:lat/zoom/:zoom/reload/:reload',
-        controller: MapperController,
-        action: 'reload',
+        route: '/wp',
+        controller: WordsPairController,
+        action: 'all',
     },
+
 //     {
 //     method: 'post',
 //     route: '/users',

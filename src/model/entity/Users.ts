@@ -32,11 +32,11 @@ export default class Groups {
     public firstName: string;
 
     @Column({
-        name: 'surName',
+        name: 'lastName',
         type: 'varchar',
         length: 255,
     })
-    public surName: string;
+    public lastName: string;
 
     @Column({
         name: 'patronymic',

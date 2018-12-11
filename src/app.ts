@@ -10,7 +10,6 @@ import path from 'path';
 
 import routes from './routes/index';
 
-import dataProviderRouter from './routes/dataProvider';
 import hello from './routes/hello';
 
 const log = log4js.getLogger('app');
@@ -31,7 +30,6 @@ app.use((req, res, next) => {
 });
 
 app.use('/', hello);
-app.use('/dp', dataProviderRouter);
 
 createConnection().then(async (connection) => {
 // register express routes from defined application routes

@@ -6,7 +6,7 @@ import {NextFunction, Request, Response} from 'express';
 
 export default class DBController {
 
-    private repository: any;
+    protected repository: any;
 
     constructor(repository: any) {
         this.repository = repository;
