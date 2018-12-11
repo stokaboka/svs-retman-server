@@ -39,7 +39,7 @@ export default class WordsPair {
     public lang2: string;
 
     @Column({
-        name: 'test',
+        name: 'scope',
         type: 'varchar',
         length: 255,
     })

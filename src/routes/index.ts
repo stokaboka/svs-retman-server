@@ -50,9 +50,9 @@ const routes: any[] = [
     },
     {
         method: 'get',
-        route: '/wp',
+        route: '/words',
         controller: WordsPairController,
-        action: 'all',
+        action: 'words',
     },
 
 //     {

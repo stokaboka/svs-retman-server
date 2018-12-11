@@ -32,6 +32,13 @@ export default class Groups {
     public firstName: string;
 
     @Column({
+        name: 'secondName',
+        type: 'varchar',
+        length: 255,
+    })
+    public secondName: string;
+
+    @Column({
         name: 'lastName',
         type: 'varchar',
         length: 255,
@@ -39,15 +46,8 @@ export default class Groups {
     public lastName: string;
 
     @Column({
-        name: 'patronymic',
-        type: 'varchar',
-        length: 255,
-    })
-    public patronymic: string;
-
-    @Column({
         type: 'datetime',
     })
-    public dateTime: Date;
+    public birthday: Date;
 
 }
