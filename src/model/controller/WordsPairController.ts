@@ -3,13 +3,13 @@
  */
 
 import {getRepository} from 'typeorm';
-import DeviceGroups from '../entity/DeviceGroups';
+import WordsPair from '../entity/WordsPair';
 import DBController from './DBController';
 
-export default class DeviceGroupsController extends DBController {
+export default class WordsPairController extends DBController {
 
     constructor() {
-        super(getRepository(DeviceGroups));
+        super(getRepository(WordsPair));
     }
 
 }

@@ -3,13 +3,13 @@
  */
 
 import {getRepository} from 'typeorm';
-import LbCfg from '../entity/LbCfg';
+import UsersGroups from '../entity/UsersGroups';
 import DBController from './DBController';
 
-export default class LbCfgController extends DBController {
+export default class UsersGroupsController extends DBController {
 
     constructor() {
-        super(getRepository(LbCfg));
+        super(getRepository(UsersGroups));
     }
 
 }

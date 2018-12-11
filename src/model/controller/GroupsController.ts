@@ -3,13 +3,13 @@
  */
 
 import {getRepository} from 'typeorm';
-import MapDeviceTree from '../entity/MapDeviceTree';
+import Groups from '../entity/Groups';
 import DBController from './DBController';
 
-export default class MapDeviceTreeController extends DBController {
+export default class GroupsController extends DBController {
 
     constructor() {
-        super(getRepository(MapDeviceTree));
+        super(getRepository(Groups));
     }
 
 }
