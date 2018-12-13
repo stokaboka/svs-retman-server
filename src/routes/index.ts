@@ -1,9 +1,12 @@
+import DictionaryController from '../model/controller/DictionaryController';
 import GroupsController from '../model/controller/GroupsController';
 import UsersController from '../model/controller/UsersController';
 import UsersGroupsController from '../model/controller/UsersGroupsController';
-import WordsPairController from '../model/controller/WordsPairController';
 
 const routes: any[] = [
+    /**
+     * Groups
+     */
     {
         method: 'get',
         route: '/g',
@@ -11,6 +14,9 @@ const routes: any[] = [
         action: 'all',
     },
 
+    /**
+     * Users
+     */
     {
         method: 'get',
         route: '/u',
@@ -42,16 +48,23 @@ const routes: any[] = [
         action: 'register',
     },
 
+    /**
+     * UsersGroups
+     */
     {
         method: 'get',
         route: '/ug',
         controller: UsersGroupsController,
         action: 'all',
     },
+
+    /**
+     * Dictionary
+     */
     {
         method: 'get',
         route: '/words',
-        controller: WordsPairController,
+        controller: DictionaryController,
         action: 'words',
     },
 

@@ -4,8 +4,8 @@
 
 import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm';
 
-@Entity('WordsPair')
-export default class WordsPair {
+@Entity('Dictionary')
+export default class Dictionary {
     @PrimaryGeneratedColumn()
     public id: number;
 

@@ -2,15 +2,15 @@
  * Copyright (c) 2018.  Igor Khorev, Orangem.me, igorhorev@gmail.com
  */
 
-import {getRepository} from 'typeorm';
-import WordsPair from '../entity/WordsPair';
-import DBController from './DBController';
 import {NextFunction, Request, Response} from 'express';
+import {getRepository} from 'typeorm';
+import Dictionary from '../entity/Dictionary';
+import DBController from './DBController';
 
-export default class WordsPairController extends DBController {
+export default class DictionaryController extends DBController {
 
     constructor() {
-        super(getRepository(WordsPair));
+        super(getRepository(Dictionary));
     }
 
     /**
