@@ -21,6 +21,8 @@ export default class DBController {
     }
 
     public async save(request: Request, response: Response, next: NextFunction) {
+        console.log('SAVE');
+        console.log(request.body);
         return this.repository.save(request.body);
     }
 

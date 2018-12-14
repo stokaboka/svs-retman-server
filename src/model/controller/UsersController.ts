@@ -2,10 +2,10 @@
  * Copyright (c) 2018.  Igor Khorev, Orangem.me, igorhorev@gmail.com
  */
 
+import {NextFunction, Request, Response} from 'express';
 import {getRepository} from 'typeorm';
 import Users from '../entity/Users';
 import DBController from './DBController';
-import {NextFunction, Request, Response} from 'express';
 
 export default class UsersController extends DBController {
 

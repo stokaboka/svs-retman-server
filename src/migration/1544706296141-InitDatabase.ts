@@ -70,22 +70,6 @@ export class InitDatabase1544706296141 implements MigrationInterface {
         await queryRunner.createTable(this.tableUsers, true);
         await queryRunner.createTable(this.tableUsersGroups, true);
 
-            // await queryRunner.createForeignKey('UsersGroups',
-            //     new TableForeignKey({
-            //         columnNames: ['user_id'],
-            //         referencedColumnNames: ['id'],
-            //         referencedTableName: 'Users',
-            //         onDelete: 'CASCADE',
-            //     }));
-            //
-            // await queryRunner.createForeignKey('UsersGroups',
-            //     new TableForeignKey({
-            //         columnNames: ['group_id'],
-            //         referencedColumnNames: ['id'],
-            //         referencedTableName: 'Groups',
-            //         onDelete: 'CASCADE',
-            //     }));
-
     }
 
     public async down(queryRunner: QueryRunner): Promise<any> {

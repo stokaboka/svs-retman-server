@@ -19,30 +19,30 @@ const routes: any[] = [
      */
     {
         method: 'get',
-        route: '/u',
+        route: '/users',
         controller: UsersController,
         action: 'all',
     },
     {
-        method: 'post',
-        route: '/u',
+        method: 'put',
+        route: '/user/:id',
         controller: UsersController,
         action: 'save',
     },
     {
-        method: 'get',
+        method: 'post',
         route: '/login',
         controller: UsersController,
         action: 'login',
     },
     {
-        method: 'get',
+        method: 'post',
         route: '/logout',
         controller: UsersController,
         action: 'logout',
     },
     {
-        method: 'put',
+        method: 'post',
         route: '/register',
         controller: UsersController,
         action: 'register',

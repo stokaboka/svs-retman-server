@@ -8,7 +8,9 @@ import log4js from 'log4js';
 import app from './app';
 
 dotenv.config();
-debug('express:server');
+if (process.env.NODE_ENV === 'debug') {
+    debug('express:server');
+}
 
 /**
  * make a log directory, just in case it isn't there.
@@ -106,8 +108,6 @@ function onListening() {
         ? 'pipe ' + addr
         : 'port ' + addr.port;
     debug('Listening on ' + bind);
-
-    // log.info('Express server listening on port ', server.address().port, " with pid ", process.pid );
 
     // @ts-ignore
     log.info(`Express server listening on port:${server.address().port} with pid:${process.pid}` );

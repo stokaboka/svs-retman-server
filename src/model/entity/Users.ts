@@ -5,7 +5,7 @@
 import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm';
 
 @Entity('Users')
-export default class Groups {
+export default class Users {
     @PrimaryGeneratedColumn()
     public id: number;
 

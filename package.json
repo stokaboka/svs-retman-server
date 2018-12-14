@@ -9,12 +9,15 @@
     "serve": "node dist/server.js",
     "watch-node": "nodemon dist/server.js",
     "watch-ts": "tsc -w",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "migration:run": "typeorm migration:run"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.0",
+    "mocha": "^5.2.0",
     "nodemon": "^1.18.7",
     "ts-node": "^3.3.0",
     "tslint": "^5.11.0",
