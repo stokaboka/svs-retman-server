@@ -14,7 +14,7 @@ export default class Groups {
         length: 255,
         unique: true,
     })
-    public name: string;
+    public group: string;
 
     @Column({
         type: 'varchar',

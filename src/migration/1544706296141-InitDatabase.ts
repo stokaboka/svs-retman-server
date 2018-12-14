@@ -1,32 +1,99 @@
-import {MigrationInterface, QueryRunner, Table} from 'typeorm';
+import {MigrationInterface, QueryRunner, Table, TableForeignKey} from 'typeorm';
 
 export class InitDatabase1544706296141 implements MigrationInterface {
 
+    private tableDictionary: Table = new Table({
+        name: 'Dictionary',
+        columns: [
+            { name: 'id',       type: 'int',        isPrimary: true },
+            { name: 'word1',    type: 'varchar',    length: '255' },
+            { name: 'word2',    type: 'varchar',    length: '255' },
+            { name: 'lang1',    type: 'char',       length: '10' },
+            { name: 'lang2',    type: 'char',       length: '10' },
+            { name: 'scope',    type: 'varchar',    length: '255' },
+        ],
+    });
+
+    private tableGroups: Table = new Table({
+        name: 'Groups',
+        columns: [
+            { name: 'id',       type: 'int',        isPrimary: true },
+            { name: 'group',    type: 'varchar',    length: '255' },
+            { name: 'role',     type: 'varchar',    length: '255' },
+
+        ],
+    });
+
+    private tableUsers: Table = new Table({
+       name: 'Users',
+       columns: [
+           { name: 'id',        type: 'int',        isPrimary: true },
+           { name: 'login',     type: 'varchar',    length: '255', isUnique: true },
+           { name: 'password',  type: 'varchar',    length: '255' },
+           { name: 'firstName', type: 'varchar',    length: '255' },
+           { name: 'secondName',type: 'varchar',    length: '255' },
+           { name: 'lastName',  type: 'varchar',    length: '255' },
+           { name: 'birthday',  type: 'datetime' },
+       ],
+    });
+
+    private tableUsersGroups: Table = new Table({
+        name: 'UsersGroups',
+        columns: [
+            { name: 'id',       type: 'int', isPrimary: true },
+            { name: 'user_id',  type: 'int' },
+            { name: 'group_id', type: 'int' },
+        ],
+    });
+
     public async up(queryRunner: QueryRunner): Promise<any> {
 
-        // const hasDatabase = await queryRunner.hasDatabase('svs-retman');
-        // if (!hasDatabase) {
             await queryRunner.createDatabase('svs-retman', true);
-        // }
 
-        await queryRunner.createTable(
-            new Table(
-                name: 'Dictionary',
-                columns: [
+            await queryRunner.createTable(this.tableDictionary);
+            await queryRunner.createTable(this.tableGroups);
+            await queryRunner.createTable(this.tableUsers);
+            await queryRunner.createTable(this.tableUsersGroups);
 
-        ]
-            )
-        );
+            await queryRunner.createForeignKey('UsersGroups',
+                new TableForeignKey({
+                    columnNames: ['user_id'],
+                    referencedColumnNames: ['id'],
+                    referencedTableName: 'Users',
+                    onDelete: 'CASCADE',
+                }));
 
-
-        CREATE TABLE `Dictionary` (`id` int NOT NULL AUTO_INCREMENT, `word1` varchar(255) NOT NULL, `word2` varchar(255) NOT NULL, `lang1` char(10) NOT NULL, `lang2` char(10) NOT NULL, `scope` varchar(255) NOT NULL, UNIQUE INDEX `IDX_ad8e0884ae478b9ebf1d560a25` (`word1`), PRIMARY KEY (`id`)) ENGINE=InnoDB
-        query: CREATE TABLE `Groups` (`id` int NOT NULL AUTO_INCREMENT, `name` varchar(255) NOT NULL, `role` varchar(255) NOT NULL, UNIQUE INDEX `IDX_d7650def7a54c77759fb05070b` (`name`), PRIMARY KEY (`id`)) ENGINE=InnoDB
-        query: CREATE TABLE `Users` (`id` int NOT NULL AUTO_INCREMENT, `login` varchar(255) NOT NULL, `password` varchar(255) NOT NULL, `firstName` varchar(255) NOT NULL, `secondName` varchar(255) NOT NULL, `lastName` varchar(255) NOT NULL, `birthday` datetime NOT NULL, UNIQUE INDEX `IDX_03599a389e75563b8314f74278` (`login`), PRIMARY KEY (`id`)) ENGINE=InnoDB
-        query: CREATE TABLE `UsersGroups` (`id` int NOT NULL AUTO_INCREMENT, `idUser` int NOT NULL, `idGroup` int NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB
+            await queryRunner.createForeignKey('UsersGroups',
+                new TableForeignKey({
+                    columnNames: ['group_id'],
+                    referencedColumnNames: ['id'],
+                    referencedTableName: 'Groups',
+                    onDelete: 'CASCADE',
+                }));
 
     }
 
     public async down(queryRunner: QueryRunner): Promise<any> {
+
+        const tUsersGroups = await queryRunner.getTable('UsersGroups');
+
+        const foreignKeyUserId = tUsersGroups.foreignKeys.find((fk) => fk.columnNames.indexOf('user_id') !== -1);
+        const foreignKeyGroupId = tUsersGroups.foreignKeys.find((fk) => fk.columnNames.indexOf('group_id') !== -1);
+
+        if (foreignKeyUserId) {
+            await queryRunner.dropForeignKey('UsersGroups', foreignKeyUserId);
+        }
+        if (foreignKeyGroupId) {
+            await queryRunner.dropForeignKey('UsersGroups', foreignKeyGroupId);
+        }
+
+        await queryRunner.dropTable(this.tableDictionary.name, true);
+        await queryRunner.dropTable(this.tableGroups.name, true);
+        await queryRunner.dropTable(this.tableUsers.name, true);
+        await queryRunner.dropTable(this.tableUsersGroups.name, true);
+
+        await queryRunner.dropDatabase('svs-retman', true);
+
     }
 
 }

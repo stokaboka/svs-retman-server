@@ -10,13 +10,15 @@ export default class UsersGroups {
     public id: number;
 
     @Column({
+        name: 'user_id',
         type: 'int',
     })
-    public idUser: number;
+    public userId: number;
 
     @Column({
+        name: 'group_id',
         type: 'int',
     })
-    public idGroup: number;
+    public groupId: number;
 
 }

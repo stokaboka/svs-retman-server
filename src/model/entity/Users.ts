@@ -46,6 +46,7 @@ export default class Groups {
     public lastName: string;
 
     @Column({
+        name: 'birthday',
         type: 'datetime',
     })
     public birthday: Date;

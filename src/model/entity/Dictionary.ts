@@ -13,7 +13,6 @@ export default class Dictionary {
         name: 'word1',
         type: 'varchar',
         length: 255,
-        unique: true,
     })
     public word1: string;
 
