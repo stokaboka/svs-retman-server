@@ -44,32 +44,47 @@ export class InitDatabase1544706296141 implements MigrationInterface {
             { name: 'user_id',  type: 'int' },
             { name: 'group_id', type: 'int' },
         ],
+        foreignKeys: [
+            { name: 'UsersGroupsUserId',
+                columnNames: ['user_id'],
+                referencedColumnNames: ['id'],
+                referencedTableName: 'Users',
+                onDelete: 'CASCADE',
+            },
+            { name: 'UsersGroupsGroupId',
+                columnNames: ['group_id'],
+                referencedColumnNames: ['id'],
+                referencedTableName: 'Groups',
+                onDelete: 'CASCADE',
+            },
+        ],
     });
 
     public async up(queryRunner: QueryRunner): Promise<any> {
 
-            await queryRunner.createDatabase('svs-retman', true);
+        // await queryRunner.createDatabase('svs-retman', false);
+        // await queryRunner.createSchema('svs-retman');
 
-            await queryRunner.createTable(this.tableDictionary);
-            await queryRunner.createTable(this.tableGroups);
-            await queryRunner.createTable(this.tableUsers);
-            await queryRunner.createTable(this.tableUsersGroups);
+        await queryRunner.createTable(this.tableDictionary, true);
+        await queryRunner.createTable(this.tableGroups, true);
+        await queryRunner.createTable(this.tableUsers, true);
+        await queryRunner.createTable(this.tableUsersGroups, true);
 
-            await queryRunner.createForeignKey('UsersGroups',
-                new TableForeignKey({
-                    columnNames: ['user_id'],
-                    referencedColumnNames: ['id'],
-                    referencedTableName: 'Users',
-                    onDelete: 'CASCADE',
-                }));
-
-            await queryRunner.createForeignKey('UsersGroups',
-                new TableForeignKey({
-                    columnNames: ['group_id'],
-                    referencedColumnNames: ['id'],
-                    referencedTableName: 'Groups',
-                    onDelete: 'CASCADE',
-                }));
+            // await queryRunner.createForeignKey('UsersGroups',
+            //     new TableForeignKey({
+            //         columnNames: ['user_id'],
+            //         referencedColumnNames: ['id'],
+            //         referencedTableName: 'Users',
+            //         onDelete: 'CASCADE',
+            //     }));
+            //
+            // await queryRunner.createForeignKey('UsersGroups',
+            //     new TableForeignKey({
+            //         columnNames: ['group_id'],
+            //         referencedColumnNames: ['id'],
+            //         referencedTableName: 'Groups',
+            //         onDelete: 'CASCADE',
+            //     }));
 
     }
 
