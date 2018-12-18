@@ -11,22 +11,62 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 // const server = require('../dist/server');
 const should = chai.should();
+let expect = chai.expect;
 
 chai.use(chaiHttp);
 
 const host = `http://localhost:${process.env.PORT}`;
 
-const user = { id: 0, login: 'test', password: 'test', firstName: 'John', secondName: 'Lennon', lastName: 'Lord', birthday: new Date(2018, 1, 12)};
+const user = {
+    id: 0,
+    login: 'test',
+    password: 'test',
+    firstName: 'John',
+    secondName: 'Lennon',
+    lastName: 'Lord',
+    birthday: new Date(2018, 1, 12)
+};
+
+const updUser = Object.assign({}, user, {firstName: 'Pol'});
 
 describe('Users', () => {
     
-    /**
-     * TODO clear data before run tests
-     */
+    describe('/DELETE user', () => {
+        it('it should DELETE test user', (done) => {
+            chai.request(host)
+            .delete(`/user/${user.id}`)
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.be.a('object');
+                expect(res.body).to.deep.have.keys('raw');
+                expect(res.body.raw).to.deep.have.any.keys('affectedRows');
+                expect(res.body).to.satisfy(
+                    body => body.raw.affectedRows === 0 || body.raw.affectedRows === 1,
+                    'raw.affectedRows must be 0 or 1'
+                );
+                done();
+            });
+        });
+    });
     
-    beforeEach((done) => {
-        // console.log('USERS beforeEach');
-        done();
+    describe('/POST register', () => {
+        it('it should INSERT a user', (done) => {
+            chai.request(host)
+            .post('/register')
+            .send(user)
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.be.a('object');
+                res.body.should.have.property('id');
+                res.body.should.have.property('login');
+                res.body.should.have.property('firstName');
+                res.body.should.have.property('secondName');
+                res.body.should.have.property('lastName');
+                res.body.should.have.property('birthday');
+                res.body.should.not.have.property('password');
+                done();
+            });
+        });
     });
     
     describe('/GET users', () => {
@@ -36,7 +76,6 @@ describe('Users', () => {
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('array');
-                // res.body.length.should.be.eql(0);
                 done();
             });
         });
@@ -46,33 +85,17 @@ describe('Users', () => {
         it('it should UPDATE user ', (done) => {
             chai.request(host)
             .put(`/user/${user.id}`)
-            .send(user)
+            .send(updUser)
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
                 res.body.should.have.property('id');
-                // res.body.errors.should.have.property('pages');
-                // res.body.errors.pages.should.have.property('kind').eql('required');
+                res.body.should.not.have.property('password');
                 done();
             });
         });
     });
     
-    describe('/POST register', () => {
-        it('it should INSERT a user', (done) => {
-                chai.request(host)
-                .post('/register')
-                .send(user)
-                .end((err, res) => {
-                    res.should.have.status(200);
-                    res.body.should.be.a('object');
-                    // res.body.should.have.property('message').eql('User registered');
-                    res.body.should.have.property('id');
-                    res.body.should.have.property('login');
-                    done();
-                });
-        });
-    });
     //
     // describe('/GET login', () => {
     //     it('it should GET login user', (done) => {

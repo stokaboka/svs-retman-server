@@ -9,18 +9,34 @@ import DBController from './DBController';
 
 export default class UsersController extends DBController {
 
+    /**
+     * remove password field from object
+     * @param obj
+     */
+    public static fixObject(obj: any) {
+        if (obj.password) {
+            delete obj.password;
+        }
+        return obj;
+    }
+
+    private aSelect = [ 'login', 'firstName', 'secondName', 'lastName', 'birthday' ];
+
     constructor() {
         super(getRepository(Users));
     }
 
     /**
-     * find one user by ID
+     * all users
      * @param request
      * @param response
      * @param next
      */
-    public async one(request: Request, response: Response, next: NextFunction) {
-        return this.repository.findOne(request.params.id);
+    public async users(request: Request, response: Response, next: NextFunction) {
+        return this.repository.find(
+            {
+                select: this.aSelect,
+            });
     }
 
     /**
@@ -35,8 +51,10 @@ export default class UsersController extends DBController {
          */
         return this.repository.find(
             {
-                select: [ 'login', 'firstName', 'secondName', 'lastName', 'birthday' ],
-                where: { login: request.params.login, password: request.params.password},
+                select: this.aSelect,
+                where: {
+                    login: request.params.login,
+                    password: request.params.password},
             });
     }
 
@@ -50,7 +68,8 @@ export default class UsersController extends DBController {
         /*
         TODO add logout code
          */
-        return this.one(request, response, next);
+        const out = await this.one(request, response, next);
+        return UsersController.fixObject(out);
     }
 
     /**
@@ -60,7 +79,19 @@ export default class UsersController extends DBController {
      * @param next
      */
     public async register(request: Request, response: Response, next: NextFunction) {
-        return this.repository.save(request.body);
+        const out = await this.repository.save(request.body);
+        return UsersController.fixObject(out);
+    }
+
+    /**
+     * save user data
+     * @param request
+     * @param response
+     * @param next
+     */
+    public async save(request: Request, response: Response, next: NextFunction) {
+        const out = await super.save(request, response, next);
+        return UsersController.fixObject(out);
     }
 
 }

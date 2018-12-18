@@ -13,22 +13,28 @@ export default class DBController {
     }
 
     public async all(request: Request, response: Response, next: NextFunction) {
-        return this.repository.find();
+        const out = await  this.repository.find();
+        return out;
     }
 
     public async one(request: Request, response: Response, next: NextFunction) {
-        return this.repository.findOne(request.params.id);
+        const out = await this.repository.findOne(request.params.id);
+        return out;
     }
 
     public async save(request: Request, response: Response, next: NextFunction) {
-        console.log('SAVE');
-        console.log(request.body);
-        return this.repository.save(request.body);
+        const out = await this.repository.save(request.body);
+        return out;
     }
 
     public async remove(request: Request, response: Response, next: NextFunction) {
-        const instance = await this.repository.findOne(request.params.id);
-        await this.repository.remove(instance);
+        const out = await this.repository.remove(request.params);
+        return out;
+    }
+
+    public async delete(request: Request, response: Response, next: NextFunction) {
+        const out = await this.repository.delete(request.params.id);
+        return out;
     }
 
 }

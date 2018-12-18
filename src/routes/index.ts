@@ -21,7 +21,7 @@ const routes: any[] = [
         method: 'get',
         route: '/users',
         controller: UsersController,
-        action: 'all',
+        action: 'users',
     },
     {
         method: 'put',
@@ -46,6 +46,13 @@ const routes: any[] = [
         route: '/register',
         controller: UsersController,
         action: 'register',
+    },
+
+    {
+        method: 'delete',
+        route: '/user/:id',
+        controller: UsersController,
+        action: 'delete',
     },
 
     /**
