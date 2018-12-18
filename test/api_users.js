@@ -96,19 +96,4 @@ describe('Users', () => {
         });
     });
     
-    //
-    // describe('/GET login', () => {
-    //     it('it should GET login user', (done) => {
-    //         chai.request(host)
-    //         .get('/login')
-    //         .end((err, res) => {
-    //             res.should.have.status(200);
-    //             res.body.should.be.a('object');
-    //             res.body.should.have.property('message').eql('User login');
-    //             res.body.should.have.property('id').eql(0);
-    //             done();
-    //         });
-    //     });
-    // });
-    
 });
