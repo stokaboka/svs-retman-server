@@ -42,6 +42,6 @@ export default class Dictionary {
         type: 'varchar',
         length: 255,
     })
-    public test: string;
+    public scope: string;
 
 }

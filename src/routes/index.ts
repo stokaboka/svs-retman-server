@@ -9,7 +9,7 @@ import usersGroupsRoutes from './UsersGroups';
 
 export default [].concat(
     usersRoutes,
-    dictionaryRoutes,
     groupsRoutes,
     usersGroupsRoutes,
+    dictionaryRoutes,
 );
