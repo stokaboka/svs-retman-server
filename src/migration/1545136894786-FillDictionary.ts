@@ -14,7 +14,7 @@ export class FillDictionary1545136894786 implements MigrationInterface {
         dictionary: ['word1', 'word2', 'lang1', 'lang2', 'scope'],
         lessons: ['num', 'title', 'scope', 'brief_text', 'brief_sound1', 'brief_sound2', 'brief_time', 'test_text', 'test_sound1', 'test_sound2', 'test_time', 'stages', 'pages'],
         lessonsStages: ['text', 'lesson', 'sound1', 'sound2', 'time'],
-    }
+    };
 
     private mnemonic = [
         { word1: 'история', word2: 'арка', lang1: 'RU', lang2: 'RU', scope: 'mnemonic::test' },
