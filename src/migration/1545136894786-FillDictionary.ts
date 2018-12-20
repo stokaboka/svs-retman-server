@@ -1,7 +1,20 @@
 import {getConnection, MigrationInterface, QueryRunner} from 'typeorm';
 import Dictionary from '../model/entity/Dictionary';
+import Lessons from '../model/entity/Lessons';
 
 export class FillDictionary1545136894786 implements MigrationInterface {
+
+    private times = {
+        second: 1000,
+        minute: 60 * 1000,
+        hour: 60 * 60 * 1000,
+    };
+
+    private fields = {
+        dictionary: ['word1', 'word2', 'lang1', 'lang2', 'scope'],
+        lessons: ['num', 'title', 'scope', 'brief_text', 'brief_sound1', 'brief_sound2', 'brief_time', 'test_text', 'test_sound1', 'test_sound2', 'test_time', 'stages', 'pages'],
+        lessonsStages: ['text', 'lesson', 'sound1', 'sound2', 'time'],
+    }
 
     private mnemonic = [
         { word1: 'история', word2: 'арка', lang1: 'RU', lang2: 'RU', scope: 'mnemonic::test' },
@@ -446,7 +459,9 @@ export class FillDictionary1545136894786 implements MigrationInterface {
         { word1: 'voie', word2: 'дорога, путь', lang1: 'FR', lang2: 'RU', scope: 'vocabulary::learn::2' },
         { word1: 'la voiture', word2: 'машина, автомобиль', lang1: 'FR', lang2: 'RU', scope: 'vocabulary::learn::2' },
         { word1: 'vous', word2: 'вы', lang1: 'FR', lang2: 'RU', scope: 'vocabulary::learn::2' },
+];
 
+    private test = [
         { word1: '- This is a telephone.', word2: '- Это телефон.', lang1: 'EN', lang2: 'RU', scope: 'test::lesson::1::page::1' },
         { word1: '- This is a glass.', word2: '- Это стакан.', lang1: 'EN', lang2: 'RU', scope: 'test::lesson::1::page::1' },
         { word1: '- This is a dog.', word2: '- Это собака.', lang1: 'EN', lang2: 'RU', scope: 'test::lesson::1::page::1' },
@@ -925,21 +940,210 @@ export class FillDictionary1545136894786 implements MigrationInterface {
     ];
     // ’
 
+    private lessons = [
+        {
+            num: 1,
+            title: 'Тестирование звука',
+            scope: '',
+            brief_text: 'Вы можете проверить, правильно ли воспроизводится звук, нажав клавишу "звуковой тест"',
+            brief_sound1: '',
+            brief_sound2: '',
+            brief_time: 0,
+            test_text: '',
+            test_sound1: 'sound 1 (rightSound).mp3',
+            test_sound2: 'sound 2 (leftSound).mp3',
+            test_time: 0,
+            stages: 0,
+            pages: 0,
+        },
+
+        {
+            num: 2,
+            title: 'Описание методики тестирования',
+            scope: '',
+            brief_text: 'Проверка начального лексического запаса на английском, французском и немецком языках.\n' +
+                'Определение лингвистических способностей к усвоению иностранного языка в режиме автоматизированного обучения.\n' +
+                'Процедура тестирования занимает около 2-х часов.\n' +
+                'Приступайте к работе только в том случае, если Вы уверены, что ничто не будет Вам мешать. \n' +
+                'Отключите телефон, устраните все другие отвлекающие моменты.\n' +
+                'Это необходимо сделать потому, что некоторые задания выполняются с контролем затраченного на их выполнение времени.\n',
+            brief_sound1: 'cy-inst2fm1.mp3',
+            brief_sound2: '',
+            brief_time: 0,
+            test_text: '',
+            test_sound1: '',
+            test_sound2: '',
+            test_time: 0,
+            stages: 0,
+            pages: 0,
+        },
+
+        {
+            num: 3,
+            title: 'Мнемонический тест',
+            scope: 'mnemonic',
+            brief_text: 'Сейчас Вы увидите на экране список из 50-ти пар слов на русском языке. Ваша задача в течении 3-х минут запомнить как можно больше пар.\n' +
+                'Просматривайте список под звук метронома, стараясь мысленно связать ассоциативными связями слова в каждой паре.\n' +
+                'Отмечайте мышкой запомненные пары слов, щелкнув на квадрате между словами одной пары.\n' +
+                'Старайтесь просматривать список в ритме метронома.\n' +
+                'Успехов Вам!\n',
+            brief_sound1: 'cy-inst5_1fm.mp3',
+            brief_sound2: 'cy-inst5_1.mp3',
+            brief_time: 0,
+            test_text: '',
+            test_sound1: 'метроном',
+            test_sound2: '',
+            test_time: this.times.minute * 3,
+            stages: 0,
+            pages: 0,
+        },
+
+        {
+            num: 4,
+            title: 'Контроль - мнемонический тест',
+            scope: 'mnemonic',
+            brief_text: 'Просмотрите список еще раз.\n' +
+                'Восстановите правую часть списка (дополните пары), подставив нужные слова с помощью мыши.\n' +
+                'На это Вам отводится 10 мин. - если закончите раньше, нажмите кнопку "Продолжить".\n',
+            brief_sound1: 'Track 2',
+            brief_sound2: '',
+            brief_time: 0,
+            test_text: '',
+            test_sound1: 'метроном',
+            test_sound2: '',
+            test_time: this.times.minute * 10,
+            stages: 0,
+            pages: 0,
+        },
+
+        {
+            num: 4,
+            title: 'Предъявление/интерпретация результатов - мнемонический тест',
+            scope: 'Приложение 2',
+            brief_text: 'Из 50 предъявленных пар слов вы отметили / запомнили  X/Y пар + рекомендация',
+            brief_sound1: '',
+            brief_sound2: '',
+            brief_time: 0,
+            test_text: '',
+            test_sound1: '',
+            test_sound2: '',
+            test_time: 0,
+            stages: 0,
+            pages: 0,
+        },
+
+        {
+            num: 5,
+            title: 'Определение языка пробного обучения',
+            scope: 'Приложении 3',
+            brief_text: 'Вы видите пример шкалы самооценки речевых навыков общения на иностранном языке.\n' +
+                'Нас интересует, как Вы сами оцениваете свои возможности по общению, то есть, пониманию речи на слух и выражению своих мыслей в беседе.\n' +
+                'На следующей странице Вам надо выбрать тот уровень, которым Вы владеете в данный момент.\n' +
+                'Можете указать несколько уровней.\n',
+            brief_sound1: 'cy-inst6_1fm.mp3',
+            brief_sound2: 'cy-inst6_1.mp3',
+            brief_time: 0,
+            test_text: 'Тестируемый должен оценить свои навыки общения для трех языков (английский/ немецкий/ французский)',
+            test_sound1: '',
+            test_sound2: '',
+            test_time: 0,
+            stages: 0,
+            pages: 0,
+        },
+
+        {
+            num: 6,
+            title: 'Контроль – оценка начального лексического запаса',
+            scope: 'vocabulary',
+            brief_text: 'Сейчас Вам будет предъявлено по 25 слов на английском, немецком и французском языках.\n' +
+                'Постарайтесь перевести на русский язык все известные вам слова.\n' +
+                'Внимательно просмотрите списки на всех трех языках, даже если какие либо из них Вы не изучали. В тестах есть такие интернациональные слова, которые Вам наверняка знакомы.\n' +
+                'Ваша задача - выбрать правильный перевод каждого слова и переместить его на прямоугольник справа от иностранного слова. \n' +
+                'Если Вы сомневаетесь в правильности подставленного значения слова, щелкните мышкой по знаку вопроса слева от иностранного слова.\n' +
+                'По результатам этого теста мы определим язык пробного обучения.\n',
+            brief_sound1: 'cy-inst7_1fm.mp3',
+            brief_sound2: 'cy-inst7_1.mp3',
+            brief_time: 0,
+            test_text: 'Тестируемому последовательно предъявляются 25 слов на английском, немецком и французском языках.\n' +
+                'Слева столбец слов иностранного языка (сортировка по алфавиту)\n' +
+                'Справа – русские слова (сортировка по алфавиту) \n' +
+                'Ответы перетягиваются\n' +
+                'Можно изменить ответ, можно вернуть слово в правый пул\n' +
+                '\n' +
+                'Может появиться сообщение «Вы должны знать интернациональные слова»\n',
+            test_sound1: '',
+            test_sound2: '',
+            test_time: 0,
+            stages: 0,
+            pages: 0,
+        },
+
+        {
+            num: 7,
+            title: 'Предъявление/интерпритация результатов',
+            scope: 'vocabulary',
+            brief_text:  'Результаты не объявляются -  сразу объявляется язык обучения.\n' +
+                'Последовательность выбора языка тестирования при одинаковых значениях : английский, немецкий, французский \n',
+            brief_sound1: '',
+            brief_sound2: '',
+            brief_time: 0,
+            test_text: '',
+            test_sound1: '',
+            test_sound2: '',
+            test_time: 0,
+            stages: 0,
+            pages: 0,
+        },
+
+        {
+            num: 8,
+            title: 'Входной тест знания лексики языка пробного обучения. Самооценка',
+            scope: 'vocabulary',
+            brief_text:  'Сейчас Вам будут предъявлены 100 слов _________ языка.\n' +
+                'Показ будет сопровождаться звуками метронома. \n' +
+                'Вам нужно будет внимательно просмотреть весь список, стараясь просматривать слова в ритме метронома.\n' +
+                'Отмечайте каждое иностранное слово, значение которого вы знаете, нажатием на клавишу "ПРОБЕЛ"\n',
+            brief_sound1: '',
+            brief_sound2: '',
+            brief_time: 0,
+            test_text: '',
+            test_sound1: '',
+            test_sound2: '',
+            test_time: 0,
+            stages: 0,
+            pages: 0,
+        },
+
+    ];
+
     public async up(queryRunner: QueryRunner): Promise<any> {
         await getConnection()
             .createQueryBuilder()
             .insert()
-            .into(Dictionary)
+            .into(Dictionary, this.fields.dictionary)
             .values(this.mnemonic)
             .execute();
 
         await getConnection()
             .createQueryBuilder()
             .insert()
-            .into(Dictionary)
+            .into(Dictionary, this.fields.dictionary)
             .values(this.vocabulary)
             .execute();
 
+        await getConnection()
+            .createQueryBuilder()
+            .insert()
+            .into(Dictionary, this.fields.dictionary)
+            .values(this.test)
+            .execute();
+
+        await getConnection()
+            .createQueryBuilder()
+            .insert()
+            .into(Lessons, this.fields.lessons)
+            .values(this.lessons)
+            .execute();
     }
 
     public async down(queryRunner: QueryRunner): Promise<any> {

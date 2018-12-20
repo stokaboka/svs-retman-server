@@ -5,7 +5,7 @@ export class InitDatabase1544706296141 implements MigrationInterface {
     private tableDictionary: Table = new Table({
         name: 'Dictionary',
         columns: [
-            { name: 'id',       type: 'int',        isPrimary: true },
+            { name: 'id',       type: 'int',        isPrimary: true, isGenerated: true, generationStrategy: 'increment' },
             { name: 'word1',    type: 'varchar',    length: '255' },
             { name: 'word2',    type: 'varchar',    length: '255' },
             { name: 'lang1',    type: 'char',       length: '10' },
@@ -17,7 +17,7 @@ export class InitDatabase1544706296141 implements MigrationInterface {
     private tableGroups: Table = new Table({
         name: 'Groups',
         columns: [
-            { name: 'id',       type: 'int',        isPrimary: true },
+            { name: 'id',       type: 'int',        isPrimary: true, isGenerated: true, generationStrategy: 'increment' },
             { name: 'group',    type: 'varchar',    length: '255' },
             { name: 'role',     type: 'varchar',    length: '255' },
 
@@ -27,7 +27,7 @@ export class InitDatabase1544706296141 implements MigrationInterface {
     private tableUsers: Table = new Table({
        name: 'Users',
        columns: [
-           { name: 'id',        type: 'int',        isPrimary: true },
+           { name: 'id',        type: 'int',        isPrimary: true, isGenerated: true, generationStrategy: 'increment' },
            { name: 'login',     type: 'varchar',    length: '255', isUnique: true },
            { name: 'password',  type: 'varchar',    length: '255' },
            { name: 'firstName', type: 'varchar',    length: '255' },
@@ -40,7 +40,7 @@ export class InitDatabase1544706296141 implements MigrationInterface {
     private tableUsersGroups: Table = new Table({
         name: 'UsersGroups',
         columns: [
-            { name: 'id',       type: 'int', isPrimary: true },
+            { name: 'id',       type: 'int', isPrimary: true, isGenerated: true, generationStrategy: 'increment' },
             { name: 'user_id',  type: 'int' },
             { name: 'group_id', type: 'int' },
         ],
@@ -60,6 +60,47 @@ export class InitDatabase1544706296141 implements MigrationInterface {
         ],
     });
 
+    private tableLessons: Table = new Table({
+        name: 'Lessons',
+        columns: [
+            { name: 'id',       type: 'int',        isPrimary: true, isGenerated: true, generationStrategy: 'increment' },
+            { name: 'num',     type: 'int' },
+            { name: 'title',    type: 'varchar',    length: '255' },
+            { name: 'scope',    type: 'varchar',    length: '255' },
+            { name: 'brief_text',     type: 'varchar',    length: '1000' },
+            { name: 'brief_sound1',    type: 'varchar',    length: '255' },
+            { name: 'brief_sound2',    type: 'varchar',    length: '255' },
+            { name: 'brief_time',     type: 'int' },
+            { name: 'test_text',     type: 'varchar',    length: '1000' },
+            { name: 'test_sound1',    type: 'varchar',    length: '255' },
+            { name: 'test_sound2',    type: 'varchar',    length: '255' },
+            { name: 'test_time',     type: 'int' },
+            { name: 'stages',     type: 'int' },
+            { name: 'pages',     type: 'int' },
+
+        ],
+    });
+
+    private tableLessonsStages: Table = new Table({
+        name: 'LessonsStages',
+        columns: [
+            { name: 'id',       type: 'int',        isPrimary: true, isGenerated: true, generationStrategy: 'increment' },
+            { name: 'text',     type: 'varchar',    length: '1000' },
+            { name: 'lesson',     type: 'int' },
+            { name: 'sound1',    type: 'varchar',    length: '255' },
+            { name: 'sound2',    type: 'varchar',    length: '255' },
+            { name: 'time',     type: 'int' },
+        ],
+        foreignKeys: [
+            { name: 'LessonsStagesId',
+                columnNames: ['lesson'],
+                referencedColumnNames: ['id'],
+                referencedTableName: 'Lessons',
+                onDelete: 'CASCADE',
+            },
+        ],
+    });
+
     public async up(queryRunner: QueryRunner): Promise<any> {
 
         // await queryRunner.createDatabase('svs-retman', false);
@@ -69,6 +110,9 @@ export class InitDatabase1544706296141 implements MigrationInterface {
         await queryRunner.createTable(this.tableGroups, true);
         await queryRunner.createTable(this.tableUsers, true);
         await queryRunner.createTable(this.tableUsersGroups, true);
+
+        await queryRunner.createTable(this.tableLessons, true);
+        await queryRunner.createTable(this.tableLessonsStages, true);
 
     }
 
@@ -90,6 +134,9 @@ export class InitDatabase1544706296141 implements MigrationInterface {
         await queryRunner.dropTable(this.tableGroups.name, true);
         await queryRunner.dropTable(this.tableUsers.name, true);
         await queryRunner.dropTable(this.tableUsersGroups.name, true);
+
+        await queryRunner.dropTable(this.tableLessons, true);
+        await queryRunner.dropTable(this.tableLessonsStages, true);
 
         await queryRunner.dropDatabase('svs-retman', true);
 
