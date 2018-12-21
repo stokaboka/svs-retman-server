@@ -11,15 +11,42 @@ export default class LessonStages {
 
     @Column({
         type: 'varchar',
+        length: 255,
+    })
+    public lang: string;
+
+    @Column({
+        type: 'varchar',
         length: 1000,
     })
-    public text: string;
+    public briefText: string;
 
     @Column()
-    public lesson: number;
+    public stepId: number;
+
+    @Column()
+    public lessonNum: number;
+
+    @Column()
+    public lessons: number;
 
     @Column()
     public stage: number;
+
+    @Column()
+    public pages: number;
+
+    @Column()
+    public page1: number;
+
+    @Column()
+    public page2: number;
+
+    @Column({
+        type: 'varchar',
+        length: 255,
+    })
+    public scope: string;
 
     @Column({
         type: 'varchar',

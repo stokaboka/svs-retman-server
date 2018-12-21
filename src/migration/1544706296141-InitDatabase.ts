@@ -60,11 +60,25 @@ export class InitDatabase1544706296141 implements MigrationInterface {
         ],
     });
 
+    private tableSteps: Table = new Table({
+        name: 'Steps',
+        columns: [
+            { name: 'id',       type: 'int',        isPrimary: true, isGenerated: true, generationStrategy: 'increment' },
+            { name: 'title',    type: 'varchar',    length: '255' },
+            { name: 'lessons',  type: 'int'},
+            { name: 'brief_',  type: 'int'},
+            { name: 'test',  type: 'int'},
+            { name: 'learning',  type: 'int'},
+            { name: 'brief_text',     type: 'varchar',    length: '1000' },
+        ],
+    });
+
     private tableLessons: Table = new Table({
         name: 'Lessons',
         columns: [
             { name: 'id',       type: 'int',        isPrimary: true, isGenerated: true, generationStrategy: 'increment' },
-            { name: 'num',     type: 'int' },
+            { name: 'step_id',  type: 'int' },
+            { name: 'num',      type: 'int' },
             { name: 'title',    type: 'varchar',    length: '255' },
             { name: 'scope',    type: 'varchar',    length: '255' },
             { name: 'brief_text',     type: 'varchar',    length: '1000' },
@@ -79,25 +93,33 @@ export class InitDatabase1544706296141 implements MigrationInterface {
             { name: 'pages',     type: 'int' },
 
         ],
+        foreignKeys: [
+            { name: 'LessonsStepId',
+                columnNames: ['step_id'],
+                referencedColumnNames: ['id'],
+                referencedTableName: 'Steps',
+                onDelete: 'CASCADE',
+            },
+        ],
     });
 
     private tableLessonsStages: Table = new Table({
         name: 'LessonsStages',
         columns: [
-            { name: 'id',       type: 'int',        isPrimary: true, isGenerated: true, generationStrategy: 'increment' },
-            { name: 'text',     type: 'varchar',    length: '1000' },
-            { name: 'lesson',     type: 'int' },
-            { name: 'sound1',    type: 'varchar',    length: '255' },
-            { name: 'sound2',    type: 'varchar',    length: '255' },
-            { name: 'time',     type: 'int' },
-        ],
-        foreignKeys: [
-            { name: 'LessonsStagesId',
-                columnNames: ['lesson'],
-                referencedColumnNames: ['id'],
-                referencedTableName: 'Lessons',
-                onDelete: 'CASCADE',
-            },
+            { name: 'id',           type: 'int',        isPrimary: true, isGenerated: true, generationStrategy: 'increment' },
+            { name: 'lang',         type: 'varchar',    length: '255' },
+            { name: 'brief_text',   type: 'varchar',    length: '1000' },
+            { name: 'step_id',      type: 'int' },
+            { name: 'lesson_num',   type: 'int' },
+            { name: 'lessons',      type: 'int' },
+            { name: 'pages',        type: 'int' },
+            { name: 'page1',        type: 'int' },
+            { name: 'page2',        type: 'int' },
+            { name: 'stage',        type: 'int' },
+            { name: 'scope',        type: 'varchar',    length: '255' },
+            { name: 'sound1',       type: 'varchar',    length: '255' },
+            { name: 'sound2',       type: 'varchar',    length: '255' },
+            { name: 'time',         type: 'int' },
         ],
     });
 
@@ -110,6 +132,8 @@ export class InitDatabase1544706296141 implements MigrationInterface {
         await queryRunner.createTable(this.tableGroups, true);
         await queryRunner.createTable(this.tableUsers, true);
         await queryRunner.createTable(this.tableUsersGroups, true);
+
+        await queryRunner.createTable(this.tableSteps, true);
 
         await queryRunner.createTable(this.tableLessons, true);
         await queryRunner.createTable(this.tableLessonsStages, true);
@@ -135,6 +159,7 @@ export class InitDatabase1544706296141 implements MigrationInterface {
         await queryRunner.dropTable(this.tableUsers.name, true);
         await queryRunner.dropTable(this.tableUsersGroups.name, true);
 
+        await queryRunner.dropTable(this.tableSteps, true);
         await queryRunner.dropTable(this.tableLessons, true);
         await queryRunner.dropTable(this.tableLessonsStages, true);
 

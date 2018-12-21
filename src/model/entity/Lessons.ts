@@ -10,6 +10,9 @@ export default class Lessons {
     public id: number;
 
     @Column()
+    public stepId: number;
+
+    @Column()
     public num: number;
 
     @Column({
