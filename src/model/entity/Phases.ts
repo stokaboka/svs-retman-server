@@ -4,8 +4,8 @@
 
 import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm';
 
-@Entity('Lessons')
-export default class Lessons {
+@Entity('Phases')
+export default class Phases {
     @PrimaryGeneratedColumn()
     public id: number;
 

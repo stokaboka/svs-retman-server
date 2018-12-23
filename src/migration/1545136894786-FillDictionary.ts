@@ -1,6 +1,8 @@
 import {getConnection, MigrationInterface, QueryRunner} from 'typeorm';
 import Dictionary from '../model/entity/Dictionary';
-import Lessons from '../model/entity/Lessons';
+import LessonStages from '../model/entity/LessonStages';
+import Phases from '../model/entity/Phases';
+import Steps from '../model/entity/Steps';
 
 export class FillDictionary1545136894786 implements MigrationInterface {
 
@@ -13,8 +15,9 @@ export class FillDictionary1545136894786 implements MigrationInterface {
 
     private fields = {
         dictionary: ['word1', 'word2', 'lang1', 'lang2', 'scope'],
-        lessons: ['num', 'title', 'scope', 'brief_text', 'brief_sound1', 'brief_sound2', 'brief_time', 'test_text', 'test_sound1', 'test_sound2', 'test_time', 'stages', 'pages'],
-        lessonsStages: ['text', 'lesson', 'sound1', 'sound2', 'time'],
+        steps: [ 'title', 'lessons', 'brief', 'test', 'learning', 'briefText' ],
+        phases: ['num', 'stepId', 'title', 'scope', 'briefText', 'briefSound1', 'briefSound2', 'briefTime', 'testText', 'testSound1', 'testSound2', 'testTime', 'stages', 'pages'],
+        lessonStages: ['lang', 'briefText',  'stepId', 'phaseNum', 'lesson', 'stage', 'scope', 'sound', 'time'],
     };
 
     private mnemonic = [
@@ -949,7 +952,7 @@ export class FillDictionary1545136894786 implements MigrationInterface {
             brief: 1,
             test: 0,
             learning: 0,
-            brief_text: 'Тестируемый должен убедиться, что его мультимедиа-устройства позволяют ему пройти тестирование и пробное обучение',
+            briefText: 'Тестируемый должен убедиться, что его мультимедиа-устройства позволяют ему пройти тестирование и пробное обучение',
         },
         {
             id: 2,
@@ -958,7 +961,7 @@ export class FillDictionary1545136894786 implements MigrationInterface {
             brief: 1,
             test: 0,
             learning: 0,
-            brief_text: 'Тестируемый получает информацию о цели и методе тестирования.',
+            briefText: 'Тестируемый получает информацию о цели и методе тестирования.',
         },
         {
             id: 3,
@@ -967,7 +970,7 @@ export class FillDictionary1545136894786 implements MigrationInterface {
             brief: 1,
             test: 1,
             learning: 0,
-            brief_text: 'Цель данного теста - определить способность тестируемого к зрительному ассоциативному запоминанию.',
+            briefText: 'Цель данного теста - определить способность тестируемого к зрительному ассоциативному запоминанию.',
         },
         {
             id: 4,
@@ -976,7 +979,7 @@ export class FillDictionary1545136894786 implements MigrationInterface {
             brief: 1,
             test: 1,
             learning: 0,
-            brief_text: 'Цель данного теста - определить наиболее слабый иностранный язык тестируемого, ' +
+            briefText: 'Цель данного теста - определить наиболее слабый иностранный язык тестируемого, ' +
                 'из набора (английский/ немецкий/ французский), ' +
                 'который и будет использоваться для дальнейшего тестового обучения.',
         },
@@ -987,7 +990,7 @@ export class FillDictionary1545136894786 implements MigrationInterface {
             brief: 1,
             test: 1,
             learning: 0,
-            brief_text: 'Тестируемому предъявляется 100 слов языка пробного обучения. Тестируемый должен отметиь известные ему слова.',
+            briefText: 'Тестируемому предъявляется 100 слов языка пробного обучения. Тестируемый должен отметиь известные ему слова.',
         },
         {
             id: 6,
@@ -996,7 +999,7 @@ export class FillDictionary1545136894786 implements MigrationInterface {
             brief: 1,
             test: 1,
             learning: 0,
-            brief_text: 'Тестируемому предлагается оценить свое состояние ' +
+            briefText: 'Тестируемому предлагается оценить свое состояние ' +
                 '( Самочувствие, Активность, Настроение) по некоторой шкале (7/ 10-бальной ????). ' +
                 'После этого, пройти тестовый аутотренинг. После этого, еще раз оценить свое состояние',
         },
@@ -1007,86 +1010,86 @@ export class FillDictionary1545136894786 implements MigrationInterface {
             brief: 1,
             test: 1,
             learning: 1,
-            brief_text: 'Цель данного теста – показать тестируемому эффективность предлагаемой методики для него лично',
+            briefText: 'Цель данного теста – показать тестируемому эффективность предлагаемой методики для него лично',
         },
     ];
 
-    private lessons = [
+    private phases = [
         {
             num: 1,
-            step_id: 1,
+            stepId: 1,
             title: 'Тестирование звука',
             scope: '',
-            brief_text: 'Вы можете проверить, правильно ли воспроизводится звук, нажав клавишу "звуковой тест"',
-            brief_sound1: '',
-            brief_sound2: '',
-            brief_time: 0,
-            test_text: '',
-            test_sound1: 'sound 1 (rightSound).mp3',
-            test_sound2: 'sound 2 (leftSound).mp3',
-            test_time: 0,
+            briefText: 'Вы можете проверить, правильно ли воспроизводится звук, нажав клавишу "звуковой тест"',
+            briefSound1: '',
+            briefSound2: '',
+            briefTime: 0,
+            testText: '',
+            testSound1: 'sound 1 (rightSound).mp3',
+            testSound2: 'sound 2 (leftSound).mp3',
+            testTime: 0,
             stages: 0,
             pages: 0,
         },
 
         {
             num: 1,
-            step_id: 2,
+            stepId: 2,
             title: 'Описание методики тестирования',
             scope: '',
-            brief_text: 'Проверка начального лексического запаса на английском, французском и немецком языках. ' +
+            briefText: 'Проверка начального лексического запаса на английском, французском и немецком языках. ' +
                 'Определение лингвистических способностей к усвоению иностранного языка в режиме автоматизированного обучения. ' +
                 'Процедура тестирования занимает около 2-х часов. ' +
                 'Приступайте к работе только в том случае, если Вы уверены, что ничто не будет Вам мешать.  ' +
                 'Отключите телефон, устраните все другие отвлекающие моменты. ' +
                 'Это необходимо сделать потому, что некоторые задания выполняются с контролем затраченного на их выполнение времени. ',
-            brief_sound1: 'cy-inst2fm1.mp3',
-            brief_sound2: '',
-            brief_time: 0,
-            test_text: '',
-            test_sound1: '',
-            test_sound2: '',
-            test_time: 0,
+            briefSound1: 'cy-inst2fm1.mp3',
+            briefSound2: '',
+            briefTime: 0,
+            testText: '',
+            testSound1: '',
+            testSound2: '',
+            testTime: 0,
             stages: 0,
             pages: 0,
         },
 
         {
             num: 1,
-            step_id: 3,
+            stepId: 3,
             title: 'Мнемонический тест',
             scope: 'mnemonic',
-            brief_text: 'Сейчас Вы увидите на экране список из 50-ти пар слов на русском языке. Ваша задача в течении 3-х минут запомнить как можно больше пар. ' +
+            briefText: 'Сейчас Вы увидите на экране список из 50-ти пар слов на русском языке. Ваша задача в течении 3-х минут запомнить как можно больше пар. ' +
                 'Просматривайте список под звук метронома, стараясь мысленно связать ассоциативными связями слова в каждой паре. ' +
                 'Отмечайте мышкой запомненные пары слов, щелкнув на квадрате между словами одной пары. ' +
                 'Старайтесь просматривать список в ритме метронома. ' +
                 'Успехов Вам! ',
-            brief_sound1: 'cy-inst5_1fm.mp3',
-            brief_sound2: 'cy-inst5_1.mp3',
-            brief_time: 0,
-            test_text: '',
-            test_sound1: 'метроном',
-            test_sound2: '',
-            test_time: this.times.minute * 3,
+            briefSound1: 'cy-inst5_1fm.mp3',
+            briefSound2: 'cy-inst5_1.mp3',
+            briefTime: 0,
+            testText: '',
+            testSound1: 'метроном',
+            testSound2: '',
+            testTime: this.times.minute * 3,
             stages: 0,
             pages: 0,
         },
 
         {
             num: 2,
-            step_id: 3,
+            stepId: 3,
             title: 'Контроль - мнемонический тест',
             scope: 'mnemonic',
-            brief_text: 'Просмотрите список еще раз. ' +
+            briefText: 'Просмотрите список еще раз. ' +
                 'Восстановите правую часть списка (дополните пары), подставив нужные слова с помощью мыши. ' +
                 'На это Вам отводится 10 мин. - если закончите раньше, нажмите кнопку "Продолжить". ',
-            brief_sound1: 'Track 2',
-            brief_sound2: '',
-            brief_time: 0,
-            test_text: '',
-            test_sound1: 'метроном',
-            test_sound2: '',
-            test_time: this.times.minute * 10,
+            briefSound1: 'Track 2',
+            briefSound2: '',
+            briefTime: 0,
+            testText: '',
+            testSound1: 'метроном',
+            testSound2: '',
+            testTime: this.times.minute * 10,
             stages: 0,
             pages: 0,
         },
@@ -1096,250 +1099,250 @@ export class FillDictionary1545136894786 implements MigrationInterface {
          */
         {
             num: 3,
-            step_id: 3,
+            stepId: 3,
             title: 'Предъявление/интерпретация результатов - мнемонический тест',
             scope: 'Приложение 2',
-            brief_text: 'Из 50 предъявленных пар слов вы отметили / запомнили  X/Y пар + рекомендация',
-            brief_sound1: '',
-            brief_sound2: '',
-            brief_time: 0,
-            test_text: '',
-            test_sound1: '',
-            test_sound2: '',
-            test_time: 0,
+            briefText: 'Из 50 предъявленных пар слов вы отметили / запомнили  X/Y пар + рекомендация',
+            briefSound1: '',
+            briefSound2: '',
+            briefTime: 0,
+            testText: '',
+            testSound1: '',
+            testSound2: '',
+            testTime: 0,
             stages: 0,
             pages: 0,
         },
 
         {
             num: 1,
-            step_id: 4, // Определение языка пробного обучения
+            stepId: 4, // Определение языка пробного обучения
             title: 'Самооценка',
             scope: 'Приложении 3',
-            brief_text: 'Вы видите пример шкалы самооценки речевых навыков общения на иностранном языке. ' +
+            briefText: 'Вы видите пример шкалы самооценки речевых навыков общения на иностранном языке. ' +
                 'Нас интересует, как Вы сами оцениваете свои возможности по общению, то есть, пониманию речи на слух и выражению своих мыслей в беседе. ' +
                 'На следующей странице Вам надо выбрать тот уровень, которым Вы владеете в данный момент. ' +
                 'Можете указать несколько уровней. ',
-            brief_sound1: 'cy-inst6_1fm.mp3',
-            brief_sound2: 'cy-inst6_1.mp3',
-            brief_time: 0,
-            test_text: 'Тестируемый должен оценить свои навыки общения для трех языков (английский/ немецкий/ французский)',
-            test_sound1: '',
-            test_sound2: '',
-            test_time: 0,
+            briefSound1: 'cy-inst6_1fm.mp3',
+            briefSound2: 'cy-inst6_1.mp3',
+            briefTime: 0,
+            testText: 'Тестируемый должен оценить свои навыки общения для трех языков (английский/ немецкий/ французский)',
+            testSound1: '',
+            testSound2: '',
+            testTime: 0,
             stages: 0,
             pages: 0,
         },
 
         {
             num: 2,
-            step_id: 4, // Определение языка пробного обучения
+            stepId: 4, // Определение языка пробного обучения
             title: 'Контроль – оценка начального лексического запаса',
             scope: 'vocabulary',
-            brief_text: 'Сейчас Вам будет предъявлено по 25 слов на английском, немецком и французском языках. ' +
+            briefText: 'Сейчас Вам будет предъявлено по 25 слов на английском, немецком и французском языках. ' +
                 'Постарайтесь перевести на русский язык все известные вам слова. ' +
                 'Внимательно просмотрите списки на всех трех языках, даже если какие либо из них Вы не изучали. В тестах есть такие интернациональные слова, которые Вам наверняка знакомы. ' +
                 'Ваша задача - выбрать правильный перевод каждого слова и переместить его на прямоугольник справа от иностранного слова.  ' +
                 'Если Вы сомневаетесь в правильности подставленного значения слова, щелкните мышкой по знаку вопроса слева от иностранного слова. ' +
                 'По результатам этого теста мы определим язык пробного обучения. ',
-            brief_sound1: 'cy-inst7_1fm.mp3',
-            brief_sound2: 'cy-inst7_1.mp3',
-            brief_time: 0,
-            test_text: 'Тестируемому последовательно предъявляются 25 слов на английском, немецком и французском языках. ' +
+            briefSound1: 'cy-inst7_1fm.mp3',
+            briefSound2: 'cy-inst7_1.mp3',
+            briefTime: 0,
+            testText: 'Тестируемому последовательно предъявляются 25 слов на английском, немецком и французском языках. ' +
                 'Слева столбец слов иностранного языка (сортировка по алфавиту) ' +
                 'Справа – русские слова (сортировка по алфавиту)  ' +
                 'Ответы перетягиваются ' +
                 'Можно изменить ответ, можно вернуть слово в правый пул ' +
                 ' ' +
                 'Может появиться сообщение «Вы должны знать интернациональные слова» ',
-            test_sound1: '',
-            test_sound2: '',
-            test_time: 0,
+            testSound1: '',
+            testSound2: '',
+            testTime: 0,
             stages: 0,
             pages: 0,
         },
 
         {
             num: 3,
-            step_id: 4, // Определение языка пробного обучения
+            stepId: 4, // Определение языка пробного обучения
             title: 'Предъявление/интерпретация результатов',
             scope: 'vocabulary',
-            brief_text:  'Результаты не объявляются -  сразу объявляется язык обучения. ' +
+            briefText:  'Результаты не объявляются -  сразу объявляется язык обучения. ' +
                 'Последовательность выбора языка тестирования при одинаковых значениях : английский, немецкий, французский  ',
-            brief_sound1: '',
-            brief_sound2: '',
-            brief_time: 0,
-            test_text: '',
-            test_sound1: '',
-            test_sound2: '',
-            test_time: 0,
+            briefSound1: '',
+            briefSound2: '',
+            briefTime: 0,
+            testText: '',
+            testSound1: '',
+            testSound2: '',
+            testTime: 0,
             stages: 0,
             pages: 0,
         },
 
         {
             num: 1,
-            step_id: 5, // Входной тест знания лексики языка пробного обучения
+            stepId: 5, // Входной тест знания лексики языка пробного обучения
             title: 'Самооценка',
             scope: 'vocabulary',
-            brief_text:  'Сейчас Вам будут предъявлены 100 слов {{LANGUAGE}} языка. ' +
+            briefText:  'Сейчас Вам будут предъявлены 100 слов {{LANGUAGE}} языка. ' +
                 'Показ будет сопровождаться звуками метронома.  ' +
                 'Вам нужно будет внимательно просмотреть весь список, стараясь просматривать слова в ритме метронома. ' +
                 'Отмечайте каждое иностранное слово, значение которого вы знаете, нажатием на клавишу "ПРОБЕЛ" ',
-            brief_sound1: 'track 11',
-            brief_sound2: '',
-            brief_time: 0,
-            test_text: '',
-            test_sound1: 'metronom.mp3',
-            test_sound2: '',
-            test_time: this.times.second * this.times.metronom * 100,
+            briefSound1: 'track 11',
+            briefSound2: '',
+            briefTime: 0,
+            testText: '',
+            testSound1: 'metronom.mp3',
+            testSound2: '',
+            testTime: this.times.second * this.times.metronom * 100,
             stages: 0,
             pages: 0,
         },
 
         {
             num: 2,
-            step_id: 5, // Входной тест знания лексики языка пробного обучения
+            stepId: 5, // Входной тест знания лексики языка пробного обучения
             title: 'Контроль',
             scope: 'vocabulary::learn::1',
-            brief_text:
+            briefText:
                 'Вам предстоит вновь просмотреть список из 100 слов. ' +
                 'Из колонок слов на русском языке, расположенных справа, последовательно  ' +
                 'выбирайте соответствующие значения для ___________ слов (слева) и, с помощью мыши, перетаскивайте их на прямоугольники. ' +
                 'Одним словом, расположите слово и его перевод напротив друг друга. ' +
                 'Работать нужно быстро, так как время на перевод ограничено (10 мин + 10 мин). ',
-            brief_sound1: 'track 10',
-            brief_sound2: '',
-            brief_time: 0,
-            test_text: '',
-            test_sound1: '',
-            test_sound2: '',
-            test_time: this.times.minute * 10,
+            briefSound1: 'track 10',
+            briefSound2: '',
+            briefTime: 0,
+            testText: '',
+            testSound1: '',
+            testSound2: '',
+            testTime: this.times.minute * 10,
             stages: 0,
             pages: 2,
         },
 
         {
             num: 3,
-            step_id: 5, // Входной тест знания лексики языка пробного обучения
+            stepId: 5, // Входной тест знания лексики языка пробного обучения
             title: 'Контроль',
             scope: 'vocabulary::learn::2',
-            brief_text:
+            briefText:
                 'Вам предстоит вновь просмотреть список из 100 слов. ' +
                 'Из колонок слов на русском языке, расположенных справа, последовательно  ' +
                 'выбирайте соответствующие значения для ___________ слов (слева) и, с помощью мыши, перетаскивайте их на прямоугольники. ' +
                 'Одним словом, расположите слово и его перевод напротив друг друга. ' +
                 'Работать нужно быстро, так как время на перевод ограничено (10 мин + 10 мин). ',
-            brief_sound1: 'track 10',
-            brief_sound2: '',
-            brief_time: 0,
-            test_text: '',
-            test_sound1: '',
-            test_sound2: '',
-            test_time: this.times.minute * 10,
+            briefSound1: 'track 10',
+            briefSound2: '',
+            briefTime: 0,
+            testText: '',
+            testSound1: '',
+            testSound2: '',
+            testTime: this.times.minute * 10,
             stages: 0,
             pages: 2,
         },
 
         {
             num: 4,
-            step_id: 5, // Входной тест знания лексики языка пробного обучения
+            stepId: 5, // Входной тест знания лексики языка пробного обучения
             title: 'Предъявление/интерпретация результатов',
             scope: '',
-            brief_text:
+            briefText:
                 'Тестируемому предъявляются результаты самооценки и контроля -  ' +
                 'количество/ проценты отмеченных слов (правильных ответов) ',
-            brief_sound1: '',
-            brief_sound2: '',
-            brief_time: 0,
-            test_text: '',
-            test_sound1: '',
-            test_sound2: '',
-            test_time: 0,
+            briefSound1: '',
+            briefSound2: '',
+            briefTime: 0,
+            testText: '',
+            testSound1: '',
+            testSound2: '',
+            testTime: 0,
             stages: 0,
             pages: 0,
         },
 
         {
             num: 1,
-            step_id: 6, // Влияние аутотренинга на интенсивность обучения
+            stepId: 6, // Влияние аутотренинга на интенсивность обучения
             title: 'Самооценка 1',
             scope: '',
-            brief_text:
+            briefText:
                 'Подумайте и оцените следующие параметры Вашего состояния: самочувствия, активности и настроения, в соответствии с условной шкалой, где середина шкалы – норма',
-            brief_sound1: '',
-            brief_sound2: '',
-            brief_time: 0,
-            test_text: 'Тестирование совмещено с инструкцией (находятся на одной странице) ' +
+            briefSound1: '',
+            briefSound2: '',
+            briefTime: 0,
+            testText: 'Тестирование совмещено с инструкцией (находятся на одной странице) ' +
                 'Тестируемый должен оценить свое состояние на текущий момент (самочуствие, активность, натроение), двигая полозки по трем шкалам. ' +
                 'Серидина – норма (нужно пояснение – что такое норма) ' +
                 'Нужно пояснение для левых и правых отметок ',
-            test_sound1: '',
-            test_sound2: '',
-            test_time: 0,
+            testSound1: '',
+            testSound2: '',
+            testTime: 0,
             stages: 0,
             pages: 0,
         },
 
         {
             num: 2,
-            step_id: 6, // Влияние аутотренинга на интенсивность обучения
+            stepId: 6, // Влияние аутотренинга на интенсивность обучения
             title: 'Аутотренинг',
             scope: '',
-            brief_text:
+            briefText:
                 'Для того чтобы настроиться на эффективную работу во время пробного обучения, ' +
                 'предлагаем Вам самостоятельно проделать упражнения по аутогенной тренировке (АТ). ' +
                 'Устройтесь поудобнее, устраните все отвлекающие факторы. ' +
                 'Внимательно слушайте инструкции, с полной самоотдачей выполняйте упражнения.' +
                 'Длительность АТ- 6 мин 20 сек',
-            brief_sound1: '',
-            brief_sound2: '',
-            brief_time: 0,
-            test_text: '',
-            test_sound1: 'видео ролик ауто тренинга',
-            test_sound2: '',
-            test_time: 6 * this.times.minute + 20 * this.times.second,
+            briefSound1: '',
+            briefSound2: '',
+            briefTime: 0,
+            testText: '',
+            testSound1: 'видео ролик ауто тренинга',
+            testSound2: '',
+            testTime: 6 * this.times.minute + 20 * this.times.second,
             stages: 0,
             pages: 0,
         },
 
         {
             num: 3,
-            step_id: 6, // Влияние аутотренинга на интенсивность обучения
+            stepId: 6, // Влияние аутотренинга на интенсивность обучения
             title: 'Самооценка 2',
             scope: '',
-            brief_text:
+            briefText:
                 'Оцените еще раз параметры вашего состояния: самочувствия, активности и настроения, в соответствии с условной шкалой, где середина шкалы – норма',
-            brief_sound1: '',
-            brief_sound2: '',
-            brief_time: 0,
-            test_text: 'Тестирование совмещено с инструкцией (находятся на одной странице) ' +
+            briefSound1: '',
+            briefSound2: '',
+            briefTime: 0,
+            testText: 'Тестирование совмещено с инструкцией (находятся на одной странице) ' +
                 'Тестируемый должен оценить свое состояние на текущий момент (самочуствие, активность, натроение), двигая полозки по трем шкалам. ' +
                 'Серидина – норма (нужно пояснение – что такое норма) ' +
                 'Нужно пояснение для левых и правых отметок ',
-            test_sound1: '',
-            test_sound2: '',
-            test_time: 0,
+            testSound1: '',
+            testSound2: '',
+            testTime: 0,
             stages: 0,
             pages: 0,
         },
 
         {
             num: 4,
-            step_id: 6, // Влияние аутотренинга на интенсивность обучения
+            stepId: 6, // Влияние аутотренинга на интенсивность обучения
             title: 'Предъявление/интерпретация результатов',
             scope: '',
-            brief_text:
+            briefText:
                 'Тестируемому предъявляюся результаты изменения его самооценки состояния САН ' +
                 '( Самочуствие, Активность, Настроение) до и после прохождения типового аутотренинга. ' +
                 'Выдаются рекомендации/ заключение?',
-            brief_sound1: '',
-            brief_sound2: '',
-            brief_time: 0,
-            test_text: '',
-            test_sound1: '',
-            test_sound2: '',
-            test_time: 0,
+            briefSound1: '',
+            briefSound2: '',
+            briefTime: 0,
+            testText: '',
+            testSound1: '',
+            testSound2: '',
+            testTime: 0,
             stages: 0,
             pages: 0,
         },
@@ -1349,24 +1352,24 @@ export class FillDictionary1545136894786 implements MigrationInterface {
          */
         {
             num: 1,
-            step_id: 7, // Пробное обучение – Пассив
+            stepId: 7, // Пробное обучение – Пассив
             title: 'Самооценка',
             scope: '',
-            brief_text:
+            briefText:
                 'Приступаем к пробному обучению. Вам будут предъявлены озвученные тексты на {{LANGUAGE}} языке с параллельным переводом. ' +
                 'Вы должны будете слушать в левом наушнике тексты на {{LANGUAGE}} языке, а в правом наушнике их перевод. ' +
                 'Старайтесь читать текст вместе с диктором вслух или громко повторять за ним. ' +
                 'Всего тексты уроков будут предъявлены 4 раза подряд. ' +
                 'Общая длительность уроков -  {{STEP_7_TIME}}',
-            brief_sound1: 'cy-inst10_2fm.mp3',
-            brief_sound2: 'cy-inst10_2.mp3',
-            brief_time: 0,
-            test_text: 'Для английского языка - 45 мин. 39 сек. ' +
+            briefSound1: 'cy-inst10_2fm.mp3',
+            briefSound2: 'cy-inst10_2.mp3',
+            briefTime: 0,
+            testText: 'Для английского языка - 45 мин. 39 сек. ' +
                 'Для немецкого языка – 20 мин. 06 сек. ' +
                 'Для французского языка - 25 мин. 41 сек. ',
-            test_sound1: '',
-            test_sound2: '',
-            test_time: 0,
+            testSound1: '',
+            testSound2: '',
+            testTime: 0,
             stages: 0,
             pages: 0,
         },
@@ -1374,37 +1377,58 @@ export class FillDictionary1545136894786 implements MigrationInterface {
     ];
 
     private lessonStages = [
-        {
-            lang: 'EN',
-            brief_text: 'отмечать знакомые иностранные слова',
-            step_id: 7,
-            lesson_num: 2,
-            lessons: 4,
-            pages: 16,
-            page1: 1,
-            page2: 16,
-            stage: 1,
-            scope: 'test::lesson::{{LESSON}}::page::{{PAGE}}',
-            sound1: 'less1_eng-ru.mp3',
-            sound2: '',
-            time: 0,
-        },
-        {
-            lang: 'EN',
-            brief_text: 'отмечать иностранные фразы, общий смысл которых понятен',
-            step_id: 7,
-            lesson_num: 1,
-            lessons: 4,
-            pages: 16,
-            stage: 2,
-            scope: 'test::lesson::{{LESSON}}::page::{{PAGE}}',
-            sound1: 'less2_eng-ru.mp3',
-            sound2: '',
-            time: 0,
-        },
+
+        // LESSON 1 EN
+        { lang: 'EN', briefText: 'отмечать знакомые иностранные слова',                            stepId: 7, phaseNum: 1, lesson: 1, stage: 1, scope: 'test::lesson::1::page::%', sound: 'less1_eng-ru.mp3',    time: 0 },
+        { lang: 'EN', briefText: 'отмечать иностранные фразы, общий смысл которых понятен',        stepId: 7, phaseNum: 1, lesson: 1, stage: 2, scope: 'test::lesson::1::page::%', sound: 'less1_eng-ru.mp3',    time: 0 },
+        { lang: 'EN', briefText: 'отмечать <strong>дословно</strong> понятные иностранные фразы',  stepId: 7, phaseNum: 1, lesson: 1, stage: 3, scope: 'test::lesson::1::page::%', sound: 'less1_eng-ru.mp3',    time: 0 },
+        { lang: 'EN', briefText: 'отмечать <strong>дословно</strong> понятные иностранные фразы',  stepId: 7, phaseNum: 1, lesson: 1, stage: 4, scope: 'test::lesson::1::page::%', sound: 'less1_eng.mp3',       time: 0 },
+
+        // LESSON 2 EN
+        { lang: 'EN', briefText: 'отмечать знакомые иностранные слова',                            stepId: 7, phaseNum: 1, lesson: 2, stage: 1, scope: 'test::lesson::2::page::%', sound: 'less2_eng-ru.mp3',    time: 0 },
+        { lang: 'EN', briefText: 'отмечать иностранные фразы, общий смысл которых понятен',        stepId: 7, phaseNum: 1, lesson: 2, stage: 2, scope: 'test::lesson::2::page::%', sound: 'less2_eng-ru.mp3',    time: 0 },
+        { lang: 'EN', briefText: 'отмечать <strong>дословно</strong> понятные иностранные фразы',  stepId: 7, phaseNum: 1, lesson: 2, stage: 3, scope: 'test::lesson::2::page::%', sound: 'less2_eng-ru.mp3',    time: 0 },
+        { lang: 'EN', briefText: 'отмечать <strong>дословно</strong> понятные иностранные фразы',  stepId: 7, phaseNum: 1, lesson: 2, stage: 4, scope: 'test::lesson::2::page::%', sound: 'less2_eng.mp3',       time: 0 },
+
+        // LESSON 3 EN
+        { lang: 'EN', briefText: 'отмечать знакомые иностранные слова',                            stepId: 7, phaseNum: 1, lesson: 3, stage: 1, scope: 'test::lesson::3::page::%', sound: 'less3_eng-ru.mp3',    time: 0 },
+        { lang: 'EN', briefText: 'отмечать иностранные фразы, общий смысл которых понятен',        stepId: 7, phaseNum: 1, lesson: 3, stage: 2, scope: 'test::lesson::3::page::%', sound: 'less3_eng-ru.mp3',    time: 0 },
+        { lang: 'EN', briefText: 'отмечать <strong>дословно</strong> понятные иностранные фразы',  stepId: 7, phaseNum: 1, lesson: 3, stage: 3, scope: 'test::lesson::3::page::%', sound: 'less3_eng-ru.mp3',    time: 0 },
+        { lang: 'EN', briefText: 'отмечать <strong>дословно</strong> понятные иностранные фразы',  stepId: 7, phaseNum: 1, lesson: 3, stage: 4, scope: 'test::lesson::3::page::%', sound: 'less3_eng.mp3',       time: 0 },
+
+        // LESSON 4 EN
+        { lang: 'EN', briefText: 'отмечать знакомые иностранные слова',                            stepId: 7, phaseNum: 1, lesson: 4, stage: 1, scope: 'test::lesson::4::page::%', sound: 'less4_eng-ru.mp3',    time: 0 },
+        { lang: 'EN', briefText: 'отмечать иностранные фразы, общий смысл которых понятен',        stepId: 7, phaseNum: 1, lesson: 4, stage: 2, scope: 'test::lesson::4::page::%', sound: 'less4_eng-ru.mp3',    time: 0 },
+        { lang: 'EN', briefText: 'отмечать <strong>дословно</strong> понятные иностранные фразы',  stepId: 7, phaseNum: 1, lesson: 4, stage: 3, scope: 'test::lesson::4::page::%', sound: 'less4_eng-ru.mp3',    time: 0 },
+        { lang: 'EN', briefText: 'отмечать <strong>дословно</strong> понятные иностранные фразы',  stepId: 7, phaseNum: 1, lesson: 4, stage: 4, scope: 'test::lesson::4::page::%', sound: 'less4_eng.mp3',       time: 0 },
+
+        // LESSON 1 DE
+        { lang: 'DE', briefText: 'отмечать знакомые иностранные слова',                            stepId: 7, phaseNum: 1, lesson: 1, stage: 1, scope: 'test::lesson::1::page::%', sound: 'less1_deu-ru.mp3',    time: 0 },
+        { lang: 'DE', briefText: 'отмечать иностранные фразы, общий смысл которых понятен',        stepId: 7, phaseNum: 1, lesson: 1, stage: 2, scope: 'test::lesson::1::page::%', sound: 'less1_deu-ru.mp3',    time: 0 },
+        { lang: 'DE', briefText: 'отмечать <strong>дословно</strong> понятные иностранные фразы',  stepId: 7, phaseNum: 1, lesson: 1, stage: 3, scope: 'test::lesson::1::page::%', sound: 'less1_deu-ru.mp3',    time: 0 },
+        { lang: 'DE', briefText: 'отмечать <strong>дословно</strong> понятные иностранные фразы',  stepId: 7, phaseNum: 1, lesson: 1, stage: 4, scope: 'test::lesson::1::page::%', sound: 'less1_deu.mp3',       time: 0 },
+
+        // LESSON 2 DE
+        { lang: 'DE', briefText: 'отмечать знакомые иностранные слова',                            stepId: 7, phaseNum: 1, lesson: 2, stage: 1, scope: 'test::lesson::2::page::%', sound: 'less2_deu-ru.mp3',    time: 0 },
+        { lang: 'DE', briefText: 'отмечать иностранные фразы, общий смысл которых понятен',        stepId: 7, phaseNum: 1, lesson: 2, stage: 2, scope: 'test::lesson::2::page::%', sound: 'less2_deu-ru.mp3',    time: 0 },
+        { lang: 'DE', briefText: 'отмечать <strong>дословно</strong> понятные иностранные фразы',  stepId: 7, phaseNum: 1, lesson: 2, stage: 3, scope: 'test::lesson::2::page::%', sound: 'less2_deu-ru.mp3',    time: 0 },
+        { lang: 'DE', briefText: 'отмечать <strong>дословно</strong> понятные иностранные фразы',  stepId: 7, phaseNum: 1, lesson: 2, stage: 4, scope: 'test::lesson::2::page::%', sound: 'less2_deu.mp3',       time: 0 },
+
+        // LESSON 1 FR
+        { lang: 'FR', briefText: 'отмечать знакомые иностранные слова',                            stepId: 7, phaseNum: 1, lesson: 1, stage: 1, scope: 'test::lesson::1::page::%', sound: 'less1_fre-ru.mp3',    time: 0 },
+        { lang: 'FR', briefText: 'отмечать иностранные фразы, общий смысл которых понятен',        stepId: 7, phaseNum: 1, lesson: 1, stage: 2, scope: 'test::lesson::1::page::%', sound: 'less1_fre-ru.mp3',    time: 0 },
+        { lang: 'FR', briefText: 'отмечать <strong>дословно</strong> понятные иностранные фразы',  stepId: 7, phaseNum: 1, lesson: 1, stage: 3, scope: 'test::lesson::1::page::%', sound: 'less1_fre-ru.mp3',    time: 0 },
+        { lang: 'FR', briefText: 'отмечать <strong>дословно</strong> понятные иностранные фразы',  stepId: 7, phaseNum: 1, lesson: 1, stage: 4, scope: 'test::lesson::1::page::%', sound: 'less1_fre.mp3',       time: 0 },
+
+        // LESSON 2 FR
+        { lang: 'FR', briefText: 'отмечать знакомые иностранные слова',                            stepId: 7, phaseNum: 1, lesson: 2, stage: 1, scope: 'test::lesson::2::page::%', sound: 'less2_fre-ru.mp3',    time: 0 },
+        { lang: 'FR', briefText: 'отмечать иностранные фразы, общий смысл которых понятен',        stepId: 7, phaseNum: 1, lesson: 2, stage: 2, scope: 'test::lesson::2::page::%', sound: 'less2_fre-ru.mp3',    time: 0 },
+        { lang: 'FR', briefText: 'отмечать <strong>дословно</strong> понятные иностранные фразы',  stepId: 7, phaseNum: 1, lesson: 2, stage: 3, scope: 'test::lesson::2::page::%', sound: 'less2_fre-ru.mp3',    time: 0 },
+        { lang: 'FR', briefText: 'отмечать <strong>дословно</strong> понятные иностранные фразы',  stepId: 7, phaseNum: 1, lesson: 2, stage: 4, scope: 'test::lesson::2::page::%', sound: 'less2_fre.mp3',       time: 0 },
     ];
 
     public async up(queryRunner: QueryRunner): Promise<any> {
+
         await getConnection()
             .createQueryBuilder()
             .insert()
@@ -1426,11 +1450,30 @@ export class FillDictionary1545136894786 implements MigrationInterface {
             .values(this.test)
             .execute();
 
+        // console.log(this.fields.steps);
+        // console.log(this.steps);
+        // console.log(Steps);
+
         await getConnection()
             .createQueryBuilder()
             .insert()
-            .into(Lessons, this.fields.lessons)
-            .values(this.lessons)
+            // .into(Steps, this.fields.steps)
+            .into(Steps)
+            .values(this.steps)
+            .execute();
+
+        await getConnection()
+            .createQueryBuilder()
+            .insert()
+            .into(Phases, this.fields.phases)
+            .values(this.phases)
+            .execute();
+
+        await getConnection()
+            .createQueryBuilder()
+            .insert()
+            .into(LessonStages, this.fields.lessonStages)
+            .values(this.lessonStages)
             .execute();
     }
 

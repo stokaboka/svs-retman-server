@@ -31,7 +31,7 @@ export class InitDatabase1544706296141 implements MigrationInterface {
            { name: 'login',     type: 'varchar',    length: '255', isUnique: true },
            { name: 'password',  type: 'varchar',    length: '255' },
            { name: 'firstName', type: 'varchar',    length: '255' },
-           { name: 'secondName',type: 'varchar',    length: '255' },
+           { name: 'secondName', type: 'varchar',    length: '255' },
            { name: 'lastName',  type: 'varchar',    length: '255' },
            { name: 'birthday',  type: 'datetime' },
        ],
@@ -41,23 +41,23 @@ export class InitDatabase1544706296141 implements MigrationInterface {
         name: 'UsersGroups',
         columns: [
             { name: 'id',       type: 'int', isPrimary: true, isGenerated: true, generationStrategy: 'increment' },
-            { name: 'user_id',  type: 'int' },
-            { name: 'group_id', type: 'int' },
+            { name: 'userId',  type: 'int' },
+            { name: 'groupId', type: 'int' },
         ],
-        foreignKeys: [
-            { name: 'UsersGroupsUserId',
-                columnNames: ['user_id'],
-                referencedColumnNames: ['id'],
-                referencedTableName: 'Users',
-                onDelete: 'CASCADE',
-            },
-            { name: 'UsersGroupsGroupId',
-                columnNames: ['group_id'],
-                referencedColumnNames: ['id'],
-                referencedTableName: 'Groups',
-                onDelete: 'CASCADE',
-            },
-        ],
+        // foreignKeys: [
+        //     { name: 'UsersGroupsUserId',
+        //         columnNames: ['user_id'],
+        //         referencedColumnNames: ['id'],
+        //         referencedTableName: 'Users',
+        //         onDelete: 'CASCADE',
+        //     },
+        //     { name: 'UsersGroupsGroupId',
+        //         columnNames: ['group_id'],
+        //         referencedColumnNames: ['id'],
+        //         referencedTableName: 'Groups',
+        //         onDelete: 'CASCADE',
+        //     },
+        // ],
     });
 
     private tableSteps: Table = new Table({
@@ -66,64 +66,71 @@ export class InitDatabase1544706296141 implements MigrationInterface {
             { name: 'id',       type: 'int',        isPrimary: true, isGenerated: true, generationStrategy: 'increment' },
             { name: 'title',    type: 'varchar',    length: '255' },
             { name: 'lessons',  type: 'int'},
-            { name: 'brief_',  type: 'int'},
+            { name: 'brief',  type: 'int'},
             { name: 'test',  type: 'int'},
             { name: 'learning',  type: 'int'},
-            { name: 'brief_text',     type: 'varchar',    length: '1000' },
+            { name: 'briefText',     type: 'varchar',    length: '1000' },
         ],
     });
 
     private tableLessons: Table = new Table({
-        name: 'Lessons',
+        name: 'Phases',
         columns: [
             { name: 'id',       type: 'int',        isPrimary: true, isGenerated: true, generationStrategy: 'increment' },
-            { name: 'step_id',  type: 'int' },
+            { name: 'stepId',  type: 'int' },
             { name: 'num',      type: 'int' },
             { name: 'title',    type: 'varchar',    length: '255' },
             { name: 'scope',    type: 'varchar',    length: '255' },
-            { name: 'brief_text',     type: 'varchar',    length: '1000' },
-            { name: 'brief_sound1',    type: 'varchar',    length: '255' },
-            { name: 'brief_sound2',    type: 'varchar',    length: '255' },
-            { name: 'brief_time',     type: 'int' },
-            { name: 'test_text',     type: 'varchar',    length: '1000' },
-            { name: 'test_sound1',    type: 'varchar',    length: '255' },
-            { name: 'test_sound2',    type: 'varchar',    length: '255' },
-            { name: 'test_time',     type: 'int' },
+            { name: 'briefText',     type: 'varchar',    length: '1000' },
+            { name: 'briefSound1',    type: 'varchar',    length: '255' },
+            { name: 'briefSound2',    type: 'varchar',    length: '255' },
+            { name: 'briefTime',     type: 'int' },
+            { name: 'testText',     type: 'varchar',    length: '1000' },
+            { name: 'testSound1',    type: 'varchar',    length: '255' },
+            { name: 'testSound2',    type: 'varchar',    length: '255' },
+            { name: 'testTime',     type: 'int' },
             { name: 'stages',     type: 'int' },
             { name: 'pages',     type: 'int' },
 
         ],
-        foreignKeys: [
-            { name: 'LessonsStepId',
-                columnNames: ['step_id'],
-                referencedColumnNames: ['id'],
-                referencedTableName: 'Steps',
-                onDelete: 'CASCADE',
-            },
-        ],
+        // foreignKeys: [
+        //     { name: 'PhasesStepId',
+        //         columnNames: ['stepId'],
+        //         referencedColumnNames: ['id'],
+        //         referencedTableName: 'Steps',
+        //         onDelete: 'CASCADE',
+        //     },
+        // ],
     });
 
-    private tableLessonsStages: Table = new Table({
-        name: 'LessonsStages',
+    private tableLessonStages: Table = new Table({
+        name: 'LessonStages',
         columns: [
             { name: 'id',           type: 'int',        isPrimary: true, isGenerated: true, generationStrategy: 'increment' },
             { name: 'lang',         type: 'varchar',    length: '255' },
-            { name: 'brief_text',   type: 'varchar',    length: '1000' },
-            { name: 'step_id',      type: 'int' },
-            { name: 'lesson_num',   type: 'int' },
-            { name: 'lessons',      type: 'int' },
-            { name: 'pages',        type: 'int' },
-            { name: 'page1',        type: 'int' },
-            { name: 'page2',        type: 'int' },
+            { name: 'briefText',   type: 'varchar',    length: '1000' },
+            { name: 'stepId',      type: 'int' },
+            { name: 'phaseNum',    type: 'int' },
+            { name: 'lesson',       type: 'int' },
             { name: 'stage',        type: 'int' },
             { name: 'scope',        type: 'varchar',    length: '255' },
-            { name: 'sound1',       type: 'varchar',    length: '255' },
-            { name: 'sound2',       type: 'varchar',    length: '255' },
+            { name: 'sound',        type: 'varchar',    length: '255' },
             { name: 'time',         type: 'int' },
         ],
     });
 
     public async up(queryRunner: QueryRunner): Promise<any> {
+
+        // await queryRunner.dropTable('migrations', true);
+        //
+        // await queryRunner.dropTable('UsersGroups', true);
+        // await queryRunner.dropTable('Groups', true);
+        // await queryRunner.dropTable('Users', true);
+        //
+        // await queryRunner.dropTable('Dictionary', true);
+        // await queryRunner.dropTable('Steps', true);
+        // await queryRunner.dropTable('Phases', true);
+        // await queryRunner.dropTable('LessonStages', true);
 
         // await queryRunner.createDatabase('svs-retman', false);
         // await queryRunner.createSchema('svs-retman');
@@ -136,7 +143,7 @@ export class InitDatabase1544706296141 implements MigrationInterface {
         await queryRunner.createTable(this.tableSteps, true);
 
         await queryRunner.createTable(this.tableLessons, true);
-        await queryRunner.createTable(this.tableLessonsStages, true);
+        await queryRunner.createTable(this.tableLessonStages, true);
 
     }
 
@@ -161,7 +168,7 @@ export class InitDatabase1544706296141 implements MigrationInterface {
 
         await queryRunner.dropTable(this.tableSteps, true);
         await queryRunner.dropTable(this.tableLessons, true);
-        await queryRunner.dropTable(this.tableLessonsStages, true);
+        await queryRunner.dropTable(this.tableLessonStages, true);
 
         await queryRunner.dropDatabase('svs-retman', true);
 

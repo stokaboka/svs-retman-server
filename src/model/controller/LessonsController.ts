@@ -4,13 +4,13 @@
 
 import {NextFunction, Request, Response} from 'express';
 import {getRepository} from 'typeorm';
-import Lessons from '../entity/Lessons';
+import Phases from '../entity/Phases';
 import DBController from './DBController';
 
 export default class LessonsController extends DBController {
 
     constructor() {
-        super(getRepository(Lessons));
+        super(getRepository(Phases));
     }
 
 }

@@ -25,22 +25,13 @@ export default class LessonStages {
     public stepId: number;
 
     @Column()
-    public lessonNum: number;
+    public phaseNum: number;
 
     @Column()
-    public lessons: number;
+    public lesson: number;
 
     @Column()
     public stage: number;
-
-    @Column()
-    public pages: number;
-
-    @Column()
-    public page1: number;
-
-    @Column()
-    public page2: number;
 
     @Column({
         type: 'varchar',
@@ -52,13 +43,7 @@ export default class LessonStages {
         type: 'varchar',
         length: 255,
     })
-    public sound1: string;
-
-    @Column({
-        type: 'varchar',
-        length: 255,
-    })
-    public sound2: string;
+    public sound: string;
 
     @Column()
     public time: number;
