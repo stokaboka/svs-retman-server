@@ -84,6 +84,17 @@ export default class UsersController extends DBController {
     }
 
     /**
+     * update user data
+     * @param request
+     * @param response
+     * @param next
+     */
+    public async update(request: Request, response: Response, next: NextFunction) {
+        const out = await super.update(request, response, next);
+        return UsersController.fixObject(out);
+    }
+
+    /**
      * save user data
      * @param request
      * @param response
@@ -91,6 +102,7 @@ export default class UsersController extends DBController {
      */
     public async save(request: Request, response: Response, next: NextFunction) {
         const out = await super.save(request, response, next);
+        // console.log(out);
         return UsersController.fixObject(out);
     }
 

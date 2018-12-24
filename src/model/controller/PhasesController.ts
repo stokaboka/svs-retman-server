@@ -7,10 +7,14 @@ import {getRepository} from 'typeorm';
 import Phases from '../entity/Phases';
 import DBController from './DBController';
 
-export default class LessonsController extends DBController {
+export default class PhasesController extends DBController {
 
     constructor() {
         super(getRepository(Phases));
+        super.order = {
+            stepId: 'ASC',
+            num: 'ASC',
+        };
     }
 
 }

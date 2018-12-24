@@ -11,6 +11,14 @@ export default class LessonStagesController extends DBController {
 
     constructor() {
         super(getRepository(LessonStages));
+        // super.setOrder(this.stagesOrder);
+        super.order =  {
+            lang: 'ASC',
+            stepId: 'ASC',
+            phaseNum: 'ASC',
+            lesson: 'ASC',
+            stage: 'ASC',
+        };
     }
 
 }

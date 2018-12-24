@@ -18,7 +18,7 @@ chai.use(chaiHttp);
 const host = `http://localhost:${process.env.PORT}`;
 
 const user = {
-    id: 0,
+    // id: 0,
     login: 'test',
     password: 'test',
     firstName: 'John',
@@ -32,9 +32,9 @@ const updUser = Object.assign({}, user, {firstName: 'Pol'});
 describe('Users', () => {
     
     describe('/DELETE user', () => {
-        it('it should DELETE test user', (done) => {
+        it('it should DELETE test user by login', (done) => {
             chai.request(host)
-            .delete(`/user/${user.id}`)
+            .delete(`/user/login/${user.login}`)
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
@@ -64,6 +64,8 @@ describe('Users', () => {
                 res.body.should.have.property('lastName');
                 res.body.should.have.property('birthday');
                 res.body.should.not.have.property('password');
+                user.id = res.body.id;
+                updUser.id = res.body.id;
                 done();
             });
         });
@@ -84,13 +86,35 @@ describe('Users', () => {
     describe('/PUT/:id user', () => {
         it('it should UPDATE user ', (done) => {
             chai.request(host)
-            .put(`/user/${user.id}`)
+            .put(`/user/${updUser.id}`)
             .send(updUser)
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
-                res.body.should.have.property('id');
-                res.body.should.not.have.property('password');
+                expect(res.body).to.deep.have.keys([ 'generatedMaps', 'raw']);
+                expect(res.body.raw).to.deep.have.any.keys('affectedRows');
+                expect(res.body).to.satisfy(
+                    body => body.raw.changedRows === 1 && body.raw.affectedRows === 1,
+                    'raw.changedRows and raw.affectedRows must be 1'
+                );
+                done();
+            });
+        });
+    });
+    
+    describe('/DELETE user', () => {
+        it('it should DELETE test user by login', (done) => {
+            chai.request(host)
+            .delete(`/user/${user.id}`)
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.be.a('object');
+                expect(res.body).to.deep.have.keys('raw');
+                expect(res.body.raw).to.deep.have.any.keys('affectedRows');
+                expect(res.body).to.satisfy(
+                    body => body.raw.affectedRows === 0 || body.raw.affectedRows === 1,
+                    'raw.affectedRows must be 0 or 1'
+                );
                 done();
             });
         });

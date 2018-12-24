@@ -73,7 +73,7 @@ export class InitDatabase1544706296141 implements MigrationInterface {
         ],
     });
 
-    private tableLessons: Table = new Table({
+    private tablePhases: Table = new Table({
         name: 'Phases',
         columns: [
             { name: 'id',       type: 'int',        isPrimary: true, isGenerated: true, generationStrategy: 'increment' },
@@ -119,31 +119,31 @@ export class InitDatabase1544706296141 implements MigrationInterface {
         ],
     });
 
+    private tables: any[] = [];
+
+    constructor() {
+        this.tables = [
+            this.tableUsersGroups,
+            this.tableGroups,
+            this.tableUsers,
+            this.tableDictionary,
+            this.tableSteps,
+            this.tablePhases,
+            this.tableLessonStages,
+        ];
+    }
+
     public async up(queryRunner: QueryRunner): Promise<any> {
 
         // await queryRunner.dropTable('migrations', true);
-        //
-        // await queryRunner.dropTable('UsersGroups', true);
-        // await queryRunner.dropTable('Groups', true);
-        // await queryRunner.dropTable('Users', true);
-        //
-        // await queryRunner.dropTable('Dictionary', true);
-        // await queryRunner.dropTable('Steps', true);
-        // await queryRunner.dropTable('Phases', true);
-        // await queryRunner.dropTable('LessonStages', true);
 
-        // await queryRunner.createDatabase('svs-retman', false);
-        // await queryRunner.createSchema('svs-retman');
+        for (const table of this.tables) {
+            await queryRunner.dropTable(table, true);
+        }
 
-        await queryRunner.createTable(this.tableDictionary, true);
-        await queryRunner.createTable(this.tableGroups, true);
-        await queryRunner.createTable(this.tableUsers, true);
-        await queryRunner.createTable(this.tableUsersGroups, true);
-
-        await queryRunner.createTable(this.tableSteps, true);
-
-        await queryRunner.createTable(this.tableLessons, true);
-        await queryRunner.createTable(this.tableLessonStages, true);
+        for (const table of this.tables) {
+            await queryRunner.createTable(table, true);
+        }
 
     }
 
@@ -167,10 +167,10 @@ export class InitDatabase1544706296141 implements MigrationInterface {
         await queryRunner.dropTable(this.tableUsersGroups.name, true);
 
         await queryRunner.dropTable(this.tableSteps, true);
-        await queryRunner.dropTable(this.tableLessons, true);
+        await queryRunner.dropTable(this.tablePhases, true);
         await queryRunner.dropTable(this.tableLessonStages, true);
 
-        await queryRunner.dropDatabase('svs-retman', true);
+        // await queryRunner.dropDatabase('svs-retman', true);
 
     }
 
