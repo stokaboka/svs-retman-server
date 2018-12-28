@@ -135,8 +135,6 @@ export class InitDatabase1544706296141 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<any> {
 
-        // await queryRunner.dropTable('migrations', true);
-
         for (const table of this.tables) {
             await queryRunner.dropTable(table, true);
         }
