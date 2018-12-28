@@ -1066,11 +1066,11 @@ export class FillDictionary1545136894786 implements MigrationInterface {
                 '<p>Отмечайте мышкой запомненные пары слов, щелкнув на квадрате между словами одной пары.</p>' +
                 '<p>Старайтесь просматривать список в ритме метронома.</p>' +
                 '<p>Успехов Вам!</p>',
-            briefSound1: 'cy-inst5_1fm.mp3',
-            briefSound2: 'cy-inst5_1.mp3',
+            briefSound1: 'cy-inst5_1.mp3',
+            briefSound2: 'cy-inst5_1fm.mp3',
             briefTime: 0,
             testText: '',
-            testSound1: 'метроном',
+            testSound1: 'metronom.mp3',
             testSound2: '',
             testTime: this.times.minute * 3,
             stages: 0,
@@ -1085,11 +1085,12 @@ export class FillDictionary1545136894786 implements MigrationInterface {
             briefText: '<p>Просмотрите список еще раз.</p>' +
                 '<p>Восстановите правую часть списка (дополните пары), подставив нужные слова с помощью мыши.</p>' +
                 '<p>На это Вам отводится 10 мин. - если закончите раньше, нажмите кнопку "Продолжить".</p>',
-            briefSound1: 'Track 2',
+// briefSound1: 'Track 2',
+            briefSound1: '',
             briefSound2: '',
             briefTime: 0,
             testText: '',
-            testSound1: 'метроном',
+            testSound1: 'metronom.mp3',
             testSound2: '',
             testTime: this.times.minute * 10,
             stages: 0,
