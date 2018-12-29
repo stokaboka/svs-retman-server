@@ -7,9 +7,9 @@ import Steps from '../model/entity/Steps';
 export class FillDictionary1545136894786 implements MigrationInterface {
 
     private times = {
-        second: 1000,
-        minute: 60 * 1000,
-        hour: 60 * 60 * 1000,
+        second: 1,
+        minute: 60,
+        hour: 60 * 60,
         metronom: 1,
     };
 
