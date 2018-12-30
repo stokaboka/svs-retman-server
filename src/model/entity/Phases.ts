@@ -35,15 +35,27 @@ export default class Phases {
 
     @Column({
         type: 'varchar',
-        length: 255,
+        length: 1000,
     })
-    public briefSound1: string;
+    public briefSounds: string;
 
     @Column({
         type: 'varchar',
-        length: 255,
+        length: 100,
     })
-    public briefSound2: string;
+    public briefModeSounds: string;
+
+    // @Column({
+    //     type: 'varchar',
+    //     length: 255,
+    // })
+    // public briefSound1: string;
+    //
+    // @Column({
+    //     type: 'varchar',
+    //     length: 255,
+    // })
+    // public briefSound2: string;
 
     @Column()
     public briefTime: number;
@@ -56,18 +68,33 @@ export default class Phases {
 
     @Column({
         type: 'varchar',
-        length: 255,
+        length: 1000,
     })
-    public testSound1: string;
+    public testSounds: string;
 
     @Column({
         type: 'varchar',
-        length: 255,
+        length: 100,
     })
-    public testSound2: string;
+    public testModeSounds: string;
+
+    // @Column({
+    //     type: 'varchar',
+    //     length: 255,
+    // })
+    // public testSound1: string;
+
+    // @Column({
+    //     type: 'varchar',
+    //     length: 255,
+    // })
+    // public testSound2: string;
 
     @Column()
     public testTime: number;
+
+    @Column()
+    public testNextBtn: number;
 
     @Column()
     public stages: number;
