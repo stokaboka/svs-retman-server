@@ -1106,7 +1106,7 @@ export class FillDictionary1545136894786 implements MigrationInterface {
             stepId: 3,
             title: 'Предъявление/интерпретация результатов - мнемонический тест',
             scope: 'Приложение 2',
-            briefText: 'Из 50 предъявленных пар слов вы отметили / запомнили  X/Y пар + рекомендация',
+            briefText: '<p>Из 50 предъявленных пар слов вы отметили / запомнили  {{CHECKED}}/{{REMEMBERED}} пар</p>  <p>{{RECOMMENDATION}}</p>',
             briefSounds: '',
             briefModeSounds: 'ONCE',
             briefTime: 0,
