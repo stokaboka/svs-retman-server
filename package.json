@@ -10,8 +10,8 @@
     "watch-node": "nodemon dist/server.js",
     "watch-ts": "tsc -w",
     "test": "mocha",
-    "migration:run": "typeorm migration:run",
-    "migration:drop_tables": "typeorm query \"DROP TABLE svsbeginners.dictionary, svsbeginners.groups, svsbeginners.lessonstages, svsbeginners.migrations, svsbeginners.phases, svsbeginners.steps, svsbeginners.users, svsbeginners.usersgroups;\" "
+    "migration:run": "./node_modules/typeorm/cli.js migration:run",
+    "migration:drop_tables": "./node_modules/typeorm/cli.js query \"DROP TABLE svsbeginners.dictionary, svsbeginners.groups, svsbeginners.lessonstages, svsbeginners.migrations, svsbeginners.phases, svsbeginners.steps, svsbeginners.users, svsbeginners.usersgroups;\" "
   },
   "author": "",
   "license": "ISC",
