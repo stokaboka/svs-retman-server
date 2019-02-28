@@ -13,7 +13,7 @@ const routes: any[] = [
     },
     {
         method: 'get',
-        route: '/ph/step/:stepId',
+        route: '/ph/step/:step',
         controller: PhasesController,
         action: 'find',
     },

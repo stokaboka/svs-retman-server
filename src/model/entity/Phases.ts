@@ -10,10 +10,22 @@ export default class Phases {
     public id: number;
 
     @Column()
-    public stepId: number;
+    public step: number;
+
+    @Column()
+    public phase: number;
 
     @Column()
     public num: number;
+
+    @Column({
+        type: 'varchar',
+        length: 100,
+    })
+    public action: string;
+
+    @Column()
+    public result: number;
 
     @Column({
         type: 'varchar',
@@ -31,74 +43,39 @@ export default class Phases {
         type: 'varchar',
         length: 1000,
     })
-    public briefText: string;
+    public text: string;
 
     @Column({
         type: 'varchar',
         length: 1000,
     })
-    public briefSounds: string;
+    public sounds: string;
 
     @Column({
         type: 'varchar',
         length: 100,
     })
-    public briefModeSounds: string;
-
-    // @Column({
-    //     type: 'varchar',
-    //     length: 255,
-    // })
-    // public briefSound1: string;
-    //
-    // @Column({
-    //     type: 'varchar',
-    //     length: 255,
-    // })
-    // public briefSound2: string;
+    public mode: string;
 
     @Column()
-    public briefTime: number;
-
-    @Column({
-        type: 'varchar',
-        length: 1000,
-    })
-    public testText: string;
-
-    @Column({
-        type: 'varchar',
-        length: 1000,
-    })
-    public testSounds: string;
-
-    @Column({
-        type: 'varchar',
-        length: 100,
-    })
-    public testModeSounds: string;
-
-    // @Column({
-    //     type: 'varchar',
-    //     length: 255,
-    // })
-    // public testSound1: string;
-
-    // @Column({
-    //     type: 'varchar',
-    //     length: 255,
-    // })
-    // public testSound2: string;
+    public time: number;
 
     @Column()
-    public testTime: number;
-
-    @Column()
-    public testNextBtn: number;
+    public next: number;
 
     @Column()
     public stages: number;
 
     @Column()
     public pages: number;
+
+    @Column({
+        type: 'varchar',
+        length: 100,
+    })
+    @Column({
+        type: 'varchar',
+        length: 100,
+    })
+    public component: string;
 }

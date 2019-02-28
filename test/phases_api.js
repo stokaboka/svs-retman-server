@@ -26,13 +26,14 @@ describe('Phases', () => {
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('array');
-                res.body.should.have.lengthOf(17);
+                res.body.should.have.lengthOf(28);
                 done();
             });
         });
     });
     
-    describe('/GET PHASEs of STEP 1', () => {
+    describe('/GET PHASEs of STEPs', () => {
+
         it('it should GET STEP 1', (done) => {
             chai.request(host)
             .get('/ph/step/1')
@@ -43,32 +44,98 @@ describe('Phases', () => {
                 done();
             });
         });
-    });
-    
-    describe('/GET PHASEs of STEP 4', () => {
+
+        it('it should GET STEP 2', (done) => {
+            chai.request(host)
+                .get('/ph/step/2')
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    res.body.should.be.a('array');
+                    res.body.should.have.lengthOf(1);
+                    done();
+                });
+        });
+
+        it('it should GET STEP 3', (done) => {
+            chai.request(host)
+                .get('/ph/step/3')
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    res.body.should.be.a('array');
+                    res.body.should.have.lengthOf(5);
+                    done();
+                });
+        });
+
         it('it should GET STEP 4', (done) => {
             chai.request(host)
-            .get('/ph/step/4')
-            .end((err, res) => {
-                res.should.have.status(200);
-                res.body.should.be.a('array');
-                res.body.should.have.lengthOf(3);
-                done();
-            });
+                .get('/ph/step/4')
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    res.body.should.be.a('array');
+                    res.body.should.have.lengthOf(5);
+                    done();
+                });
+        });
+
+        it('it should GET STEP 5', (done) => {
+            chai.request(host)
+                .get('/ph/step/5')
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    res.body.should.be.a('array');
+                    res.body.should.have.lengthOf(7);
+                    done();
+                });
+        });
+
+        it('it should GET STEP 6', (done) => {
+            chai.request(host)
+                .get('/ph/step/6')
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    res.body.should.be.a('array');
+                    res.body.should.have.lengthOf(7);
+                    done();
+                });
+        });
+
+        it('it should GET STEP 7', (done) => {
+            chai.request(host)
+                .get('/ph/step/7')
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    res.body.should.be.a('array');
+                    res.body.should.have.lengthOf(2);
+                    done();
+                });
         });
     });
     
-    describe('/GET PHASEs of STEP 6', () => {
-        it('it should GET STEP 6', (done) => {
-            chai.request(host)
-            .get('/ph/step/6')
-            .end((err, res) => {
-                res.should.have.status(200);
-                res.body.should.be.a('array');
-                res.body.should.have.lengthOf(4);
-                done();
-            });
-        });
-    });
+    // describe('/GET PHASEs of STEP 4', () => {
+    //     it('it should GET STEP 4', (done) => {
+    //         chai.request(host)
+    //         .get('/ph/step/4')
+    //         .end((err, res) => {
+    //             res.should.have.status(200);
+    //             res.body.should.be.a('array');
+    //             res.body.should.have.lengthOf(5);
+    //             done();
+    //         });
+    //     });
+    // });
+    //
+    // describe('/GET PHASEs of STEP 6', () => {
+    //     it('it should GET STEP 6', (done) => {
+    //         chai.request(host)
+    //         .get('/ph/step/6')
+    //         .end((err, res) => {
+    //             res.should.have.status(200);
+    //             res.body.should.be.a('array');
+    //             res.body.should.have.lengthOf(7);
+    //             done();
+    //         });
+    //     });
+    // });
     
 });

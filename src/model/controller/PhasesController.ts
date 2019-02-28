@@ -12,7 +12,7 @@ export default class PhasesController extends DBController {
     constructor() {
         super(getRepository(Phases));
         super.order = {
-            stepId: 'ASC',
+            step: 'ASC',
             num: 'ASC',
         };
     }
