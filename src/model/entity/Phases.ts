@@ -24,8 +24,11 @@ export default class Phases {
     })
     public action: string;
 
-    @Column()
-    public result: number;
+    @Column({
+        type: 'varchar',
+        length: 100,
+    })
+    public result: string;
 
     @Column({
         type: 'varchar',

@@ -81,7 +81,7 @@ export class InitDatabase1544706296141 implements MigrationInterface {
             { name: 'phase',    type: 'int' },
             { name: 'num',      type: 'int' },
             { name: 'action',   type: 'varchar',    length: '100' },
-            { name: 'result',   type: 'int' },
+            { name: 'result',   type: 'varchar',    length: '100' },
             { name: 'title',    type: 'varchar',    length: '255' },
             { name: 'scope',    type: 'varchar',    length: '255' },
             { name: 'text',     type: 'varchar',    length: '1000' },
