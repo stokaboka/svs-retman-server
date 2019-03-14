@@ -26,7 +26,7 @@ describe('LessonStages', () => {
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('array');
-                res.body.should.have.lengthOf(32);
+                res.body.should.have.lengthOf(28);
                 done();
             });
         });
@@ -65,7 +65,7 @@ describe('LessonStages', () => {
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('array');
-                res.body.should.have.lengthOf(8);
+                res.body.should.have.lengthOf(4);
                 done();
             });
         });

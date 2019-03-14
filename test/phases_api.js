@@ -26,7 +26,7 @@ describe('Phases', () => {
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('array');
-                res.body.should.have.lengthOf(28);
+                res.body.should.have.lengthOf(27);
                 done();
             });
         });
@@ -73,7 +73,7 @@ describe('Phases', () => {
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('array');
-                    res.body.should.have.lengthOf(5);
+                    res.body.should.have.lengthOf(7);
                     done();
                 });
         });
@@ -84,7 +84,7 @@ describe('Phases', () => {
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('array');
-                    res.body.should.have.lengthOf(7);
+                    res.body.should.have.lengthOf(6);
                     done();
                 });
         });
@@ -95,7 +95,7 @@ describe('Phases', () => {
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('array');
-                    res.body.should.have.lengthOf(7);
+                    res.body.should.have.lengthOf(5);
                     done();
                 });
         });

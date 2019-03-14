@@ -19,19 +19,19 @@ export default class LessonStages {
         type: 'varchar',
         length: 1000,
     })
-    public briefText: string;
+    public title: string;
 
     @Column()
-    public stepId: number;
-
-    @Column()
-    public phaseNum: number;
+    public step: number;
 
     @Column()
     public lesson: number;
 
     @Column()
     public stage: number;
+
+    @Column()
+    public pages: number;
 
     @Column({
         type: 'varchar',

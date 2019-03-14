@@ -14,8 +14,7 @@ export default class LessonStagesController extends DBController {
         // super.setOrder(this.stagesOrder);
         super.order =  {
             lang: 'ASC',
-            stepId: 'ASC',
-            phaseNum: 'ASC',
+            step: 'ASC',
             lesson: 'ASC',
             stage: 'ASC',
         };
