@@ -119,6 +119,15 @@ export class InitDatabase1544706296141 implements MigrationInterface {
         ],
     });
 
+    private tableCue: Table = new Table({
+        name: 'Cue',
+        columns: [
+            { name: 'id',   type: 'int', isPrimary: true, isGenerated: true, generationStrategy: 'increment' },
+            { name: 'file', type: 'varchar', length: '255' },
+            { name: 'pos',  type: 'double' },
+        ],
+    });
+
     private tables: any[] = [];
 
     constructor() {
@@ -130,6 +139,7 @@ export class InitDatabase1544706296141 implements MigrationInterface {
             this.tableSteps,
             this.tablePhases,
             this.tableLessonStages,
+            this.tableCue,
         ];
     }
 

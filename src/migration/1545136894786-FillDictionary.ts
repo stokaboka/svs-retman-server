@@ -3,6 +3,7 @@ import Dictionary from '../model/entity/Dictionary';
 import LessonStages from '../model/entity/LessonStages';
 import Phases from '../model/entity/Phases';
 import Steps from '../model/entity/Steps';
+import Cue from '../model/entity/Cue';
 
 export class FillDictionary1545136894786 implements MigrationInterface {
 
@@ -18,6 +19,7 @@ export class FillDictionary1545136894786 implements MigrationInterface {
         steps: [ 'title', 'lessons', 'brief', 'test', 'learning', 'briefText' ],
         phases: ['step', 'phase', 'num', 'action', 'result', 'title', 'scope', 'text', 'sounds', 'mode', 'time', 'next', 'stages', 'pages', 'component'],
         lessonStages: ['lang', 'title', 'step', 'lesson', 'stage', 'pages', 'scope', 'sound', 'time'],
+        cue: ['file', 'pos'],
     };
 
     private mnemonic = [
@@ -1358,8 +1360,8 @@ export class FillDictionary1545136894786 implements MigrationInterface {
             title: 'Аутотренинг',
             scope: '',
             text: '',
-            sounds: '',
-            mode: '',
+            sounds: 'atstartm_final.mp3',
+            mode: 'ONCE',
             time: 380,
             next: 0,
             stages: 0,
@@ -1493,6 +1495,98 @@ export class FillDictionary1545136894786 implements MigrationInterface {
         // { lang: 'FR', title: 'отмечать <strong>дословно</strong> понятные иностранные фразы',  step: 7, lesson: 2, stage: 4, scope: 'test::lesson::2', sound: 'less2_fre.mp3',       time: 0 },
     ];
 
+    private cue = [
+        { file: 'less1_eng-ru.mp3', pos: 5.378 },
+        { file: 'less1_eng-ru.mp3', pos: 7.312 },
+        { file: 'less1_eng-ru.mp3', pos: 9 },
+        { file: 'less1_eng-ru.mp3', pos: 10.59 },
+        { file: 'less1_eng-ru.mp3', pos: 12.17 },
+        { file: 'less1_eng-ru.mp3', pos: 13.8 },
+        { file: 'less1_eng-ru.mp3', pos: 15.572 },
+        { file: 'less1_eng-ru.mp3', pos: 17.093 },
+        { file: 'less1_eng-ru.mp3', pos: 18.865 },
+        { file: 'less1_eng-ru.mp3', pos: 20.4 },
+        { file: 'less1_eng-ru.mp3', pos: 22.164 },
+        { file: 'less1_eng-ru.mp3', pos: 23.715 },
+        { file: 'less1_eng-ru.mp3', pos: 25.5 },
+        { file: 'less1_eng-ru.mp3', pos: 27.081 },
+        { file: 'less1_eng-ru.mp3', pos: 29.065 },
+        { file: 'less1_eng-ru.mp3', pos: 30.615 },
+        { file: 'less1_eng-ru.mp3', pos: 32.342 },
+        { file: 'less1_eng-ru.mp3', pos: 33.922 },
+        { file: 'less1_eng-ru.mp3', pos: 35.693 },
+        { file: 'less1_eng-ru.mp3', pos: 37.207 },
+
+
+        { file: 'less1_eng.mp3', pos: 4.811 },
+        { file: 'less1_eng.mp3', pos: 6.6 },
+        { file: 'less1_eng.mp3', pos: 8.27 },
+        { file: 'less1_eng.mp3', pos: 9.9 },
+        { file: 'less1_eng.mp3', pos: 11.530 },
+        { file: 'less1_eng.mp3', pos: 13.147 },
+        { file: 'less1_eng.mp3', pos: 14.910 },
+        { file: 'less1_eng.mp3', pos: 16.514 },
+        { file: 'less1_eng.mp3', pos: 18.210 },
+        { file: 'less1_eng.mp3', pos: 19.787 },
+        { file: 'less1_eng.mp3', pos: 21.523 },
+        { file: 'less1_eng.mp3', pos: 23.061 },
+        { file: 'less1_eng.mp3', pos: 24.916 },
+        { file: 'less1_eng.mp3', pos: 26.374 },
+        { file: 'less1_eng.mp3', pos: 28.428 },
+        { file: 'less1_eng.mp3', pos: 30 },
+        { file: 'less1_eng.mp3', pos: 31.768 },
+        { file: 'less1_eng.mp3', pos: 33.345 },
+        { file: 'less1_eng.mp3', pos: 35.188 },
+        { file: 'less1_eng.mp3', pos: 36.672 },
+        { file: 'less1_eng.mp3', pos: 38.421 },
+        { file: 'less1_eng.mp3', pos: 40.038 },
+        { file: 'less1_eng.mp3', pos: 41.814 },
+        { file: 'less1_eng.mp3', pos: 43.219 },
+        { file: 'less1_eng.mp3', pos: 45.552 },
+        { file: 'less1_eng.mp3', pos: 47.05 },
+        { file: 'less1_eng.mp3', pos: 51.873 },
+        { file: 'less1_eng.mp3', pos: 53.146 },
+        { file: 'less1_eng.mp3', pos: 54.67 },
+        { file: 'less1_eng.mp3', pos: 55.942 },
+        { file: 'less1_eng.mp3', pos: 57.56 },
+        { file: 'less1_eng.mp3', pos: 58.9 },
+        { file: 'less1_eng.mp3', pos: 60.965 },
+        { file: 'less1_eng.mp3', pos: 62.436 },
+        { file: 'less1_eng.mp3', pos: 64.212 },
+        { file: 'less1_eng.mp3', pos: 65.63 },
+        { file: 'less1_eng.mp3', pos: 67.486 },
+        { file: 'less1_eng.mp3', pos: 68.9 },
+        { file: 'less1_eng.mp3', pos: 70.693 },
+        { file: 'less1_eng.mp3', pos: 72.045 },
+        { file: 'less1_eng.mp3', pos: 73.834 },
+        { file: 'less1_eng.mp3', pos: 75.2 },
+        { file: 'less1_eng.mp3', pos: 77.386 },
+        { file: 'less1_eng.mp3', pos: 78.831 },
+        { file: 'less1_eng.mp3', pos: 81.4 },
+        { file: 'less1_eng.mp3', pos: 82.807 },
+        { file: 'less1_eng.mp3', pos: 85.23 },
+        { file: 'less1_eng.mp3', pos: 86.7 },
+
+// ***********
+        { file: 'less2_eng-ru.mp3', pos: 0 },
+        { file: 'less2_eng.mp3', pos: 0 },
+
+        { file: 'less3_eng-ru.mp3', pos: 0 },
+        { file: 'less3_eng.mp3', pos: 0 },
+
+        { file: 'less4_eng-ru.mp3', pos: 0 },
+        { file: 'less4_eng.mp3', pos: 0 },
+
+        { file: 'less1_deu-ru.mp3', pos: 0 },
+        { file: 'less1_deu.mp3', pos: 0 },
+
+        { file: 'less2_deu-ru.mp3', pos: 0 },
+        { file: 'less2_deu.mp3', pos: 0 },
+
+        { file: 'less1_fre-ru.mp3', pos: 0 },
+        { file: 'less1_fre.mp3', pos: 0 },
+    ]
+
     public async up(queryRunner: QueryRunner): Promise<any> {
 
         await getConnection()
@@ -1540,6 +1634,13 @@ export class FillDictionary1545136894786 implements MigrationInterface {
             .insert()
             .into(LessonStages, this.fields.lessonStages)
             .values(this.lessonStages)
+            .execute();
+
+        await getConnection()
+            .createQueryBuilder()
+            .insert()
+            .into(Cue, this.fields.cue)
+            .values(this.cue)
             .execute();
     }
 

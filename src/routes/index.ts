@@ -7,16 +7,19 @@ import groupsRoutes from './GroupRoutes';
 import usersGroupsRoutes from './UsersGroupsRoutes';
 import usersRoutes from './UsersRoutes';
 
-import LessonStagesRoutes from './LessonStagesRoutes';
-import PhasesRoutes from './PhasesRoutes';
-import StepsRoutes from './StepsRoutes';
+import lessonStagesRoutes from './LessonStagesRoutes';
+import phasesRoutes from './PhasesRoutes';
+import stepsRoutes from './StepsRoutes';
+
+import cueRoutes from './CueRoutes';
 
 export default [].concat(
     usersRoutes,
     groupsRoutes,
     usersGroupsRoutes,
     dictionaryRoutes,
-    LessonStagesRoutes,
-    PhasesRoutes,
-    StepsRoutes,
+    lessonStagesRoutes,
+    phasesRoutes,
+    stepsRoutes,
+    cueRoutes,
 );

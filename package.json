@@ -11,7 +11,7 @@
     "watch-ts": "tsc -w",
     "test": "mocha",
     "migration:run": "./node_modules/typeorm/cli.js migration:run",
-    "migration:drop_tables": "./node_modules/typeorm/cli.js query \"DROP TABLE svsbeginners.Dictionary, svsbeginners.Groups, svsbeginners.LessonStages, svsbeginners.migrations, svsbeginners.Phases, svsbeginners.Steps, svsbeginners.Users, svsbeginners.UsersGroups;\" "
+    "migration:drop_tables": "./node_modules/typeorm/cli.js query \"DROP TABLE svsbeginners.Dictionary, svsbeginners.Groups, svsbeginners.LessonStages, svsbeginners.migrations, svsbeginners.Phases, svsbeginners.Steps, svsbeginners.Users, svsbeginners.UsersGroups, svsbeginners.Cue;\" "
   },
   "author": "",
   "license": "ISC",
