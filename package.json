@@ -10,6 +10,7 @@
     "watch-node": "nodemon dist/server.js",
     "watch-ts": "tsc -w",
     "test": "mocha",
+    "migration": "npm run migration:drop_tables && npm run migration:run",
     "migration:run": "./node_modules/typeorm/cli.js migration:run",
     "migration:drop_tables": "./node_modules/typeorm/cli.js query \"DROP TABLE svsbeginners.Dictionary, svsbeginners.Groups, svsbeginners.LessonStages, svsbeginners.migrations, svsbeginners.Phases, svsbeginners.Steps, svsbeginners.Users, svsbeginners.UsersGroups, svsbeginners.Cue;\" "
   },
