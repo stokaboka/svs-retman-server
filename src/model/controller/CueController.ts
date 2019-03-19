@@ -12,7 +12,7 @@ export default class CueController extends DBController {
         super(getRepository(Cue));
         super.order = {
             file: 'ASC',
-            pos: 'ASC',
+            pos: 'DESC',
         };
     }
 }
