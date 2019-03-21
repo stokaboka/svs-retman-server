@@ -728,6 +728,7 @@ export class FillDictionary1545136894786 implements MigrationInterface {
         { word1: '- Are they good pupils?', word2: '- Они хорошие ученики?', lang1: 'EN', lang2: 'RU', scope: 'test::lesson::4' },
         { word1: '- Yes, they are.   ', word2: '- Да.', lang1: 'EN', lang2: 'RU', scope: 'test::lesson::4' },
 
+// DE L 1
         { word1: '- Das ist ein Zimmer.', word2: '- Это комната.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
         { word1: '- Das ist ein Tisch.', word2: '- Это стол.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
         { word1: '- Das ist ein Stuhl.', word2: '- Это стул.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
@@ -738,6 +739,7 @@ export class FillDictionary1545136894786 implements MigrationInterface {
         { word1: '- Das ist eine Lampe.', word2: '- Это лампа.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
         { word1: '- Das ist eine Bank.', word2: '- Это скамья.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
         { word1: '- Das ist ein Spiegel.', word2: '- Это зеркало.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
+
         { word1: '- Was ist das?', word2: '- Что это такое?', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
         { word1: '- Das ist eine Straße.', word2: '- Это улица.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
         { word1: '- Was ist das?', word2: '- Что это такое?', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
@@ -750,7 +752,7 @@ export class FillDictionary1545136894786 implements MigrationInterface {
         { word1: '- Hier ist ein Rasen.', word2: '- Здесь газон.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
         { word1: '- Das ist ein Zaun.', word2: '- Это забор.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
         { word1: '- Was für ein Tier ist das?', word2: '- Что это за животное?', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
-        { word1: '- Das ist ein Hund.  ', word2: '- Это собака.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Das ist ein Hund.', word2: '- Это собака.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
         { word1: '- Und was für ein Tier ist das?', word2: '- А это что за животное?', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
         { word1: '- Das ist eine Katze.', word2: '- Это кошка.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
         { word1: '- Und was ist das da oben?', word2: '- А что это там наверху?', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
@@ -766,188 +768,190 @@ export class FillDictionary1545136894786 implements MigrationInterface {
         { word1: '- Und was ist das, bitte?', word2: '- Скажите, пожалуйста, а что это?', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
         { word1: '- Das ist eine Tasse.', word2: '- Это чашка.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
 
-        { word1: '- Hier ist ein Besteck:  ein Messer, eine Gabel und ein Löffel.', word2: '- Здесь столовые приборы: нож, вилка и ложка.', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Danke. Und was ist das dort?', word2: '- Спасибо. А что здесь такое?', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Das ist eine Schüssel.', word2: '- Это миска.', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Die Schüssel ist rund.', word2: '- Миска круглая.', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Was ist das hier?', word2: '- Что здесь такое?', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Das ist Zucker. Der Zucker ist süß.', word2: '- Это сахар. Сахар сладкий.', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Was ist das hier?', word2: '- А что здесь такое?', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Das ist Salz und Pfeffer.', word2: '- Это соль и перец.', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Das Salz ist salzig.', word2: '- Соль соленая.', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Und das hier?', word2: '- А что здесь?', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Das ist Essig und Öl.', word2: '- Это уксус и растительное масло.', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Der Essig ist sauer.', word2: '- Уксус кислый.', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Das Öl ist fettig.', word2: '- Масло жирное.', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Und was ist das, bitte?', word2: '- А это что такое?', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Das ist Brot und Butter.', word2: '- Это хлеб и масло.', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Das Brot ist schwarz, die Butter is frisch.', word2: '- Хлеб черный, масло свежее.', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Danke!', word2: '- Спасибо!', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
+        { word1: '- Hier ist ein Besteck:  ein Messer, eine Gabel und ein Löffel.', word2: '- Здесь столовые приборы: нож, вилка и ложка.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Danke. Und was ist das dort?', word2: '- Спасибо. А что здесь такое?', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Das ist eine Schüssel.', word2: '- Это миска.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Die Schüssel ist rund.', word2: '- Миска круглая.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Was ist das hier?', word2: '- Что здесь такое?', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Das ist Zucker. Der Zucker ist süß.', word2: '- Это сахар. Сахар сладкий.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Was ist das hier?', word2: '- А что здесь такое?', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Das ist Salz und Pfeffer.', word2: '- Это соль и перец.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Das Salz ist salzig.', word2: '- Соль соленая.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Und das hier?', word2: '- А что здесь?', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Das ist Essig und Öl.', word2: '- Это уксус и растительное масло.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Der Essig ist sauer.', word2: '- Уксус кислый.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Das Öl ist fettig.', word2: '- Масло жирное.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Und was ist das, bitte?', word2: '- А это что такое?', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Das ist Brot und Butter.', word2: '- Это хлеб и масло.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Das Brot ist schwarz, die Butter is frisch.', word2: '- Хлеб черный, масло свежее.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Danke!', word2: '- Спасибо!', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
 
-        { word1: '- Das ist eine Familie.', word2: '- Это семья.', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Das ist der Vater, das ist die Mutter.', word2: '- Это отец, это мать.', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Das sind die Kinder: das ist der Sohn, das ist die Tochter.', word2: '- Это дети: это сын, это дочь.', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Vater und Mutter sind die Eltern. Sie sind gut.', word2: '- Отец и мать - родители. Они хорошие.', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
+        { word1: '- Das ist eine Familie.', word2: '- Это семья.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Das ist der Vater, das ist die Mutter.', word2: '- Это отец, это мать.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Das sind die Kinder: das ist der Sohn, das ist die Tochter.', word2: '- Это дети: это сын, это дочь.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Vater und Mutter sind die Eltern. Sie sind gut.', word2: '- Отец и мать - родители. Они хорошие.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
         { word1: '- Der Vater heißt Herr Kröger. Die Mutter heißt Frau Kröger. Die Geschwister heißen Fritz und Karin Kröger. Sie lernen gut.',
             word2: '- Отца зовут господин Крегер. Мать зовут госпожa Крегер. Брата и сестру зовут Фритц и Карин Крегер. Они учатся хорошо.',
-            lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Karin lernt sehr gut.', word2: '- Карин учится очень хорошо.', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Sie treiben auch Sport.', word2: '- Они также занимаются спортом.', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
+            lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Karin lernt sehr gut.', word2: '- Карин учится очень хорошо.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Sie treiben auch Sport.', word2: '- Они также занимаются спортом.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::1' },
 
-        { word1: '- Guten Tag, Frau Kröger!', word2: '- Здравствуйте, госпожа Крегер!', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Guten Tag, Frau Nowak, wieder in Berlin?', word2: '- Здравствуйте, госпожа Новак, снова в Берлине?', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Ja, wieder in Berlin.', word2: '- Да, снова в Берлине.', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Wo ist Herr Kröger?', word2: '- Где господин Крегер?', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Er kommt gleich.', word2: '- Он сейчас придет.', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Und wo ist Fritz?', word2: '- А где Фритц?', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Fritz ist nebenan.', word2: '- Фритц рядом.', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Und wo ist Fräulein Karin?', word2: '- А где барышня Карин?', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Karin studiert in Moskau. Kennen Sie Karin?', word2: '- Карин учится в Москве. Вы знаете Карин?', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Nein, leider nicht. Wie ist sie denn?', word2: '- Нет, к сожалению, нет. Какая она (из себя)?', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Wollen sie eine Beschreibung?', word2: '- Вы хотите (ее) описание?', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::1' },
+        // DE L 2
+        { word1: '- Guten Tag, Frau Kröger!', word2: '- Здравствуйте, госпожа Крегер!', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::2' },
+        { word1: '- Guten Tag, Frau Nowak, wieder in Berlin?', word2: '- Здравствуйте, госпожа Новак, снова в Берлине?', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::2' },
+        { word1: '- Ja, wieder in Berlin.', word2: '- Да, снова в Берлине.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::2' },
+        { word1: '- Wo ist Herr Kröger?', word2: '- Где господин Крегер?', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::2' },
+        { word1: '- Er kommt gleich.', word2: '- Он сейчас придет.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::2' },
+        { word1: '- Und wo ist Fritz?', word2: '- А где Фритц?', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::2' },
+        { word1: '- Fritz ist nebenan.', word2: '- Фритц рядом.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::2' },
+        { word1: '- Und wo ist Fräulein Karin?', word2: '- А где барышня Карин?', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::2' },
+        { word1: '- Karin studiert in Moskau. Kennen Sie Karin?', word2: '- Карин учится в Москве. Вы знаете Карин?', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::2' },
+        { word1: '- Nein, leider nicht. Wie ist sie denn?', word2: '- Нет, к сожалению, нет. Какая она (из себя)?', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::2' },
+        { word1: '- Wollen sie eine Beschreibung?', word2: '- Вы хотите (ее) описание?', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::2' },
 
-        { word1: '- Die Haare sind blond und glatt.', word2: '- Волосы светло-русые и ровные.', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::2' },
-        { word1: '- Die Augen sind braun. Der Mund ist klein und schmal, die Nase ist gerade.', word2: '- Глаза карие. Рот маленький и узкий, нос прямой.', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::2' },
-        { word1: '- Wie ist die Stirn, wie sind die Ohren?', word2: '- Какой у нее лоб, какие уши?', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::2' },
-        { word1: '- Die Stirn ist hoch, die Ohren sind zierlich.', word2: '- Лоб высокий, уши изящные.', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::2' },
-        { word1: '- Ist sie blaß?', word2: '- Она бледная?', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::2' },
-        { word1: '- Nein, die Wangen sind rosig, die Zähne sind weiß.', word2: '- Нет, щеки розовые, зубы белые.', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::2' },
-        { word1: '- Die Hände sind schmal, und die Füße sind klein.', word2: '- Руки узкие, а ступни ног маленькие.', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::2' },
-        { word1: '- Die Beine sind schlank und lang.', word2: '- Ноги стройные и длинные.', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::2' },
-        { word1: '- Sie ist also schon von Kopf bis Fuß.', word2: '- Значит, она красива с головы до ног?', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::2' },
-        { word1: '- Ja, das ist sie!', word2: '- Да, она красива!  ', lang1: 'DE', lang2: 'RU' , scope: 'test::lesson::2' },
+        // DE L 2 - ???
+        { word1: '- Die Haare sind blond und glatt.', word2: '- Волосы светло-русые и ровные.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::2' },
+        { word1: '- Die Augen sind braun. Der Mund ist klein und schmal, die Nase ist gerade.', word2: '- Глаза карие. Рот маленький и узкий, нос прямой.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::2' },
+        { word1: '- Wie ist die Stirn, wie sind die Ohren?', word2: '- Какой у нее лоб, какие уши?', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::2' },
+        { word1: '- Die Stirn ist hoch, die Ohren sind zierlich.', word2: '- Лоб высокий, уши изящные.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::2' },
+        { word1: '- Ist sie blaß?', word2: '- Она бледная?', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::2' },
+        { word1: '- Nein, die Wangen sind rosig, die Zähne sind weiß.', word2: '- Нет, щеки розовые, зубы белые.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::2' },
+        { word1: '- Die Hände sind schmal, und die Füße sind klein.', word2: '- Руки узкие, а ступни ног маленькие.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::2' },
+        { word1: '- Die Beine sind schlank und lang.', word2: '- Ноги стройные и длинные.', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::2' },
+        { word1: '- Sie ist also schon von Kopf bis Fuß.', word2: '- Значит, она красива с головы до ног?', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::2' },
+        { word1: '- Ja, das ist sie!', word2: '- Да, она красива!  ', lang1: 'DE', lang2: 'RU', scope: 'test::lesson::2' },
 
-        { word1: 'Une famille', word2: 'Семья', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Voici un homme.', word2: '- Вот мужчина.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- C’est monsieur Jacques Vernet.', word2: '- Это господин Жак Верне.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Monsieur Jacques Vernet est un homme.', word2: '- Господин Жак Верне - мужчина.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Voici une femme.', word2: '- Вот женщина.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- C’est madame Jeanne Vernet.', word2: '- Это госпожа Жанна Верне.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Madame Jeanne Vernet est une femme.', word2: '- Госпожа Жанна Верне - это женщина.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Voici un garçon. C’est Pierre.', word2: '- Вот мальчик. Это Пьер.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Pierre est un garçon.', word2: '- Пьер - это мальчик.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Voici une fille.', word2: '- Вот девушка.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- C’est Françoise.', word2: '- Это Франсуаза.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Françoise est une fille.', word2: '- Франсуаза - это девушка.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- C’est une famille.', word2: '- Это семья.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
+        { word1: 'Une famille', word2: 'Семья', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Voici un homme.', word2: '- Вот мужчина.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- C’est monsieur Jacques Vernet.', word2: '- Это господин Жак Верне.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Monsieur Jacques Vernet est un homme.', word2: '- Господин Жак Верне - мужчина.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Voici une femme.', word2: '- Вот женщина.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- C’est madame Jeanne Vernet.', word2: '- Это госпожа Жанна Верне.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Madame Jeanne Vernet est une femme.', word2: '- Госпожа Жанна Верне - это женщина.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Voici un garçon. C’est Pierre.', word2: '- Вот мальчик. Это Пьер.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Pierre est un garçon.', word2: '- Пьер - это мальчик.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Voici une fille.', word2: '- Вот девушка.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- C’est Françoise.', word2: '- Это Франсуаза.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Françoise est une fille.', word2: '- Франсуаза - это девушка.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- C’est une famille.', word2: '- Это семья.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
 
-        { word1: '- Qui est cet homme?', word2: '- Кто этот мужчина?', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- C’est monsieur Jacques Vernet.', word2: '- Это господин Жак Верне.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Et qui est cette dame?', word2: '- A кто эта женщина?', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- C’est madame Jeanne Vernet.', word2: '- Это госпожа Жанна Верне.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Et ce jeune homme?', word2: '- A этот молодой человек?', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- C’est Jean.', word2: '- Это Жан.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Qui est Jean?', word2: '- Кто такой Жан?', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Jean est mon ami.', word2: '- Жан - это мой друг.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Et qui est cette jeune fille, là-bas?', word2: '- A кто эта молодая девушка.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Cette jeune fille, c’est Francoise.', word2: '- Эта молодая девушка - Франсуаза.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- C’est une famille.', word2: '- Это семья.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
+        { word1: '- Qui est cet homme?', word2: '- Кто этот мужчина?', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- C’est monsieur Jacques Vernet.', word2: '- Это господин Жак Верне.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Et qui est cette dame?', word2: '- A кто эта женщина?', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- C’est madame Jeanne Vernet.', word2: '- Это госпожа Жанна Верне.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Et ce jeune homme?', word2: '- A этот молодой человек?', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- C’est Jean.', word2: '- Это Жан.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Qui est Jean?', word2: '- Кто такой Жан?', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Jean est mon ami.', word2: '- Жан - это мой друг.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Et qui est cette jeune fille, là-bas?', word2: '- A кто эта молодая девушка.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Cette jeune fille, c’est Francoise.', word2: '- Эта молодая девушка - Франсуаза.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- C’est une famille.', word2: '- Это семья.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
 
-        { word1: 'Une chambre', word2: 'Комната', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Voici une chambre.', word2: '- Вот комната.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- C’est une chambre.', word2: '- Это комната.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Et voici des meubles.', word2: '- A вот мебель.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Ce sont des meubles.', word2: '- Это мебель.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Qu’est-ce que c’est?', word2: '- Что это?', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- C’est une phono, et voici des disques.', word2: '- Это проигрыватель, а вот пластинки.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Voici une étagère et des livres.', word2: '- Вот этажерка и книги.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Et voici des cahiers, des crayons et des papiers.', word2: '- A вот тетради, карандаши и бумага.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Ce sont des cahiers, des crayons   et des papiers.', word2: '- Это карандаши, тетради и бумага.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
+        { word1: 'Une chambre', word2: 'Комната', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Voici une chambre.', word2: '- Вот комната.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- C’est une chambre.', word2: '- Это комната.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Et voici des meubles.', word2: '- A вот мебель.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Ce sont des meubles.', word2: '- Это мебель.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Qu’est-ce que c’est?', word2: '- Что это?', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- C’est une phono, et voici des disques.', word2: '- Это проигрыватель, а вот пластинки.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Voici une étagère et des livres.', word2: '- Вот этажерка и книги.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Et voici des cahiers, des crayons et des papiers.', word2: '- A вот тетради, карандаши и бумага.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Ce sont des cahiers, des crayons   et des papiers.', word2: '- Это карандаши, тетради и бумага.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
 
-        { word1: '- Voici une chambre.', word2: '- Вот комната.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- C’est la chambre de Pierre.', word2: '- Вот комната Пьера.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
+        { word1: '- Voici une chambre.', word2: '- Вот комната.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- C’est la chambre de Pierre.', word2: '- Вот комната Пьера.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
         { word1: '- Voici le plafond, le plancher, les murs, la porte et les fenêtres de la chambre.',
-            word2: '- Вот потолок, пол, стены, дверь и окна комнаты.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- C’est le plafond.', word2: '- Это потолок.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- C’est le plancher.', word2: '- Это пол.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Ce sont les murs.', word2: '- Это стены.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- C’est la porte.', word2: '- Это дверь.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Ce sont les fenêtres.', word2: '- Это окна.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Voici la table et les livres de Pierre.', word2: '- Вот стол и книги Пьера.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- C’est la table et ce sont les livres de Pierre.', word2: '- Это стол, а это книги Пьера.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Et voici une photo. C’est la photo d’André.', word2: '- А вот фотография. Это фотография Андрэ.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Qui est André?', word2: '- Кто такой Андрэ?', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- André est un ami de Pierre.', word2: '- Андрэ - это друг Пьера.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
+            word2: '- Вот потолок, пол, стены, дверь и окна комнаты.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- C’est le plafond.', word2: '- Это потолок.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- C’est le plancher.', word2: '- Это пол.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Ce sont les murs.', word2: '- Это стены.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- C’est la porte.', word2: '- Это дверь.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Ce sont les fenêtres.', word2: '- Это окна.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Voici la table et les livres de Pierre.', word2: '- Вот стол и книги Пьера.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- C’est la table et ce sont les livres de Pierre.', word2: '- Это стол, а это книги Пьера.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Et voici une photo. C’est la photo d’André.', word2: '- А вот фотография. Это фотография Андрэ.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Qui est André?', word2: '- Кто такой Андрэ?', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- André est un ami de Pierre.', word2: '- Андрэ - это друг Пьера.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
 
-        { word1: '- Pierre est dans la chambre.', word2: '- Пьер (находится) в комнате.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- C’est la chambre de Pierre.', word2: '- Это комната Пьера.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Dans la chambre, il y a une table, une étagère, et quelques chaises.', word2: '- В комнате имеется стол, полка и несколько стульев.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Sur le plancher, il y a un tapis.', word2: '- На полу (имеется) ковёр.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Sur le mur, il y a des tableaux.', word2: '- На стене висят (имеются) картины.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Ou est Pierre?', word2: '- Где Пьер?', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Il est assis devant la table.', word2: '- Он сидит за столом (досл.: перед столом).', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
+        { word1: '- Pierre est dans la chambre.', word2: '- Пьер (находится) в комнате.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- C’est la chambre de Pierre.', word2: '- Это комната Пьера.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Dans la chambre, il y a une table, une étagère, et quelques chaises.', word2: '- В комнате имеется стол, полка и несколько стульев.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Sur le plancher, il y a un tapis.', word2: '- На полу (имеется) ковёр.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Sur le mur, il y a des tableaux.', word2: '- На стене висят (имеются) картины.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Ou est Pierre?', word2: '- Где Пьер?', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Il est assis devant la table.', word2: '- Он сидит за столом (досл.: перед столом).', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
         { word1: '- Sur la table, devant Pierre, il y a des livres, des cahiers, et des crayons.',
-            word2: '- На столе перед Пьером (имеются) книги, тетради, карандаши.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Derrière la chaise, sur le tapis, est couché Néro, le chien de Pierre.', word2: '- За стулом, на ковре, лежит Нэро, собака Пьера.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
+            word2: '- На столе перед Пьером (имеются) книги, тетради, карандаши.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Derrière la chaise, sur le tapis, est couché Néro, le chien de Pierre.', word2: '- За стулом, на ковре, лежит Нэро, собака Пьера.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
 
-        { word1: 'Bonjour', word2: 'Здравствуйте', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Bonjour Pierre!', word2: '- Здравствуй, Пьер!', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Bonjour mon vieux.', word2: '- Здравствуй, дружище (досл.: мой старый).', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Tu es tout seul?', word2: '- Ты один?', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Oui, je suis tout seul pour le moment.', word2: '- Да, пока что я один.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Et où sont les autres? Où est monsieur Vernet?', word2: '- A где другие? Где господин Верне?', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Oh, il est absent.', word2: '- Ox, нет его (он отсутствует).', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Et Suzanne, où est-ce qu’elle est?', word2: '- A где Сюзанна?', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Suzanne? Elle est à la maison. Mais tiens, la voici.', word2: '- Сюзанна? Она дома. А вот и она.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Bonjour, Jacques.', word2: '- Здравствуй, Жак.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Bonjour, Pierre.', word2: '- Здравствуй, Пьер.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Bonjour, Suzanne.', word2: '- Здравствуй, Сюзанна.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
+        { word1: 'Bonjour', word2: 'Здравствуйте', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Bonjour Pierre!', word2: '- Здравствуй, Пьер!', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Bonjour mon vieux.', word2: '- Здравствуй, дружище (досл.: мой старый).', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Tu es tout seul?', word2: '- Ты один?', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Oui, je suis tout seul pour le moment.', word2: '- Да, пока что я один.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Et où sont les autres? Où est monsieur Vernet?', word2: '- A где другие? Где господин Верне?', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Oh, il est absent.', word2: '- Ox, нет его (он отсутствует).', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Et Suzanne, où est-ce qu’elle est?', word2: '- A где Сюзанна?', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Suzanne? Elle est à la maison. Mais tiens, la voici.', word2: '- Сюзанна? Она дома. А вот и она.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Bonjour, Jacques.', word2: '- Здравствуй, Жак.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Bonjour, Pierre.', word2: '- Здравствуй, Пьер.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Bonjour, Suzanne.', word2: '- Здравствуй, Сюзанна.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
         { word1: '- Vous êtes enfin tous les deux ensemble. Quelle chance! Allons faire une partie de croquet.',
-            word2: '- Наконец-то вы вместе. Вот повезло!  Идемте играть в крокет.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
+            word2: '- Наконец-то вы вместе. Вот повезло!  Идемте играть в крокет.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
 
-        { word1: '- Pardon monsieur!', word2: '- Извините, (господин)!', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Qu’y a-t-il pour votre service, mademoiselle?', word2: '- Чем вам могу служить, мадмуазель?', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Êtes-vous monsieur Paul Vernet?', word2: '- Это вы - господин Поль Верне?', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Oui, mademoiselle, je suis Paul Vernet.', word2: '- Да, мадмуазель, это я, Поль Верне.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Vous êtes l’ami de Pierre?', word2: '- Это вы - друг Пьера?', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Oui, mademoiselle, je suis l’ami de Pierre.', word2: '- Да, мадмуазель, это я - друг Пьера.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Alors vous êtes l’homme que je cherche.', word2: '- Тогда вы - человек, которого я ищу.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Est-ce que vous êtes mademoiselle Françoise Dubois, la soeur de Pierre?', word2: '- Это вы мадмуазель Франсуаза  Дюбуа, сестра Пьера?', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Oui, je suis Françoise Dubois.', word2: '- Да, я - Франсуаза Дюбуа.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Je suis enchanté de faire votre connaissance, mademoiselle.', word2: '- Мне очень приятно познакомиться с вами, (мадмуазель).', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
+        { word1: '- Pardon monsieur!', word2: '- Извините, (господин)!', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Qu’y a-t-il pour votre service, mademoiselle?', word2: '- Чем вам могу служить, мадмуазель?', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Êtes-vous monsieur Paul Vernet?', word2: '- Это вы - господин Поль Верне?', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Oui, mademoiselle, je suis Paul Vernet.', word2: '- Да, мадмуазель, это я, Поль Верне.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Vous êtes l’ami de Pierre?', word2: '- Это вы - друг Пьера?', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Oui, mademoiselle, je suis l’ami de Pierre.', word2: '- Да, мадмуазель, это я - друг Пьера.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Alors vous êtes l’homme que je cherche.', word2: '- Тогда вы - человек, которого я ищу.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Est-ce que vous êtes mademoiselle Françoise Dubois, la soeur de Pierre?', word2: '- Это вы мадмуазель Франсуаза  Дюбуа, сестра Пьера?', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Oui, je suis Françoise Dubois.', word2: '- Да, я - Франсуаза Дюбуа.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Je suis enchanté de faire votre connaissance, mademoiselle.', word2: '- Мне очень приятно познакомиться с вами, (мадмуазель).', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
 
-        { word1: 'Une photo', word2: 'Фотография', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Voici la photo de mon fiancé.', word2: '- Вот фотография моего жениха.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Quel est son nom?', word2: '- Как его зовут?', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Son nom est Paul.', word2: '- Его зовут Поль.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Est-ce qu’il est grand?', word2: '- Высокий ли он?', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Oui, il est grand et fort.', word2: '- Да, он высокий и сильный!', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Et quelle est la couleur de ses yeux et de ses cheveux?', word2: '- А какого цвета у него глаза и волосы?', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Ses yeux sont noirs et ses cheveux sont bruns.', word2: '- У него глаза чёрные, а волосы каштановые.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- C’est un joli garçon.', word2: '- Это красивый мальчик (юноша).', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Et voici maintenant la photo de la fianceé de mon frère.', word2: '- А вот фотография невесты моего брата.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Est-ce qu’elle est jolie?', word2: '- Красивая ли она?', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Elle n’est pas jolie, mais elle est intelligente.', word2: '- Она не красивая, но умная.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
+        { word1: 'Une photo', word2: 'Фотография', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Voici la photo de mon fiancé.', word2: '- Вот фотография моего жениха.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Quel est son nom?', word2: '- Как его зовут?', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Son nom est Paul.', word2: '- Его зовут Поль.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Est-ce qu’il est grand?', word2: '- Высокий ли он?', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Oui, il est grand et fort.', word2: '- Да, он высокий и сильный!', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Et quelle est la couleur de ses yeux et de ses cheveux?', word2: '- А какого цвета у него глаза и волосы?', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Ses yeux sont noirs et ses cheveux sont bruns.', word2: '- У него глаза чёрные, а волосы каштановые.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- C’est un joli garçon.', word2: '- Это красивый мальчик (юноша).', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Et voici maintenant la photo de la fianceé de mon frère.', word2: '- А вот фотография невесты моего брата.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Est-ce qu’elle est jolie?', word2: '- Красивая ли она?', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Elle n’est pas jolie, mais elle est intelligente.', word2: '- Она не красивая, но умная.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
 
-        { word1: '- Où sont vos enfants, madame?', word2: '- Где ваши дети (госпожа)?', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Pierre est à l’école et Françoise, est à la maison.', word2: '- Пьер в школе, а Франсуаза дома.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
-        { word1: '- Est-ce que vous êtes contente de vos enfants?', word2: '- Довольны ли вы вашими детьми?', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
+        { word1: '- Où sont vos enfants, madame?', word2: '- Где ваши дети (госпожа)?', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Pierre est à l’école et Françoise, est à la maison.', word2: '- Пьер в школе, а Франсуаза дома.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
+        { word1: '- Est-ce que vous êtes contente de vos enfants?', word2: '- Довольны ли вы вашими детьми?', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
         { word1: '- Je suis très contente de mon fils: il est gai et gentil, mais je ne suis pas très contente de ma fille: elle est un peu paresseuse. Voici la photo de mes  enfants avec leur père.',
             word2: '- Я очень довольна моим сыном: он весёлый и славный, но я не очень довольна дочерью: она немного ленива. Вот фотография моих детей с (их) отцом.',
-            lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::1' },
+            lang1: 'FR', lang2: 'RU', scope: 'test::lesson::1' },
 
-        { word1: '- Françoise est belle, n’est-ce pas?', word2: '- Франсуаза красивая, не правда ли?', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::10' },
+        { word1: '- Françoise est belle, n’est-ce pas?', word2: '- Франсуаза красивая, не правда ли?', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::10' },
         { word1: '- Oui, elle est blonde et grande. Ses yeux sont bleus et ses sourcils sont épais et noirs.',
-            word2: '- Да, она блондинка высокого роста. У неё голубые глаза  и черные густые брови.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::10' },
-        { word1: '- Et Pierre?', word2: '- A Пьер?', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::10' },
-        { word1: '- Pierre n’est ni beau ni laid.', word2: '- Пьер ни красивый и не уродливый.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::10' },
+            word2: '- Да, она блондинка высокого роста. У неё голубые глаза  и черные густые брови.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::10' },
+        { word1: '- Et Pierre?', word2: '- A Пьер?', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::10' },
+        { word1: '- Pierre n’est ni beau ni laid.', word2: '- Пьер ни красивый и не уродливый.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::10' },
         { word1: '- Son front est haut, son nez est pointu, sa bouche est grande, son menton est carré. C’est un joli garçon quand même.',
-            word2: '- У него высокий лоб, острый нос, квадратный подбородок, большой рот. Но всё-таки это красивый мальчик.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::10' },
+            word2: '- У него высокий лоб, острый нос, квадратный подбородок, большой рот. Но всё-таки это красивый мальчик.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::10' },
 
-        { word1: 'Les projets', word2: 'Планы', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::11' },
-        { word1: '- Tu as congé aujourd’hui, n’est-ce pas, Suzanne?', word2: '- У тебя сегодня свободный день, не так ли, Сюзанна?', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::11' },
-        { word1: '- Oui, j’ai congé aujourd’hui et demain.', word2: '- Да, у меня сегодня (свободный день) выходной и завтра.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::11' },
-        { word1: '- Alors j’ai une idée.', word2: '- Тогда у меня есть идея.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::11' },
-        { word1: '- Et quelle est cette idée?', word2: '- A какая же эта идея?', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::11' },
+        { word1: 'Les projets', word2: 'Планы', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::11' },
+        { word1: '- Tu as congé aujourd’hui, n’est-ce pas, Suzanne?', word2: '- У тебя сегодня свободный день, не так ли, Сюзанна?', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::11' },
+        { word1: '- Oui, j’ai congé aujourd’hui et demain.', word2: '- Да, у меня сегодня (свободный день) выходной и завтра.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::11' },
+        { word1: '- Alors j’ai une idée.', word2: '- Тогда у меня есть идея.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::11' },
+        { word1: '- Et quelle est cette idée?', word2: '- A какая же эта идея?', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::11' },
         { word1: '- Mes amis ont une maison à la campagne et, comme nous avons deux jours libres,   nous pouvons y passer un weekend merveilleux.',
-            word2: '- У моих друзей есть дача в деревне, а так как у нас свободных два дня, мы можем  замечательно там провести время.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::11' },
+            word2: '- У моих друзей есть дача в деревне, а так как у нас свободных два дня, мы можем  замечательно там провести время.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::11' },
 
         { word1: '- Oui, tu as raison, ton idée est vraiment bonne. Eh bien moi, j’ai aussi une idée.',
-            word2: '- Да, ты прав, твоя идея действительно хороша. И у меня есть также мысль.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::12' },
+            word2: '- Да, ты прав, твоя идея действительно хороша. И у меня есть также мысль.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::12' },
         { word1: '- Tu sais, Georges a une voiture et nous pouvons y aller tous ensemble en auto.',
-            word2: '- Знаешь, у Жоржа есть машина, и мы можем поехать туда все вместе на машине.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::12' },
+            word2: '- Знаешь, у Жоржа есть машина, и мы можем поехать туда все вместе на машине.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::12' },
         { word1: '- C’est parfait, je suis entièrement d’accord, d’autant plus que Georges et toi, vous avez beacoup de choses à vous dire.',
-            word2: '- Прекрасно, я вполне согласен, тем более, что вам с Жоржем есть о чем  поговорить.', lang1: 'FR', lang2: 'RU' , scope: 'test::lesson::12' },
+            word2: '- Прекрасно, я вполне согласен, тем более, что вам с Жоржем есть о чем  поговорить.', lang1: 'FR', lang2: 'RU', scope: 'test::lesson::12' },
 
     ];
 
@@ -1501,7 +1505,7 @@ export class FillDictionary1545136894786 implements MigrationInterface {
         // { lang: 'FR', title: 'отмечать <strong>дословно</strong> понятные иностранные фразы',  step: 7, lesson: 2, stage: 4, scope: 'test::lesson::2', sound: 'less2_fre.mp3',       time: 0 },
     ];
 
-    private cue = [
+    private less1EngRu: any[] = [
         { file: 'less1_eng-ru.mp3', pos: 5.378 },
         { file: 'less1_eng-ru.mp3', pos: 7.312 },
         { file: 'less1_eng-ru.mp3', pos: 9 },
@@ -1550,7 +1554,9 @@ export class FillDictionary1545136894786 implements MigrationInterface {
         { file: 'less1_eng-ru.mp3', pos: 90.876 },
         { file: 'less1_eng-ru.mp3', pos: 93.316 },
         { file: 'less1_eng-ru.mp3', pos: 94.771 },
+    ];
 
+    private less1Eng: any[] = [
         { file: 'less1_eng.mp3', pos: 4.811 },
         { file: 'less1_eng.mp3', pos: 6.6 },
         { file: 'less1_eng.mp3', pos: 8.27 },
@@ -1599,7 +1605,9 @@ export class FillDictionary1545136894786 implements MigrationInterface {
         { file: 'less1_eng.mp3', pos: 82.807 },
         { file: 'less1_eng.mp3', pos: 85.23 },
         { file: 'less1_eng.mp3', pos: 86.7 },
+    ];
 
+    private less2EngRu: any[] = [
         { file: 'less2_eng-ru.mp3', pos: 2.2 },
         { file: 'less2_eng-ru.mp3', pos: 3.92 },
         { file: 'less2_eng-ru.mp3', pos: 6.242 },
@@ -1665,7 +1673,9 @@ export class FillDictionary1545136894786 implements MigrationInterface {
         { file: 'less2_eng-ru.mp3', pos: 151.914 },
         { file: 'less2_eng-ru.mp3', pos: 154.89 },
         { file: 'less2_eng-ru.mp3', pos: 157.309 },
+    ];
 
+    private less2Eng: any[] = [
         { file: 'less2_eng.mp3', pos: 2.47 },
         { file: 'less2_eng.mp3', pos: 4.11 },
         { file: 'less2_eng.mp3', pos: 6.39 },
@@ -1731,7 +1741,9 @@ export class FillDictionary1545136894786 implements MigrationInterface {
         { file: 'less2_eng.mp3', pos: 120 + 25.72 },
         { file: 'less2_eng.mp3', pos: 120 + 28.61 },
         { file: 'less2_eng.mp3', pos: 120 + 31.07 },
+    ];
 
+    private less3EngRu: any[] = [
         { file: 'less3_eng-ru.mp3', pos: 0 },
         { file: 'less3_eng-ru.mp3', pos: 1.561},
         { file: 'less3_eng-ru.mp3', pos: 3.104},
@@ -1804,7 +1816,9 @@ export class FillDictionary1545136894786 implements MigrationInterface {
         { file: 'less3_eng-ru.mp3', pos: 120 + 29.6},
         { file: 'less3_eng-ru.mp3', pos: 120 + 31.46},
         { file: 'less3_eng-ru.mp3', pos: 120 + 33.68},
+    ];
 
+    private less3Eng: any[] = [
         { file: 'less3_eng.mp3', pos: 0 },
         { file: 'less3_eng.mp3', pos:  1.3},
         { file: 'less3_eng.mp3', pos:  3.52},
@@ -1872,8 +1886,9 @@ export class FillDictionary1545136894786 implements MigrationInterface {
         { file: 'less3_eng.mp3', pos: 120 + 21.18},
         { file: 'less3_eng.mp3', pos: 120 + 23.5},
         { file: 'less3_eng.mp3', pos: 120 + 25.65},
+    ];
 
-
+    private less4EngRu: any[] = [
         { file: 'less4_eng-ru.mp3', pos: 1.39 },
         { file: 'less4_eng-ru.mp3', pos: 4.75 },
         { file: 'less4_eng-ru.mp3', pos: 8.44 },
@@ -1940,8 +1955,9 @@ export class FillDictionary1545136894786 implements MigrationInterface {
         { file: 'less4_eng-ru.mp3', pos: 120 + 45.13},
         { file: 'less4_eng-ru.mp3', pos: 120 + 47.26},
         { file: 'less4_eng-ru.mp3', pos: 120 + 49.15},
+    ];
 
-
+    private less4Eng: any[] = [
         { file: 'less4_eng.mp3', pos:  4.35},
         { file: 'less4_eng.mp3', pos:  6.08},
         { file: 'less4_eng.mp3', pos:  9.87},
@@ -2005,20 +2021,202 @@ export class FillDictionary1545136894786 implements MigrationInterface {
         { file: 'less4_eng.mp3', pos: 120 +  32.97},
         { file: 'less4_eng.mp3', pos: 120 +  35.91},
         { file: 'less4_eng.mp3', pos: 120 +  37.86},
+    ];
 
-// ***********
+    private less1DeuRu: any[] = [
+        { file: 'less1_deu-ru.mp3', pos:  8.6}, //  Das ist ein Zimmer.
+        { file: 'less1_deu-ru.mp3', pos:  10.84}, // Das ist ein Tisch.'
+        { file: 'less1_deu-ru.mp3', pos:  13.02}, // Das ist ein Stuhl.
+        { file: 'less1_deu-ru.mp3', pos:  15.3}, // Das ist ein Sessel.
+        { file: 'less1_deu-ru.mp3', pos:  18.01}, //  Das ist ein Schrank.
+        { file: 'less1_deu-ru.mp3', pos:  20.29}, // Das ist ein Bett.
+        { file: 'less1_deu-ru.mp3', pos:  22.83}, // Das ist eine Decke.
+        { file: 'less1_deu-ru.mp3', pos:  25.61}, // Das ist eine Lampe.
+        { file: 'less1_deu-ru.mp3', pos:  27.54}, // Das ist eine Bank.
+        { file: 'less1_deu-ru.mp3', pos:  29.78}, //  Das ist ein Spiegel.
 
-        { file: 'less1_deu-ru.mp3', pos: 0 },
-        { file: 'less1_deu.mp3', pos: 0 },
+        { file: 'less1_deu-ru.mp3', pos:  34.62}, // Was ist das?
+        { file: 'less1_deu-ru.mp3', pos:  36.59}, // Das ist eine Straße.
+        { file: 'less1_deu-ru.mp3', pos:  38.67}, // Was ist das?'
+        { file: 'less1_deu-ru.mp3', pos:  40.51}, // Das ist ein Haus.
+        { file: 'less1_deu-ru.mp3', pos:  42.59}, // Was ist das hier?
+        { file: 'less1_deu-ru.mp3', pos:  44.74}, // Das ist ein Garten.
+        { file: 'less1_deu-ru.mp3', pos:  44.65}, // Und das?
+        { file: 'less1_deu-ru.mp3', pos:  48.04}, // Das ist ein Baum, und dort ist ein Strauch.
 
-        { file: 'less2_deu-ru.mp3', pos: 0 },
-        { file: 'less2_deu.mp3', pos: 0 },
+        { file: 'less1_deu-ru.mp3', pos:  56.88}, // Hier ist ein Rasen.
+        { file: 'less1_deu-ru.mp3', pos:  59.71}, // Das ist ein Zaun.
+        { file: 'less1_deu-ru.mp3', pos:  60 + 2.36}, // Was für ein Tier ist das?
+        { file: 'less1_deu-ru.mp3', pos:  60 + 5.53}, // Das ist ein Hund.
+        { file: 'less1_deu-ru.mp3', pos:  60 + 7.94}, // Und was für ein Tier ist das?
+        { file: 'less1_deu-ru.mp3', pos:  60 + 11.16}, // Das ist eine Katze.
+        { file: 'less1_deu-ru.mp3', pos:  60 + 13.9}, // Und was ist das da oben?
+        { file: 'less1_deu-ru.mp3', pos:  60 + 17.04}, // Das ist ein Vogel.
+        { file: 'less1_deu-ru.mp3', pos:  60 + 19.23}, // Ist das ein Pferd?'
+        { file: 'less1_deu-ru.mp3', pos:  60 + 21.59}, // Nein, das ist ein Esel.
+        { file: 'less1_deu-ru.mp3', pos:  60 + 24.89}, // Hier ist eine Wohnung.
+        { file: 'less1_deu-ru.mp3', pos:  60 + 27.38}, // Was ist das, bitte?
+        { file: 'less1_deu-ru.mp3', pos:  60 + 29.46}, // Das ist eine Tischdecke.
+        { file: 'less1_deu-ru.mp3', pos:  60 + 32.06}, //  Und was ist das hier?
+        { file: 'less1_deu-ru.mp3', pos:  60 + 34.45}, // Das ist ein Teller.
+        { file: 'less1_deu-ru.mp3', pos:  60 + 36.9}, // Und das ist ein Glas.
+        { file: 'less1_deu-ru.mp3', pos:  60 + 39.45}, // Und was ist das, bitte?
+        { file: 'less1_deu-ru.mp3', pos:  60 + 44.24}, //  Das ist eine Tasse.
 
+        { file: 'less1_deu-ru.mp3', pos:  60 + 48.36}, // Hier ist ein Besteck:  ein Messer, eine Gabel und ein Löffel.
+        { file: 'less1_deu-ru.mp3', pos:  60 + 55.51}, // Danke. Und was ist das dort?
+        { file: 'less1_deu-ru.mp3', pos:  60 + 59.29}, // Das ist eine Schüssel.
+        { file: 'less1_deu-ru.mp3', pos:  120 + 1.65}, // Die Schüssel ist rund.
+        { file: 'less1_deu-ru.mp3', pos:  120 + 4.12}, // Was ist das hier?
+        { file: 'less1_deu-ru.mp3', pos:  120 + 6.29}, // Das ist Zucker. Der Zucker ist süß.
+        { file: 'less1_deu-ru.mp3', pos:  120 + 11.8}, // Was ist das hier?
+        { file: 'less1_deu-ru.mp3', pos:  120 + 14.25}, // Das ist Salz und Pfeffer.
+        { file: 'less1_deu-ru.mp3', pos:  120 + 17.58}, // Das Salz ist salzig.
+        { file: 'less1_deu-ru.mp3', pos:  120 + 20.30}, // Und das hier?
+        { file: 'less1_deu-ru.mp3', pos:  120 + 22.57}, // Das ist Essig und Öl.
+        { file: 'less1_deu-ru.mp3', pos:  120 + 25.18}, // Der Essig ist sauer.
+        { file: 'less1_deu-ru.mp3', pos:  120 + 27.78}, // Das Öl ist fettig.
+        { file: 'less1_deu-ru.mp3', pos:  120 + 30.26}, // Und was ist das, bitte?
+        { file: 'less1_deu-ru.mp3', pos:  120 + 33.03}, // Das ist Brot und Butter.
+        { file: 'less1_deu-ru.mp3', pos:  120 + 36.07}, // Das Brot ist schwarz, die Butter is frisch.
+        { file: 'less1_deu-ru.mp3', pos:  120 + 40.85}, // Danke!
+
+        { file: 'less1_deu-ru.mp3', pos:  120 + 47.98}, // Das ist eine Familie.
+        { file: 'less1_deu-ru.mp3', pos:  120 + 51.02}, // Das ist der Vater, das ist die Mutter.
+        { file: 'less1_deu-ru.mp3', pos:  120 + 55.58}, // Das sind die Kinder: das ist der Sohn, das ist die Tochter.
+        { file: 'less1_deu-ru.mp3', pos:  180 + 2.69}, //  Vater und Mutter sind die Eltern. Sie sind gut.
+        { file: 'less1_deu-ru.mp3', pos:  180 + 8.83}, // Der Vater heißt Herr Kröger. Die Mutter heißt Frau Kröger. Die Geschwister heißen Fritz und Karin Kröger. Sie lernen gut.
+        { file: 'less1_deu-ru.mp3', pos:  180 + 22.75}, //  Karin lernt sehr gut.
+        { file: 'less1_deu-ru.mp3', pos:  180 + 25.59}, // Sie treiben auch Sport.
+    ];
+
+    private less1Deu: any[] = [
+        { file: 'less1_deu.mp3', pos:  10.88}, //  Das ist ein Zimmer.
+        { file: 'less1_deu.mp3', pos:  12.98}, // Das ist ein Tisch.'
+        { file: 'less1_deu.mp3', pos:  15.43}, // Das ist ein Stuhl.
+        { file: 'less1_deu.mp3', pos:  17.40}, // Das ist ein Sessel.
+        { file: 'less1_deu.mp3', pos:  20.24}, //  Das ist ein Schrank.
+        { file: 'less1_deu.mp3', pos:  22.46}, // Das ist ein Bett.
+        { file: 'less1_deu.mp3', pos:  24.92}, // Das ist eine Decke.
+        { file: 'less1_deu.mp3', pos:  27.18}, // Das ist eine Lampe.
+        { file: 'less1_deu.mp3', pos:  29.53}, // Das ist eine Bank.
+        { file: 'less1_deu.mp3', pos:  31.66}, //  Das ist ein Spiegel.
+
+        { file: 'less1_deu.mp3', pos:  36.92}, // Was ist das?
+        { file: 'less1_deu.mp3', pos:  38.76}, // Das ist eine Straße.
+        { file: 'less1_deu.mp3', pos:  41.09}, // Was ist das?'
+        { file: 'less1_deu.mp3', pos:  42.83}, // Das ist ein Haus.
+        { file: 'less1_deu.mp3', pos:  44.67}, // Was ist das hier?
+        { file: 'less1_deu.mp3', pos:  46.93}, // Das ist ein Garten.
+        { file: 'less1_deu.mp3', pos:  48.9}, // Und das?
+        { file: 'less1_deu.mp3', pos:  50.25}, // Das ist ein Baum, und dort ist ein Strauch.
+
+        { file: 'less1_deu.mp3', pos:  60 + 0.52}, // Hier ist ein Rasen.
+        { file: 'less1_deu.mp3', pos:  60 + 3.2}, // Das ist ein Zaun.
+        { file: 'less1_deu.mp3', pos:  60 + 5.84}, // Was für ein Tier ist das?
+        { file: 'less1_deu.mp3', pos:  60 + 9.07}, // Das ist ein Hund.
+        { file: 'less1_deu.mp3', pos:  60 + 11.52}, // Und was für ein Tier ist das?
+        { file: 'less1_deu.mp3', pos:  60 + 14.78}, // Das ist eine Katze.
+        { file: 'less1_deu.mp3', pos:  60 + 17.50}, // Und was ist das da oben?
+        { file: 'less1_deu.mp3', pos:  60 + 20.56}, // Das ist ein Vogel.
+        { file: 'less1_deu.mp3', pos:  60 + 22.82}, // Ist das ein Pferd?'
+        { file: 'less1_deu.mp3', pos:  60 + 25.15}, // Nein, das ist ein Esel.
+        { file: 'less1_deu.mp3', pos:  60 + 32.70}, // Hier ist eine Wohnung.
+        { file: 'less1_deu.mp3', pos:  60 + 35.31}, // Was ist das, bitte?
+        { file: 'less1_deu.mp3', pos:  60 + 37.64}, // Das ist eine Tischdecke.
+        { file: 'less1_deu.mp3', pos:  60 + 40.12}, //  Und was ist das hier?
+        { file: 'less1_deu.mp3', pos:  60 + 42.38}, // Das ist ein Teller.
+        { file: 'less1_deu.mp3', pos:  60 + 44.93}, // Und das ist ein Glas.
+        { file: 'less1_deu.mp3', pos:  60 + 47.51}, // Und was ist das, bitte?
+        { file: 'less1_deu.mp3', pos:  60 + 50.45}, //  Das ist eine Tasse.
+
+        { file: 'less1_deu.mp3', pos:  60 + 56.87}, // Hier ist ein Besteck:  ein Messer, eine Gabel und ein Löffel.
+        { file: 'less1_deu.mp3', pos:  120 + 4.23}, // Danke. Und was ist das dort?
+        { file: 'less1_deu.mp3', pos:  120 + 7.94}, // Das ist eine Schüssel.
+        { file: 'less1_deu.mp3', pos:  120 + 10.40}, // Die Schüssel ist rund.
+        { file: 'less1_deu.mp3', pos:  120 + 12.75}, // Was ist das hier?
+        { file: 'less1_deu.mp3', pos:  120 + 14.95}, // Das ist Zucker. Der Zucker ist süß.
+        { file: 'less1_deu.mp3', pos:  120 + 20.34}, // Was ist das hier?
+        { file: 'less1_deu.mp3', pos:  120 + 22.92}, // Das ist Salz und Pfeffer.
+        { file: 'less1_deu.mp3', pos:  120 + 26.15}, // Das Salz ist salzig.
+        { file: 'less1_deu.mp3', pos:  120 + 28.96}, // Und das hier?
+        { file: 'less1_deu.mp3', pos:  120 + 30.80}, // Das ist Essig und Öl.
+        { file: 'less1_deu.mp3', pos:  120 + 33.70}, // Der Essig ist sauer.
+        { file: 'less1_deu.mp3', pos:  120 + 36.41}, // Das Öl ist fettig.
+        { file: 'less1_deu.mp3', pos:  120 + 38.99}, // Und was ist das, bitte?
+        { file: 'less1_deu.mp3', pos:  120 + 41.64}, // Das ist Brot und Butter.
+        { file: 'less1_deu.mp3', pos:  120 + 44.68}, // Das Brot ist schwarz, die Butter is frisch.
+        { file: 'less1_deu.mp3', pos:  120 + 49.52}, // Danke!
+
+        { file: 'less1_deu.mp3', pos:  120 + 56.59}, // Das ist eine Familie.
+        { file: 'less1_deu.mp3', pos:  120 + 59.59}, // Das ist der Vater, das ist die Mutter.
+        { file: 'less1_deu.mp3', pos:  180 + 4.36}, // Das sind die Kinder: das ist der Sohn, das ist die Tochter.
+        { file: 'less1_deu.mp3', pos:  180 + 11.37}, //  Vater und Mutter sind die Eltern. Sie sind gut.
+        { file: 'less1_deu.mp3', pos:  180 + 17.92}, // Der Vater heißt Herr Kröger. Die Mutter heißt Frau Kröger. Die Geschwister heißen Fritz und Karin Kröger. Sie lernen gut.
+        { file: 'less1_deu.mp3', pos:  180 + 31.83}, //  Karin lernt sehr gut.
+        { file: 'less1_deu.mp3', pos:  180 + 34.70}, // Sie treiben auch Sport.
+    ];
+
+    private less2DeuRu: any[] = [
+        { file: 'less2_deu-ru.mp3', pos: 0}, // Guten Tag, Frau Kröger!
+        { file: 'less2_deu-ru.mp3', pos: 3.49}, // Guten Tag, Frau Nowak, wieder in Berlin?
+        { file: 'less2_deu-ru.mp3', pos: 7.25}, // Ja, wieder in Berlin.
+        { file: 'less2_deu-ru.mp3', pos: 10.22}, // Wo ist Herr Kröger?
+        { file: 'less2_deu-ru.mp3', pos: 12.34}, // Er kommt gleich.
+        { file: 'less2_deu-ru.mp3', pos: 14.35}, // Und wo ist Fritz?
+        { file: 'less2_deu-ru.mp3', pos: 16.2}, // Fritz ist nebenan.
+        { file: 'less2_deu-ru.mp3', pos: 18.59}, // Und wo ist Fräulein Karin?
+        { file: 'less2_deu-ru.mp3', pos: 21.13}, // Karin studiert in Moskau. Kennen Sie Karin?
+        { file: 'less2_deu-ru.mp3', pos: 26.21}, // Nein, leider nicht. Wie ist sie den
+        { file: 'less2_deu-ru.mp3', pos: 30.87}, // Wollen sie eine Beschreibung?
+        { file: 'less2_deu-ru.mp3', pos: 38.55}, // Die Haare sind blond und glatt.
+        { file: 'less2_deu-ru.mp3', pos: 42.10}, // Die Augen sind braun. Der Mund ist klein und schmal, die Nase ist gerade.
+        { file: 'less2_deu-ru.mp3', pos: 51.15}, // Wie ist die Stirn, wie sind die Ohren?
+        { file: 'less2_deu-ru.mp3', pos: 55.3}, // Die Stirn ist hoch, die Ohren sind zierlich.
+        { file: 'less2_deu-ru.mp3', pos: 60 + 0.36}, // Ist sie blaß?
+        { file: 'less2_deu-ru.mp3', pos: 60 + 2.11}, // Nein, die Wangen sind rosig, die Zähne sind weiß.
+        { file: 'less2_deu-ru.mp3', pos: 60 + 8.52}, // Die Hände sind schmal, und die Füße sind klein.
+        { file: 'less2_deu-ru.mp3', pos: 60 + 13.50}, // Die Beine sind schlank und lang.
+        { file: 'less2_deu-ru.mp3', pos: 60 + 17.04}, // Sie ist also schon von Kopf bis Fuß.
+        { file: 'less2_deu-ru.mp3', pos: 60 + 21.18}, // Ja, das ist sie!
+    ];
+
+    private less2Deu: any[] = [
+        { file: 'less2_deu.mp3', pos: 0}, // Guten Tag, Frau Kröger!
+        { file: 'less2_deu.mp3', pos: 2.99 }, // Guten Tag, Frau Nowak, wieder in Berlin?
+        { file: 'less2_deu.mp3', pos: 6.68}, // Ja, wieder in Berlin.
+        { file: 'less2_deu.mp3', pos: 9.53}, // Wo ist Herr Kröger?
+        { file: 'less2_deu.mp3', pos: 11.72}, // Er kommt gleich.
+        { file: 'less2_deu.mp3', pos: 13.82}, // Und wo ist Fritz?
+        { file: 'less2_deu.mp3', pos: 15.66}, // Fritz ist nebenan.
+        { file: 'less2_deu.mp3', pos: 18.01}, // Und wo ist Fräulein Karin?
+        { file: 'less2_deu.mp3', pos: 20.70}, // Karin studiert in Moskau. Kennen Sie Karin?
+        { file: 'less2_deu.mp3', pos: 25.49}, // Nein, leider nicht. Wie ist sie den
+        { file: 'less2_deu.mp3', pos: 30.43}, // Wollen sie eine Beschreibung?
+        { file: 'less2_deu.mp3', pos: 36.96}, // Die Haare sind blond und glatt.
+        { file: 'less2_deu.mp3', pos: 40.65}, // Die Augen sind braun. Der Mund ist klein und schmal, die Nase ist gerade.
+        { file: 'less2_deu.mp3', pos: 50.03}, // Wie ist die Stirn, wie sind die Ohren?
+        { file: 'less2_deu.mp3', pos: 53.97}, // Die Stirn ist hoch, die Ohren sind zierlich.
+        { file: 'less2_deu.mp3', pos: 58.91}, // Ist sie blaß?
+        { file: 'less2_deu.mp3', pos: 60 + 0.7}, // Nein, die Wangen sind rosig, die Zähne sind weiß.
+        { file: 'less2_deu.mp3', pos: 60 + 7.14}, // Die Hände sind schmal, und die Füße sind klein.
+        { file: 'less2_deu.mp3', pos: 60 + 12.17}, // Die Beine sind schlank und lang.
+        { file: 'less2_deu.mp3', pos: 60 + 15.77}, // Sie ist also schon von Kopf bis Fuß.
+        { file: 'less2_deu.mp3', pos: 60 + 19.86}, // Ja, das ist sie!
+    ];
+
+    private less1FreRu: any[] = [
         { file: 'less1_fre-ru.mp3', pos: 0 },
+    ];
+
+    private less1Fre: any[] = [
         { file: 'less1_fre.mp3', pos: 0 },
     ];
 
+    private cue: any[] = [];
+
     constructor() {
+        this.initCue();
         this.testCue();
     }
 
@@ -2096,4 +2294,21 @@ export class FillDictionary1545136894786 implements MigrationInterface {
         });
     }
 
+    private initCue() {
+        this.cue = []
+            .concat(this.less1EngRu)
+            .concat(this.less1Eng)
+            .concat(this.less2EngRu)
+            .concat(this.less2Eng)
+            .concat(this.less3EngRu)
+            .concat(this.less3Eng)
+            .concat(this.less4EngRu)
+            .concat(this.less4Eng)
+            .concat(this.less1DeuRu)
+            .concat(this.less1Deu)
+            .concat(this.less2DeuRu)
+            .concat(this.less2Deu)
+            .concat(this.less1FreRu)
+            .concat(this.less1Fre);
+    }
 }
