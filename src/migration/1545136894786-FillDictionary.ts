@@ -1377,7 +1377,7 @@ export class FillDictionary1545136894786 implements MigrationInterface {
             text: '',
             sounds: 'atstartm_final.mp3',
             mode: 'ONCE',
-            time: 380,
+            time: 0,
             next: 0,
             stages: 0,
             pages: 0,
