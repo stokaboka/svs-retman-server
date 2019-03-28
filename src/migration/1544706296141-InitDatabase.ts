@@ -31,7 +31,7 @@ export class InitDatabase1544706296141 implements MigrationInterface {
            { name: 'login',     type: 'varchar',    length: '255', isUnique: true },
            { name: 'password',  type: 'varchar',    length: '255' },
            { name: 'firstName', type: 'varchar',    length: '255' },
-           { name: 'secondName', type: 'varchar',    length: '255' },
+           { name: 'secondName', type: 'varchar',   length: '255' },
            { name: 'lastName',  type: 'varchar',    length: '255' },
            { name: 'birthday',  type: 'datetime' },
        ],

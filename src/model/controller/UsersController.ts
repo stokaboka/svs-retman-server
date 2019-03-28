@@ -49,13 +49,16 @@ export default class UsersController extends DBController {
         /*
         TODO add login code
          */
-        return this.repository.find(
+        console.log('login 1', request.body);
+        const data = await this.repository.find(
             {
                 select: this.aSelect,
                 where: {
-                    login: request.params.login,
-                    password: request.params.password},
+                    login: request.body.login,
+                    password: request.body.password},
             });
+        console.log('login', data);
+        return data;
     }
 
     /**

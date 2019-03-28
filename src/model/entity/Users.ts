@@ -34,6 +34,7 @@ export default class Users {
     @Column({
         name: 'secondName',
         type: 'varchar',
+        default: '-',
         length: 255,
     })
     public secondName: string;
@@ -48,6 +49,7 @@ export default class Users {
     @Column({
         name: 'birthday',
         type: 'datetime',
+        default: new Date(),
     })
     public birthday: Date;
 
