@@ -13,6 +13,8 @@ import stepsRoutes from './StepsRoutes';
 
 import cueRoutes from './CueRoutes';
 
+import usersResultsRoutes from './UsersResultsRoutes';
+
 export default [].concat(
     usersRoutes,
     groupsRoutes,
@@ -22,4 +24,5 @@ export default [].concat(
     phasesRoutes,
     stepsRoutes,
     cueRoutes,
+    usersResultsRoutes,
 );

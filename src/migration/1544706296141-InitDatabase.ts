@@ -31,9 +31,9 @@ export class InitDatabase1544706296141 implements MigrationInterface {
            { name: 'login',     type: 'varchar',    length: '255', isUnique: true },
            { name: 'password',  type: 'varchar',    length: '255' },
            { name: 'firstName', type: 'varchar',    length: '255' },
-           { name: 'secondName', type: 'varchar',   length: '255' },
-           { name: 'lastName',  type: 'varchar',    length: '255' },
-           { name: 'birthday',  type: 'datetime' },
+           { name: 'secondName', type: 'varchar',   length: '255', isNullable: true },
+           { name: 'lastName',  type: 'varchar',    length: '255', isNullable: true },
+           { name: 'birthday',  type: 'datetime', isNullable: true },
        ],
     });
 
@@ -128,6 +128,17 @@ export class InitDatabase1544706296141 implements MigrationInterface {
         ],
     });
 
+    private tableUsersResults: Table = new Table({
+        name: 'UsersResults',
+        columns: [
+            { name: 'id',   type: 'int', isPrimary: true, isGenerated: true, generationStrategy: 'increment' },
+            { name: 'user', type: 'varchar', length: '255' },
+            { name: 'results',  type: 'text', isNullable: true },
+            { name: 'date',  type: 'datetime', isNullable: true },
+        ],
+    });
+
+
     private tables: any[] = [];
 
     constructor() {
@@ -140,6 +151,7 @@ export class InitDatabase1544706296141 implements MigrationInterface {
             this.tablePhases,
             this.tableLessonStages,
             this.tableCue,
+            this.tableUsersResults,
         ];
     }
 

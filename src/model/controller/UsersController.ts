@@ -46,16 +46,11 @@ export default class UsersController extends DBController {
      * @param next
      */
     public async login(request: Request, response: Response, next: NextFunction) {
-        /*
-        TODO add login code
-         */
-        console.log('login 1', request.body);
+        const {login, password} = request.body;
         const data = await this.repository.find(
             {
                 select: this.aSelect,
-                where: {
-                    login: request.body.login,
-                    password: request.body.password},
+                where: {login, password},
             });
         console.log('login', data);
         return data;
@@ -72,7 +67,8 @@ export default class UsersController extends DBController {
         TODO add logout code
          */
         const out = await this.one(request, response, next);
-        return UsersController.fixObject(out);
+        // return UsersController.fixObject(out);
+        return {};
     }
 
     /**
