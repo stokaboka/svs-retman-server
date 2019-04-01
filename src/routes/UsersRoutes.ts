@@ -17,12 +17,13 @@ const routes: any[] = [
         controller: UsersController,
         action: 'update',
     },
-    {
-        method: 'post',
-        route: '/login',
-        controller: UsersController,
-        action: 'login',
-    },
+    // TODO app.ts - passport auth
+    // {
+    //     method: 'post',
+    //     route: '/login',
+    //     controller: UsersController,
+    //     action: 'login',
+    // },
     {
         method: 'post',
         route: '/logout',
