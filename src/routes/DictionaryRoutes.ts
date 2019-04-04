@@ -3,6 +3,7 @@
  */
 
 import DictionaryController from '../model/controller/DictionaryController';
+import PhasesController from "../model/controller/PhasesController";
 
 const routes: any[] = [
     {
@@ -38,6 +39,13 @@ const routes: any[] = [
         route: '/words/scope/:scope/lang1/:lang1/lang2/:lang2',
         controller: DictionaryController,
         action: 'words',
+    },
+
+    {
+        method: 'put',
+        route: '/words',
+        controller: DictionaryController,
+        action: 'update',
     },
 ];
 
