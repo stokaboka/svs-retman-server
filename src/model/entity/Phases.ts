@@ -76,9 +76,5 @@ export default class Phases {
         type: 'varchar',
         length: 100,
     })
-    @Column({
-        type: 'varchar',
-        length: 100,
-    })
     public component: string;
 }
