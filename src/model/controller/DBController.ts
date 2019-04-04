@@ -41,7 +41,7 @@ export default class DBController {
     }
 
     public async update(request: Request, response: Response, next: NextFunction) {
-        const out = await this.repository.update(request.params.id, request.body);
+        const out = await this.repository.update(request.body.id, request.body);
         return out;
     }
 

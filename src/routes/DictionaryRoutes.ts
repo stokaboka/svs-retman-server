@@ -3,7 +3,6 @@
  */
 
 import DictionaryController from '../model/controller/DictionaryController';
-import PhasesController from "../model/controller/PhasesController";
 
 const routes: any[] = [
     {
