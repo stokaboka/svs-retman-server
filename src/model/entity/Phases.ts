@@ -44,7 +44,7 @@ export default class Phases {
 
     @Column({
         type: 'varchar',
-        length: 1000,
+        length: 10000,
     })
     public text: string;
 
