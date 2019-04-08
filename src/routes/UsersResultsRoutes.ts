@@ -9,13 +9,20 @@ const routes: any[] = [
         method: 'get',
         route: '/user/results',
         controller: UsersResultsController,
-        results: 'results',
+        action: 'results',
+    },
+
+    {
+        method: 'get',
+        route: '/user/result',
+        controller: UsersResultsController,
+        action: 'result',
     },
     {
         method: 'post',
-        route: '/user/results',
+        route: '/user/result',
         controller: UsersResultsController,
-        action: 'save',
+        action: 'calc',
     },
 ];
 

@@ -10,7 +10,6 @@ export default class UsersResults {
     public id: number;
 
     @Column({
-        name: 'user',
         type: 'varchar',
         length: 255,
         unique: true,
@@ -18,13 +17,19 @@ export default class UsersResults {
     public user: string;
 
     @Column({
-        name: 'results',
         type: 'text',
     })
     public results: string;
 
     @Column({
-        name: 'date',
+        type: 'text',
+    })
+    public testing: string;
+
+    @Column()
+    public rating: number;
+
+    @Column({
         type: 'datetime',
         default: new Date(),
     })

@@ -134,6 +134,8 @@ export class InitDatabase1544706296141 implements MigrationInterface {
             { name: 'id',   type: 'int', isPrimary: true, isGenerated: true, generationStrategy: 'increment' },
             { name: 'user', type: 'varchar', length: '255' },
             { name: 'results',  type: 'text', isNullable: true },
+            { name: 'testing',  type: 'text', isNullable: true },
+            { name: 'rating',  type: 'double', isNullable: true },
             { name: 'date',  type: 'datetime', isNullable: true },
         ],
     });
