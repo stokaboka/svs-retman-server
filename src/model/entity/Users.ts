@@ -53,4 +53,11 @@ export default class Users {
     })
     public birthday: Date;
 
+    @Column({
+        name: 'role',
+        type: 'varchar',
+        length: 255,
+    })
+    public role: string;
+
 }

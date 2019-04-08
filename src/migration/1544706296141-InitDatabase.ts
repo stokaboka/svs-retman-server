@@ -33,7 +33,8 @@ export class InitDatabase1544706296141 implements MigrationInterface {
            { name: 'firstName', type: 'varchar',    length: '255' },
            { name: 'secondName', type: 'varchar',   length: '255', isNullable: true },
            { name: 'lastName',  type: 'varchar',    length: '255', isNullable: true },
-           { name: 'birthday',  type: 'datetime', isNullable: true },
+           { name: 'birthday',  type: 'datetime',   isNullable: true },
+           { name: 'role',      type: 'varchar',    length: '255', isNullable: false, default: '\'user\'' },
        ],
     });
 

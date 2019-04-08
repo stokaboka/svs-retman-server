@@ -18,12 +18,13 @@ export default class UsersResultsController extends DBController {
     }
 
     public async result(request: Request, response: Response, next: NextFunction) {
-        const {user} = request.body;
         const data = await this.repository.find(
             {
                 select: ['user', 'testing', 'rating', 'date'],
-                where: {user},
+                where: request.params,
                 order: {date: 'DESC'},
+                // skip: 0,
+                take: 1,
             });
         console.log('results', data);
         return data;
@@ -40,6 +41,7 @@ export default class UsersResultsController extends DBController {
         const data = await this.repository.find(
             {
                 where: {user},
+                order: {date: 'DESC'},
             });
         console.log('results', data);
         return data;
@@ -56,7 +58,7 @@ export default class UsersResultsController extends DBController {
         const results = request.body.results;
         const result = this.methods.calculate(results);
         const testing = JSON.stringify(result);
-        const rating = result.reduce((accumulator, e) => accumulator + e.value, 0);
+        const rating = result.reduce((accumulator, e) => accumulator + e.result, 0);
         const date = request.body.date;
         const data = {user, results, testing, rating, date};
         return await this.repository.save(data);

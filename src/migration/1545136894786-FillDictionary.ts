@@ -4,6 +4,7 @@ import Dictionary from '../model/entity/Dictionary';
 import LessonStages from '../model/entity/LessonStages';
 import Phases from '../model/entity/Phases';
 import Steps from '../model/entity/Steps';
+import Users from '../model/entity/Users';
 
 export class FillDictionary1545136894786 implements MigrationInterface {
 
@@ -50,6 +51,7 @@ export class FillDictionary1545136894786 implements MigrationInterface {
         phases: ['step', 'phase', 'num', 'action', 'result', 'title', 'scope', 'text', 'sounds', 'mode', 'time', 'next', 'stages', 'pages', 'component'],
         lessonStages: ['lang', 'title', 'step', 'lesson', 'stage', 'pages', 'scope', 'sound', 'time'],
         cue: ['file', 'pos'],
+        users: ['id', 'login', 'password', 'firstName', 'secondName', 'lastName', 'birthday', 'role'],
     };
 
     private mnemic = [
@@ -4564,6 +4566,13 @@ export class FillDictionary1545136894786 implements MigrationInterface {
             .insert()
             .into(Cue, this.fields.cue)
             .values(this.cue)
+            .execute();
+
+        await getConnection()
+            .createQueryBuilder()
+            .insert()
+            .into(Users, this.fields.users)
+            .values([{id: 0, login: 'admin', password: '1234567890-', firstName: 'Administrator', role: 'admin'}])
             .execute();
     }
 

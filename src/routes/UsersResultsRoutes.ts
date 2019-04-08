@@ -14,7 +14,7 @@ const routes: any[] = [
 
     {
         method: 'get',
-        route: '/user/result',
+        route: '/user/result/:user',
         controller: UsersResultsController,
         action: 'result',
     },

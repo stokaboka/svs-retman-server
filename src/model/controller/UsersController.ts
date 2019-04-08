@@ -20,7 +20,7 @@ export default class UsersController extends DBController {
         return obj;
     }
 
-    private aSelect = [ 'login', 'firstName', 'secondName', 'lastName', 'birthday' ];
+    private aSelect = [ 'login', 'firstName', 'secondName', 'lastName', 'birthday', 'role' ];
 
     constructor() {
         super(getRepository(Users));
