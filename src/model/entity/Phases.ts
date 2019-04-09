@@ -77,4 +77,8 @@ export default class Phases {
         length: 100,
     })
     public component: string;
+
+    @Column()
+    public soundVolume: number;
+
 }
