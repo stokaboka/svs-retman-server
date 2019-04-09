@@ -54,6 +54,9 @@ export default class Phases {
     })
     public sounds: string;
 
+    @Column()
+    public soundVolume: number;
+
     @Column({
         type: 'varchar',
         length: 100,
@@ -77,8 +80,5 @@ export default class Phases {
         length: 100,
     })
     public component: string;
-
-    @Column()
-    public soundVolume: number;
 
 }
