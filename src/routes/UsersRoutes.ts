@@ -12,6 +12,12 @@ const routes: any[] = [
         action: 'users',
     },
     {
+        method: 'get',
+        route: '/userss/:search?',
+        controller: UsersController,
+        action: 'search',
+    },
+    {
         method: 'put',
         route: '/user/:id',
         controller: UsersController,

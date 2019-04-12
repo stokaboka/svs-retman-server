@@ -3,7 +3,7 @@
  */
 
 import {NextFunction, Request, Response} from 'express';
-import {getRepository} from 'typeorm';
+import {getRepository, Like} from 'typeorm';
 import Users from '../entity/Users';
 import DBController from './DBController';
 
@@ -33,10 +33,46 @@ export default class UsersController extends DBController {
      * @param next
      */
     public async users(request: Request, response: Response, next: NextFunction) {
-        return this.repository.find(
-            {
-                select: this.aSelect,
+        const {search} = request.body;
+        if (search) {
+            return this.repository.find({
+                select: ['id'].concat(this.aSelect),
+                where: [
+                    {login: Like(`%${search}%`) },
+                    {firstName: Like(`%${search}%`)},
+                    {secondName: Like(`%${search}%`)},
+                    {lastName: Like(`%${search}%`)},
+                ],
             });
+        } else {
+            return this.repository.find({ select: this.aSelect });
+        }
+    }
+
+    /**
+     * search users
+     * @param request
+     * @param response
+     * @param next
+     */
+    public async search(request: Request, response: Response, next: NextFunction) {
+        const {search} = request.params;
+        // console.log('params', request.params)
+        // console.log('body', request.body)
+        // console.log('query', request.query)
+        if (search) {
+            return this.repository.find({
+                select: ['id'].concat(this.aSelect),
+                where: [
+                    {login: Like(`%${search}%`) },
+                    {firstName: Like(`%${search}%`)},
+                    {secondName: Like(`%${search}%`)},
+                    {lastName: Like(`%${search}%`)},
+                ],
+            });
+        } else {
+            return this.repository.find({ select: this.aSelect });
+        }
     }
 
     /**
