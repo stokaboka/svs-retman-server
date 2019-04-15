@@ -37,7 +37,7 @@ export default class UsersResultsController extends DBController {
      * @param next
      */
     public async results(request: Request, response: Response, next: NextFunction) {
-        const {user} = request.body;
+        const {user} = request.params;
         const data = await this.repository.find(
             {
                 where: {user},

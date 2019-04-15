@@ -7,7 +7,7 @@ import UsersResultsController from '../model/controller/UsersResultsController';
 const routes: any[] = [
     {
         method: 'get',
-        route: '/user/results',
+        route: '/user/results/:user',
         controller: UsersResultsController,
         action: 'results',
     },

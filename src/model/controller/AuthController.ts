@@ -24,7 +24,7 @@ export default class AuthController extends DBController {
         return savedPassword === verifiablePassword;
     }
 
-    private aSelect = ['login', 'firstName', 'secondName', 'lastName', 'birthday'];
+    private aSelect = ['login', 'firstName', 'secondName', 'lastName', 'birthday', 'role'];
 
     constructor() {
         super(getRepository(Users));
@@ -53,7 +53,7 @@ export default class AuthController extends DBController {
 
     public async findByLogin(login: string) {
         const data = await this.repository.find({
-            select: ['login', 'firstName', 'secondName', 'lastName', 'birthday', 'password'],
+            select: ['login', 'firstName', 'secondName', 'lastName', 'birthday', 'password', 'role'],
             where: {login},
         });
         // console.log('findByLogin', data);
