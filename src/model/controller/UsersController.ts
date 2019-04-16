@@ -56,23 +56,44 @@ export default class UsersController extends DBController {
      * @param next
      */
     public async search(request: Request, response: Response, next: NextFunction) {
-        const {search} = request.params;
-        // console.log('params', request.params)
-        // console.log('body', request.body)
-        // console.log('query', request.query)
-        if (search) {
-            return this.repository.find({
-                select: ['id'].concat(this.aSelect),
-                where: [
-                    {login: Like(`%${search}%`) },
-                    {firstName: Like(`%${search}%`)},
-                    {secondName: Like(`%${search}%`)},
-                    {lastName: Like(`%${search}%`)},
-                ],
-            });
-        } else {
-            return this.repository.find({ select: this.aSelect });
+        const {page, limit, sortBy, descending, filter} = request.query;
+        // console.log('params', request.params);
+        // console.log('body', request.body);
+        // console.log('query', request.query);
+
+        const select = ['id'].concat(this.aSelect);
+
+        let where: any[] = [];
+        if (filter) {
+            where = [
+                {login: Like(`%${filter}%`) },
+                {firstName: Like(`%${filter}%`)},
+                {secondName: Like(`%${filter}%`)},
+                {lastName: Like(`%${filter}%`)},
+            ];
         }
+
+        const order: any = {};
+
+        if (sortBy) {
+            order[sortBy] = descending === 'true' ? 'DESC' : 'ASC';
+        }
+
+        const take = limit || 10;
+        const skip = ((page || 1) - 1) * (limit || 0);
+
+        const [result, total] = await this.repository.findAndCount({
+                select,
+                where,
+                order,
+                take,
+                skip,
+            });
+
+        return {
+            rows: result,
+            rowsNumber: total,
+        };
     }
 
     /**

@@ -13,7 +13,7 @@ const routes: any[] = [
     },
     {
         method: 'get',
-        route: '/userss/:search?',
+        route: '/userss',
         controller: UsersController,
         action: 'search',
     },
