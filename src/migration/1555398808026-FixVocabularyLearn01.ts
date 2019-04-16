@@ -13,7 +13,7 @@ export class FixVocabularyLearn011555398808026 implements MigrationInterface {
                 const x = a.split('\t');
                 if (x.length > i) {
                     const y = x[i].split('~');
-                    console.log(x[i], y);
+                    // console.log(x[i], y);
                     if (y.length === 2) {
                         aa1.push({
                             word1: y[0].replace(/\d+\./gm, '').trim(),

@@ -81,4 +81,9 @@ export default class Phases {
     })
     public component: string;
 
+    @Column({
+        type: 'varchar',
+        length: 500,
+    })
+    public video: string;
 }
