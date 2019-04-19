@@ -1,3 +1,5 @@
+// import passport from 'passport';
+
 import dictionaryRoutes from './DictionaryRoutes';
 import groupsRoutes from './GroupRoutes';
 import usersGroupsRoutes from './UsersGroupsRoutes';
@@ -12,6 +14,8 @@ import cueRoutes from './CueRoutes';
 import {NextFunction, Request, Response} from 'express';
 import routes from './index';
 import usersResultsRoutes from './UsersResultsRoutes';
+
+import Auth from '../auth/Auth'
 
 export default class Router  {
 
@@ -33,16 +37,16 @@ export default class Router  {
         );
     }
 
-    public initialise() {
+    public initialise(auth: Auth) {
         routes.forEach((route: any) => {
-            (this.app as any)[route.method](route.route, (req: Request, res: Response, next: NextFunction) => {
-                const result = (new (route.controller as any)())[route.action](req, res, next);
-                if (result instanceof Promise) {
-                    result.then((rslt) => rslt !== null && rslt !== undefined ? res.send(rslt) : undefined);
-
-                } else if (result !== null && result !== undefined) {
-                    res.json(result);
-                }
+            (this.app as any)[route.method](route.route, auth.passport.authenticate('jwt', {session: false}),
+                (req: Request, res: Response, next: NextFunction) => {
+                    const result = (new (route.controller as any)())[route.action](req, res, next);
+                    if (result instanceof Promise) {
+                        result.then((rslt) => rslt !== null && rslt !== undefined ? res.send(rslt) : undefined);
+                    } else if (result !== null && result !== undefined) {
+                        res.json(result);
+                    }
             });
         });
 

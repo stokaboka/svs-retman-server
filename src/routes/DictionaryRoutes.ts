@@ -9,7 +9,7 @@ const routes: any[] = [
         method: 'get',
         route: '/words',
         controller: DictionaryController,
-        action: 'all',
+        action: 'alll',
     },
 
     {

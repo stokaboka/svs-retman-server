@@ -27,4 +27,11 @@ export default class DictionaryController extends DBController {
             });
     }
 
+    public async alll(request: Request, response: Response, next: NextFunction) {
+
+        return this.repository.find(
+            {
+                where: {id: -1},
+            });
+    }
 }

@@ -24,10 +24,25 @@ export default class AuthController extends DBController {
         return savedPassword === verifiablePassword;
     }
 
-    private aSelect = ['login', 'firstName', 'secondName', 'lastName', 'birthday', 'role'];
+    private static encode(pass: string) {
+        return pass;
+    }
 
     constructor() {
         super(getRepository(Users));
+    }
+
+    public async findById(id: any) {
+        // console.log('findById', data);
+        const data =  await this.repository.find({
+            select: ['login', 'firstName', 'secondName', 'lastName', 'birthday', 'role'],
+            where: {id},
+        });
+        if (data.length > 0) {
+            return data[0];
+        } else {
+            return null;
+        }
     }
 
 // public function(id: string, done: any) {
@@ -35,41 +50,62 @@ export default class AuthController extends DBController {
 //             done(err, user);
 //         });
 //     })
+
+    // public async login(request: Request, response: Response, next: NextFunction) {
+    //     const {login, password} = request.body;
+    //     const data = await this.findByLogin(login);
+    //     // if (data.password && this.comparePassword(data.password, password)) {
+    //     //
+    //     // }
+    //     // console.log('login', data);
+    //     return data;
+    // }
+
     /**
-     * user login
-     * @param request
-     * @param response
-     * @param next
+     *
+     * @param login
+     * @param password
      */
-    public async login(request: Request, response: Response, next: NextFunction) {
-        const {login, password} = request.body;
-        const data = await this.findByLogin(login);
-        // if (data.password && this.comparePassword(data.password, password)) {
-        //
-        // }
-        // console.log('login', data);
-        return data;
+    public async login(login: string, password: string): Promise<any> {
+
+        const data = await this.repository.find({
+            select: ['id', 'login', 'firstName', 'secondName', 'lastName', 'birthday', 'password', 'role'],
+            where: {login},
+        });
+        // console.log('findByLogin', data);
+        let out: { message: string; user: null, status: string };
+        out = {
+            user: null,
+            message: '',
+            status: '',
+        };
+        if (0 < data.length) {
+            const user = data[0];
+            if (user.password === AuthController.encode(password)) {
+                out.user = AuthController.fixObject(user);
+            } else {
+                out.message = 'Неправильный пароль';
+                out.status = 'Forbidden';
+            }
+        } else {
+            out.message = 'Пользователь с таким именем не найден';
+            out.status = 'Forbidden';
+        }
+
+        return out;
     }
 
     public async findByLogin(login: string) {
         const data = await this.repository.find({
-            select: ['login', 'firstName', 'secondName', 'lastName', 'birthday', 'password', 'role'],
+            select: ['id', 'login', 'firstName', 'secondName', 'lastName', 'birthday', 'password', 'role'],
             where: {login},
         });
         // console.log('findByLogin', data);
-        if (data.length > 0) {
+        if (0 < data.length) {
             return data[0];
         } else {
             return{};
         }
-    }
-
-    public async findById(id: any): Promise<any> {
-        // console.log('findById', data);
-        return await this.repository.find({
-            select: this.aSelect,
-            where: {id},
-        });
     }
 
     /**
@@ -119,4 +155,5 @@ export default class AuthController extends DBController {
         const out = await super.save(request, response, next);
         return AuthController.fixObject(out);
     }
+
 }

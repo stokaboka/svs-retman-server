@@ -29,19 +29,23 @@ app.use(session({ secret: 'svs', cookie: { maxAge: 60000 }, resave: false, saveU
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
     res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
     next();
 });
 
 const router = new Router(app);
-const auth = new Auth(app)
-    .initialise()
-    .localStrategy();
+const auth = new Auth(app);
 
 createConnection().then(async (connection) => {
-    router.initialise();
-    auth.initialiseRoutes();
+
+    auth.initialise()
+        .localStrategy()
+        .JWTStrategy()
+        .initialiseRoutes();
+
+    router.initialise(auth);
+
 }).catch((error) => console.log(error));
 
 export default app;
