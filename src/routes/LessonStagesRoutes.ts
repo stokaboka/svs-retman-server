@@ -10,12 +10,14 @@ const routes: any[] = [
         route: '/ls',
         controller: LessonStagesController,
         action: 'all',
+        secure: false,
     },
     {
         method: 'get',
         route: '/ls/lang/:lang',
         controller: LessonStagesController,
         action: 'find',
+        secure: false,
     },
 ];
 

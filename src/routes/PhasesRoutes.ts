@@ -10,12 +10,14 @@ const routes: any[] = [
         route: '/ph',
         controller: PhasesController,
         action: 'all',
+        secure: false,
     },
     {
         method: 'get',
         route: '/ph/step/:step',
         controller: PhasesController,
         action: 'find',
+        secure: false,
     },
 ];
 

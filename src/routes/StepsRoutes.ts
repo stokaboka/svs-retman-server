@@ -10,6 +10,7 @@ const routes: any[] = [
         route: '/s',
         controller: StepsController,
         action: 'all',
+        secure: false,
     },
 ];
 

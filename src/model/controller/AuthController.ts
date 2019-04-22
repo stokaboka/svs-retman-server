@@ -34,6 +34,7 @@ export default class AuthController extends DBController {
 
     public async findById(id: any) {
         // console.log('findById', data);
+        console.log('AuthController', 'findById');
         const data =  await this.repository.find({
             select: ['login', 'firstName', 'secondName', 'lastName', 'birthday', 'role'],
             where: {id},
@@ -96,6 +97,7 @@ export default class AuthController extends DBController {
     }
 
     public async findByLogin(login: string) {
+        console.log('AuthController', 'findByLogin');
         const data = await this.repository.find({
             select: ['id', 'login', 'firstName', 'secondName', 'lastName', 'birthday', 'password', 'role'],
             where: {login},

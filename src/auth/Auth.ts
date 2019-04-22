@@ -3,14 +3,18 @@
 import jwt from 'jsonwebtoken';
 import passport from 'passport';
 import passportLocal from 'passport-local';
+
 const LocalStrategy = passportLocal.Strategy;
 
 import passportJWT from 'passport-jwt';
-const JWTStrategy   = passportJWT.Strategy;
+
+const JWTStrategy = passportJWT.Strategy;
 const ExtractJWT = passportJWT.ExtractJwt;
 
 import {NextFunction, Request, Response} from 'express';
+
 import AuthController from '../model/controller/AuthController';
+import UsersController from '../model/controller/UsersController';
 
 export default class Auth {
 
@@ -18,7 +22,49 @@ export default class Auth {
 
     private app: any;
     private authController: AuthController;
-    private secret = 'svoboda_slova';
+
+    private secretOrKey = 'svoboda_slova';
+    private subject = 'http://lingvo-svoboda.ru/';
+    private audience = 'http://lingvo-svoboda.ru/';
+    private issuer = 'http://orangem.me/';
+
+    private localStrategyOpts = {
+        usernameField: 'login',
+        passwordField: 'password',
+    };
+
+    private signOpts = {
+        // issuer: this.issuer,
+        // subject: this.subject,
+        expiresIn: '10m',
+    };
+
+    private jwtStrategyhOpts = {
+        jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
+        secretOrKey: this.secretOrKey,
+        // issuer: this.issuer,
+        // audience: this.audience,
+    };
+
+    private verifyhOpts = {
+        // issuer: this.issuer,
+        ignoreExpiration: false,
+        // subject: this.subject,
+        clockTolerance: 5,
+        maxAge: '1d',
+    };
+
+    private STATUS = {
+        forbidden: 'Forbidden',
+        unauthorized: 'Unauthorized',
+    };
+
+    private MESSAGES = {
+        forbidden: {message: 'Forbidden'},
+        unauthorized: {message: 'Unauthorized'},
+        notFound: {message: 'User not found'},
+        othersError: {message: 'Something is not right'},
+    };
 
     constructor(app: any) {
         this.app = app;
@@ -46,124 +92,150 @@ export default class Auth {
         return this;
     }
 
-    public initialiseRoutes() {
+    public initRoutes() {
+
+        this.app.post('/register', async (req: Request, res: Response, next: NextFunction) => {
+            const usersController: UsersController = new UsersController();
+            const user: any = await usersController.register(req, res, next);
+            req.login(user, {session: false}, (error) => {
+                if (error) {
+                    res.send(error);
+                }
+                // generate a signed son web token with the contents of user object and return it in the response
+                const token = jwt.sign({id: user.id}, this.secretOrKey, this.signOpts);
+                return res.json({user, token});
+            });
+        });
+
         this.app.post('/login', async (req: Request, res: Response, next: NextFunction) => {
 
             if (req.headers && req.headers.authorization) {
                 const token = req.headers.authorization.substr(7);
                 try {
-                    const verifiedJwt: any = jwt.verify(token, this.secret);
+                    const verifiedJwt: any = jwt.verify(token, this.secretOrKey, this.verifyhOpts);
                     // console.log('jwt.verify:', token, 'OK');
                     // console.log('verifiedJwt:', verifiedJwt, 'OK');
-
-                    if (this.tokenExpired(verifiedJwt)) {
-                        return res
-                            .status(401)
-                            .json({message: 'Unauthorized'});
-                    }
+                    // if (this.tokenExpired(verifiedJwt)) {
+                    //     return res
+                    //         .status(401)
+                    //         .json({message: 'Unauthorized'});
+                    // }
 
                     const user = await this.authController.findById(verifiedJwt.id);
                     if (user) {
-                        return res.json({user, token});
+                        return res
+                            .json({user, token});
                     } else {
-                        res.send('User not found');
+                        return res
+                            .status(401)
+                            .send(this.MESSAGES.notFound);
                     }
 
                 } catch (e) {
-                    // console.log('jwt.verify:', token, e);
+                    console.log('jwt.verify:', e);
+                    return res
+                        .status(401)
+                        .json(this.MESSAGES.unauthorized);
                 }
             }
 
             passport.authenticate('local', {session: false}, (err, user, info) => {
                 // console.log('authenticate', err, user, info);
+                let token = '';
 
-                if (err === 'Forbidden') {
+                if (err === this.STATUS.forbidden) {
                     return res
                         .status(403)
-                        .json({ message: 'Forbidden'});
+                        .json(this.MESSAGES.forbidden);
                 }
-                if (err === 'Unauthorized') {
+                if (err === this.STATUS.unauthorized) {
                     return res
                         .status(401)
-                        .json({ message: 'Unauthorized'});
+                        .json(this.MESSAGES.unauthorized);
                 }
                 if (err || !user) {
                     return res
                         .status(400)
-                        .json({
-                        message: 'Something is not right',
-                        user,
-                    });
+                        .json(this.MESSAGES.othersError);
                 }
                 req.login(user, {session: false}, (error) => {
                     if (error) {
                         res.send(error);
                     }
                     // generate a signed son web token with the contents of user object and return it in the response
-                    const token = jwt.sign({id: user.id}, this.secret,  { expiresIn: '10h' });
+                    token = jwt.sign({id: user.id}, this.secretOrKey, this.signOpts);
                     return res.json({user, token});
                 });
             })(req, res);
         });
+        return this;
     }
 
-    // public initialiseRoutes() {
-    //     this.app.post('/login',
-    //         passport.authenticate('local'),
-    //         (req: Request, res: Response, next: NextFunction) => {
-    //             res.json(res.req.user);
-    //             if (next) {
-    //                 next();
-    //             }
-    //         },
-    //     );
-    // }
+    public initLocalStrategy() {
+        passport.use(new LocalStrategy(this.localStrategyOpts, async (username, password, done) => {
+                let authCtrlInfo: any;
+                let error = null;
+                let user = false;
+                let info = null;
+                const unAuthUser = '-';
+                if (!username || username === unAuthUser) {
+                    error = 'Unauthorized';
+                    info = {message: 'Unauthorized'};
+                } else {
+                    try {
+                        authCtrlInfo = await this.authController.login(username, password);
 
-    public localStrategy() {
-        passport.use(new LocalStrategy(
-            {
-                usernameField: 'login',
-                passwordField: 'password',
-            },
-            async (username, password, done) => {
-
-                if (!username || '-' === username) {
-                    return done('Unauthorized', false, {message: 'Unauthorized'});
-                }
-                try {
-                    const info = await this.authController.login(username, password);
-
-                    if (info.user) {
-                        return done(null, info.user);
-                    } else {
-                        return done(info.status, false, {message: info.message});
+                        if (authCtrlInfo.user) {
+                            user = authCtrlInfo.user;
+                        } else {
+                            error = authCtrlInfo.status;
+                            info = {message: authCtrlInfo.message};
+                        }
+                    } catch (err) {
+                        error = err;
+                        info = {message: err};
                     }
-                } catch (err) {
-                    return done(err, false, {message: err});
                 }
+                return done(error, user, info);
             },
         ));
         return this;
     }
 
-    public JWTStrategy() {
-        passport.use(new JWTStrategy({
-                jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
-                secretOrKey   : this.secret,
-            },
-            (jwtPayload, cb) => {
+    public initJWTStrategy() {
+        passport.use(new JWTStrategy(this.jwtStrategyhOpts, (jwtPayload, done) => {
 
-            if (this.tokenExpired(jwtPayload)) {
-                return cb('Token expired');
-            }
+                if (this.tokenExpired(jwtPayload)) {
+                    return done('Token expired');
+                } else {
+                    return this.authController.findById(jwtPayload.id)
+                        .then((user: any) => {
+                            // console.log('JWTStrategy', null, user);
+                            return done(null, user);
+                        })
+                        .catch((err: any) => {
+                            console.log('JWTStrategy', err);
+                            return done(err);
+                        });
+                }
+                //
+                // try {
+                //     const verifiedJwt: any = jwt.verify(token, this.secretOrKey, this.verifyhOpts);
+                // } catch (e) {
+                //     return done('Token expired or invalid');
+                // }
 
-            return this.authController.findById(jwtPayload.id)
-                    .then((user: any) => {
-                        return cb(null, user);
-                    })
-                    .catch((err: any) => {
-                        return cb(err);
-                    });
+                // console.log('JWTStrategy', jwtPayload);
+
+                // return this.authController.findById(jwtPayload.id)
+                //         .then((user: any) => {
+                //             // console.log('JWTStrategy', null, user);
+                //             return done(null, user);
+                //         })
+                //         .catch((err: any) => {
+                //             console.log('JWTStrategy', err);
+                //             return done(err);
+                //         });
             },
         ));
         return this;

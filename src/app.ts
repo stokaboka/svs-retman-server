@@ -40,9 +40,9 @@ const auth = new Auth(app);
 createConnection().then(async (connection) => {
 
     auth.initialise()
-        .localStrategy()
-        .JWTStrategy()
-        .initialiseRoutes();
+        .initLocalStrategy()
+        .initJWTStrategy()
+        .initRoutes();
 
     router.initialise(auth);
 

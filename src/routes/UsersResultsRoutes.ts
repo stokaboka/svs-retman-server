@@ -10,6 +10,7 @@ const routes: any[] = [
         route: '/user/results/:user',
         controller: UsersResultsController,
         action: 'results',
+        secure: true,
     },
 
     {
@@ -17,12 +18,14 @@ const routes: any[] = [
         route: '/user/result/:user',
         controller: UsersResultsController,
         action: 'result',
+        secure: true,
     },
     {
         method: 'post',
         route: '/user/result',
         controller: UsersResultsController,
         action: 'calc',
+        secure: true,
     },
 ];
 

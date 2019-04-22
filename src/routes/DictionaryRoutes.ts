@@ -10,6 +10,7 @@ const routes: any[] = [
         route: '/words',
         controller: DictionaryController,
         action: 'alll',
+        secure: false,
     },
 
     {
@@ -17,6 +18,7 @@ const routes: any[] = [
         route: '/words/scope/:scope',
         controller: DictionaryController,
         action: 'words',
+        secure: false,
     },
 
     {
@@ -24,6 +26,7 @@ const routes: any[] = [
         route: '/words/scope/:scope/lang1/:lang1',
         controller: DictionaryController,
         action: 'words',
+        secure: false,
     },
 
     {
@@ -31,6 +34,7 @@ const routes: any[] = [
         route: '/words/scope/:scope/lang2/:lang2',
         controller: DictionaryController,
         action: 'words',
+        secure: false,
     },
 
     {
@@ -38,6 +42,7 @@ const routes: any[] = [
         route: '/words/scope/:scope/lang1/:lang1/lang2/:lang2',
         controller: DictionaryController,
         action: 'words',
+        secure: false,
     },
 
     {
@@ -45,6 +50,7 @@ const routes: any[] = [
         route: '/words',
         controller: DictionaryController,
         action: 'update',
+        secure: true,
     },
 ];
 

@@ -11,20 +11,24 @@ import stepsRoutes from './StepsRoutes';
 
 import cueRoutes from './CueRoutes';
 
-import {NextFunction, Request, Response} from 'express';
-import routes from './index';
 import usersResultsRoutes from './UsersResultsRoutes';
 
-import Auth from '../auth/Auth'
+import {NextFunction, Request, Response} from 'express';
 
-export default class Router  {
+import Auth from '../auth/Auth';
+
+export default class Router {
 
     private routes: any[] = [];
     private app: any;
 
+    private secureRoutes = ['/user/results', '/user/result'];
+    private secureMethods = ['PUT', 'POST', 'DELETE'];
+
     constructor(app: any) {
         this.app = app;
-        this.routes.concat(
+        this.routes = []
+            .concat(
             usersRoutes,
             groupsRoutes,
             usersGroupsRoutes,
@@ -33,21 +37,48 @@ export default class Router  {
             phasesRoutes,
             stepsRoutes,
             cueRoutes,
-            usersResultsRoutes,
-        );
+            usersResultsRoutes);
+        //     .map((r) => {
+        //         const fndRoute = this.secureRoutes.findIndex((s) => r.route.startsWith(s));
+        //         // const fndMethod = this.secureMethods.findIndex((s) => r.method.toUpperCase().startsWith(s));
+        //         // const secure = fndRoute !== -1 || fndMethod !== -1;
+        //         const secure = fndRoute !== -1;
+        //         return {
+        //             ...r,
+        //             secure,
+        //         };
+        //     }, this);
+        //
+        console.log('secure routes', this.routes.filter((r) => r.secure).map((r) => r.route));
     }
 
     public initialise(auth: Auth) {
-        routes.forEach((route: any) => {
-            (this.app as any)[route.method](route.route, auth.passport.authenticate('jwt', {session: false}),
-                (req: Request, res: Response, next: NextFunction) => {
-                    const result = (new (route.controller as any)())[route.action](req, res, next);
-                    if (result instanceof Promise) {
-                        result.then((rslt) => rslt !== null && rslt !== undefined ? res.send(rslt) : undefined);
-                    } else if (result !== null && result !== undefined) {
-                        res.json(result);
-                    }
-            });
+        this.routes.forEach((route: any) => {
+
+            if (route.secure) {
+                (this.app as any)[route.method](route.route,
+                    auth.passport.authenticate('jwt', {session: false}),
+                    (req: Request, res: Response, next: NextFunction) => {
+                        const result = (new (route.controller as any)())[route.action](req, res, next);
+                        if (result instanceof Promise) {
+                            result.then((rslt) => rslt !== null && rslt !== undefined ? res.send(rslt) : undefined);
+                        } else if (result !== null && result !== undefined) {
+                            res.json(result);
+                        }
+                    });
+
+            } else {
+                (this.app as any)[route.method](route.route,
+                    (req: Request, res: Response, next: NextFunction) => {
+                        const result = (new (route.controller as any)())[route.action](req, res, next);
+                        if (result instanceof Promise) {
+                            result.then((rslt) => rslt !== null && rslt !== undefined ? res.send(rslt) : undefined);
+                        } else if (result !== null && result !== undefined) {
+                            res.json(result);
+                        }
+                    });
+            }
+
         });
 
     }

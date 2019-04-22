@@ -10,6 +10,7 @@ const routes: any[] = [
         route: '/g',
         controller: GroupsController,
         action: 'all',
+        secure: true,
     },
 ];
 

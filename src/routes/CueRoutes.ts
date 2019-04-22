@@ -10,12 +10,14 @@ const routes: any[] = [
         route: '/cue',
         controller: CueController,
         action: 'all',
+        secure: false,
     },
     {
         method: 'get',
         route: '/cue/file/:file',
         controller: CueController,
         action: 'find',
+        secure: false,
     },
 ];
 
