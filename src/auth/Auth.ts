@@ -36,10 +36,10 @@ export default class Auth {
     private signOpts = {
         // issuer: this.issuer,
         // subject: this.subject,
-        expiresIn: '10m',
+        expiresIn: '1d',
     };
 
-    private jwtStrategyhOpts = {
+    private jwtStrategyOpts = {
         jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
         secretOrKey: this.secretOrKey,
         // issuer: this.issuer,
@@ -203,7 +203,7 @@ export default class Auth {
     }
 
     public initJWTStrategy() {
-        passport.use(new JWTStrategy(this.jwtStrategyhOpts, (jwtPayload, done) => {
+        passport.use(new JWTStrategy(this.jwtStrategyOpts, (jwtPayload, done) => {
 
                 if (this.tokenExpired(jwtPayload)) {
                     return done('Token expired');

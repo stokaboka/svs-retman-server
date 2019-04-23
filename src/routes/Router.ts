@@ -49,7 +49,8 @@ export default class Router {
         //         };
         //     }, this);
         //
-        console.log('secure routes', this.routes.filter((r) => r.secure).map((r) => r.route));
+
+        // console.log('secure routes', this.routes.filter((r) => r.secure).map((r) => r.route));
     }
 
     public initialise(auth: Auth) {
