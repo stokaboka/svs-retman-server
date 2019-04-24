@@ -94,6 +94,7 @@ export class InitDatabase1544706296141 implements MigrationInterface {
             { name: 'stages',   type: 'int' },
             { name: 'pages',    type: 'int' },
             { name: 'component', type: 'varchar',    length: '100' },
+            { name: 'video',    type: 'varchar', isNullable: true, length: '500'},
         ],
         // foreignKeys: [
         //     { name: 'PhasesStepId',
