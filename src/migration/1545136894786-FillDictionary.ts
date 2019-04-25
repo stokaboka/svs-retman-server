@@ -3522,6 +3522,7 @@ export class FillDictionary1545136894786 implements MigrationInterface {
             stages: 0,
             pages: 0,
             component: 'ATDescription',
+            video: 'sanexpr.mp4',
         },
         {
             step: 2,
