@@ -5,10 +5,16 @@ import LessonStages from '../model/entity/LessonStages';
 import Phases from '../model/entity/Phases';
 import Steps from '../model/entity/Steps';
 import Users from '../model/entity/Users';
+import UsersResults from "../model/entity/UsersResults";
 
 export class FillDictionary1545136894786 implements MigrationInterface {
 
-    private AThtml = '<p>Для того чтобы настроиться на эффективную работу во время пробного обучения, предлагаем Вам самостоятельно проделать упражнения по аутогенной тренировке (АТ).</p>' +
+    private AT0html = '<p>В нашем автоматизированном курсе многие занятия будут сопровождаться специальными программами по психической самореглуляции состояния и восприятия. Эти программы основаны на упражнениях аутогенной тренировки, аутотренинге.</p>' +
+        '<p>Аутогенная тренировка начинается с упражнений по мышечной релаксации, т.е. – с расслабления мышц. А как известно, расслабление мышц – непременное условие эффективного отдыха. Собственно говоря, все состояния, которые вы будете испытывать во время выполнения аутотренинга, вам уже знакомы, но вся цель самореглуяции заключается в том, чтобы вы смогли эти состояния вызвать произвольно, сознательно, смогли быстро войти в нужное состояние и удерживать его столько, сколько необходимо.</p>' +
+        '<p>Целью мышечной релаксации является отдых, а вот сама релаксация является условием эффективности самовнушения. На фоне мышечной релаксации можно приступить к главной задачи саморегуляции – направленному самовнушению, к коррекции своего психофизиологического состояния и настроения, к настройке на предстоящую эффективною деятельность.</p>' +
+        '<p>Важную роль для релаксации играет также поза, в которой вы будете слушать выполнять упражнения аутотренинга. Если у вас есть возможность расположиться в кресле с подголовником или высокой спинкой, то займите положение "полулежа", если такой возможности нет – устройтесь в так называемой "позе кучера", как это показано на фотографиях.</p>';
+
+        private AT1html = '<p>Для того чтобы настроиться на эффективную работу во время пробного обучения, предлагаем Вам самостоятельно проделать упражнения по аутогенной тренировке (АТ).</p>' +
         '<p>Устройтесь поудобнее, устраните все отвлекающие факторы. Внимательно слушайте инструкции, с полной самоотдачей выполняйте упражнения.</p>' +
         '<p>Длительность АТ- 6 мин 20 сек</p>';
 
@@ -57,6 +63,17 @@ export class FillDictionary1545136894786 implements MigrationInterface {
     private users = [
         {login: 'admin', password: '=0987654321', firstName: 'Administrator', role: 'admin'},
         {login: 'operator', password: '1234567890', firstName: 'Operator', role: 'operator'},
+    ];
+
+    private usersResults = [
+        {
+            id : 1,
+            user : 'admin',
+            results : '{\"sanexpr\":{\"before\":{\"s\":2,\"a\":1,\"n\":1},\"after\":{\"s\":4,\"a\":4,\"n\":4},\"recomendation\":\"\"},\"mnemic\":{\"checked\":2,\"checkedWordsPairs\":[{\"word1\":\"вол\",\"word2\":\"сосна\",\"hide\":\"\"},{\"word1\":\"ветер\",\"word2\":\"голод\",\"hide\":\"\"}],\"rememberedWordsPairs\":[{\"word1\":\"вол\",\"word2\":\"сосна\"},{\"word1\":\"ветер\",\"word2\":\"голод\"}],\"remembered\":2,\"percent\":4,\"cancel\":true,\"recomendation\":\"<p>Вы запомнили  <strong>2</strong> слов <strong>(4%)</strong></p>  <p><strong><p>Рекомендуем Вам прервать тестирование, устранить все мешающие и отвлекающие факторы, как следует отдохнуть и повторить все с самого начала еще раз.</p> <p>Если результат не улучшился, рискните продолжить тестирование - зрительное ассоциативное запоминание не единственный вид памяти, может быть, Вы сможете компенсировать результаты за счет слуховой или зрительной механической памяти (повторение - мать учения).</p> <p>Эти виды памяти будут задействованы в следующих заданиях.</p></strong></p>\"},\"selfrating\":{\"SelfRating\":{\"raw\":{\"EN\":[{\"id\":1,\"name\":\"Полное отсутствие знаний.\"}],\"DE\":[{\"id\":2,\"name\":\"Могу отличить данный язык от другого.\"}],\"FR\":[{\"id\":3,\"name\":\"Понимаю отдельные слова.\"}]},\"reduced\":{\"EN\":1,\"DE\":2,\"FR\":3}},\"ControlRating\":{\"raw\":{\"EN\":[{\"word1\":\"bright\",\"word2\":\"безграничный\",\"hide\":\"яркий\"}],\"DE\":[{\"word1\":\"hehrausgabe\",\"word2\":\"ненужный\",\"hide\":\"выпуск\"}],\"FR\":[{\"word1\":\"reculer\",\"word2\":\"ряд, строй\",\"hide\":\"отодвигать\"}]},\"reduced\":{\"EN\":0,\"DE\":0,\"FR\":0}},\"langSelfRating\":{\"lang\":\"EN\",\"value\":1},\"langControlRating\":{\"lang\":\"EN\",\"value\":0},\"langResult\":\"EN\",\"recomendation\":\"В результате тестирования выбран язык обучения: <p><strong>Английский</strong></p>\"},\"lexical\":{\"checked\":4,\"checkedWordsPairs\":[{\"word1\":\"glass\",\"word2\":\"стакан\",\"hide\":\"стакан\"},{\"word1\":\"dog\",\"word2\":\"собака\",\"hide\":\"собака\"},{\"word1\":\"what\",\"word2\":\"что\",\"hide\":\"что\"},{\"word1\":\"window\",\"word2\":\"окно\",\"hide\":\"окно\"}],\"rememberedWordsPairs\":[{\"word1\":\"glass\",\"word2\":\"стакан\"},{\"word1\":\"dog\",\"word2\":\"собака\"},{\"word1\":\"cat\",\"word2\":\"кошка\"},{\"word1\":\"what\",\"word2\":\"что\"},{\"word1\":\"window\",\"word2\":\"окно\"}],\"remembered\":4,\"percent\":8,\"cancel\":true,\"recomendation\":\"<p>Из 100 предъявленных пар слов вы отметили <strong>4</strong> и запомнили <strong>4</strong> пар</p>\"},\"san\":{\"before\":{\"s\":3,\"a\":3,\"n\":3},\"after\":{\"s\":3,\"a\":3,\"n\":3},\"recomendation\":\"<p>Ваше самочувствие до проведения аутотренинга:<br> <strong>С: 3; А: 3; H: 3</strong>, после аутотренинга: <strong>С: 3; А: 3; H: 3</strong>. <br><strong><p>Ваше самочувствие не изменилось, активность не изменилось, настроение не изменилось,  после прохождения аутотренинга.</p><br><p>Вы можете перейти к следующему тесту.</p></strong></p>\"},\"lesson\":{\"0\":{\"lang\":\"EN\",\"stages\":[[\"- this is a telephone.\",\"- this is a glass.\",\"- this is a dog.\"],[],[],[]],\"matches\":[0,0,0,0],\"partials\":[0,0,0,0],\"difference\":[3,0,0,0]},\"1\":null,\"2\":null,\"3\":null,\"recomendation\":\"После прохождения пробного урока Ваш результат: <br><br><p>Урок <strong>1</strong>, язык обучения <strong>EN</strong></p><p>Проход 1: совпадений полных <strong><strong>0</strong></strong>, частичных - <strong><strong>0</strong></strong>, без совпадений - <strong><strong>3</strong></strong></p><p>Проход 2: совпадений полных <strong><strong>0</strong></strong>, частичных - <strong><strong>0</strong></strong>, без совпадений - <strong><strong>0</strong></strong></p><p>Проход 3: совпадений полных <strong><strong>0</strong></strong>, частичных - <strong><strong>0</strong></strong>, без совпадений - <strong><strong>0</strong></strong></p><p>Проход 4: совпадений полных <strong><strong>0</strong></strong>, частичных - <strong><strong>0</strong></strong>, без совпадений - <strong><strong>0</strong></strong></p>\"},\"endlexical\":{\"checked\":3,\"checkedWordsPairs\":[{\"word1\":\"dog\",\"word2\":\"собака\",\"hide\":\"собака\"},{\"word1\":\"cat\",\"word2\":\"кошка\",\"hide\":\"кошка\"},{\"word1\":\"what\",\"word2\":\"что\",\"hide\":\"что\"}],\"rememberedWordsPairs\":[{\"word1\":\"dog\",\"word2\":\"собака\"},{\"word1\":\"cat\",\"word2\":\"кошка\"},{\"word1\":\"what\",\"word2\":\"что\"}],\"remembered\":3,\"percent\":6,\"cancel\":true,\"recomendation\":\"<p>Из 100 предъявленных пар слов вы отметили <strong>3</strong> и запомнили <strong>3</strong> пар</p>\"}}',
+            testing : '[{\"label\":\"Сусггестивность по АТ\",\"method\":\"at0\",\"min\":1,\"max\":100,\"k1\":0.05,\"k2\":0.6,\"k\":0.03,\"value\":0,\"result\":0},{\"label\":\"Мнемический тест\",\"method\":\"mnemic\",\"min\":1,\"max\":40,\"k1\":0.125,\"k2\":0.8,\"k\":0.1,\"value\":2,\"result\":0.2},{\"label\":\"Словарный запас по трем языкам\",\"method\":\"controlRating\",\"min\":1,\"max\":25,\"k1\":0.2,\"k2\":0.25,\"k\":0.05,\"value\":0,\"result\":0},{\"label\":\"Способность понимания смысла текстов\",\"method\":\"selftext\",\"min\":1,\"max\":20,\"k1\":0.25,\"k2\":0.3,\"k\":0.075,\"value\":0,\"result\":0},{\"label\":\"Показатель \\\"delta\\\"\",\"method\":\"delta\",\"min\":1,\"max\":40,\"k1\":1.125,\"k2\":1,\"k\":1.125,\"value\":-1,\"result\":-1.125},{\"label\":\"Самооценка\",\"method\":\"selfRating\",\"min\":1,\"max\":8,\"k1\":0.625,\"k2\":0.4,\"k\":0.25,\"value\":6,\"result\":1.5},{\"label\":\"Речевая активность\",\"method\":\"talking\",\"min\":1,\"max\":5,\"k1\":1,\"k2\":0.7,\"k\":0.7,\"value\":0,\"result\":0}]',
+            rating : 0.575,
+            date : new Date('2019-04-24 19:38:44'),
+        },
     ];
 
     private mnemic = [
@@ -2645,7 +2662,7 @@ export class FillDictionary1545136894786 implements MigrationInterface {
     //     //     result: '',
     //     //     title: 'Описание методик аутотренинга',
     //     //     scope: '',
-    //     //     text: this.AThtml,
+    //     //     text: this.AT1html,
     //     //     sounds: 'cy-inst4_2fm.mp3#cy-inst4_2.mp3',
     //     // soundVolume: 100,
     //     //     mode: '',
@@ -3082,7 +3099,7 @@ export class FillDictionary1545136894786 implements MigrationInterface {
     //         result: '',
     //         title: 'Описание методик аутотренинга',
     //         scope: '',
-    //         text: this.AThtml,
+    //         text: this.AT1html,
     //         sounds: 'cy-inst4_2fm.mp3#cy-inst4_2.mp3',
     //         soundVolume: 100,
     //         mode: 'ONCE',
@@ -3496,15 +3513,15 @@ export class FillDictionary1545136894786 implements MigrationInterface {
             result: '',
             title: 'Описание методик аутотренинга',
             scope: '',
-            text: this.AThtml,
-            sounds: 'cy-inst4_2fm.mp3#cy-inst4_2.mp3',
-            soundVolume: 100,
-            mode: '',
+            text: this.AT0html,
+            sounds: '{{SOUNDTHEME}}/10.mp3#{{SOUNDTHEME}}/11.mp3#{{SOUNDTHEME}}/12.mp3#{{SOUNDTHEME}}/13.mp3#{{SOUNDTHEME}}/14.mp3',
+            soundVolume: 20,
+            mode: 'RANDOM',
             time: 0,
             next: 1,
             stages: 0,
             pages: 0,
-            component: '',
+            component: 'ATDescription',
         },
         {
             step: 2,
@@ -3551,7 +3568,7 @@ export class FillDictionary1545136894786 implements MigrationInterface {
             title: 'Аутотренинг',
             scope: '',
             text: '',
-            sounds: 'atstartm_final.mp3',
+            sounds: 'at-9-n0.mp3',
             soundVolume: 100,
             mode: 'ONCE',
             time: 0,
@@ -3959,7 +3976,7 @@ export class FillDictionary1545136894786 implements MigrationInterface {
             result: '',
             title: 'Описание методик аутотренинга',
             scope: '',
-            text: this.AThtml,
+            text: this.AT1html,
             sounds: 'cy-inst4_2fm.mp3#cy-inst4_2.mp3',
             soundVolume: 100,
             mode: 'ONCE',
@@ -5502,6 +5519,13 @@ export class FillDictionary1545136894786 implements MigrationInterface {
             .insert()
             .into(Users, this.fields.users)
             .values(this.users)
+            .execute();
+
+        await getConnection()
+            .createQueryBuilder()
+            .insert()
+            .into(UsersResults)
+            .values(this.usersResults)
             .execute();
     }
 
