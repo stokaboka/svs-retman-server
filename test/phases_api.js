@@ -26,7 +26,7 @@ describe("Phases", () => {
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a("array");
-                res.body.should.have.lengthOf(36);
+                res.body.should.have.lengthOf(42);
                 done();
             });
         });
@@ -51,7 +51,7 @@ describe("Phases", () => {
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a("array");
-                    res.body.should.have.lengthOf(1);
+                    res.body.should.have.lengthOf(6);
                     done();
                 });
         });
@@ -62,7 +62,7 @@ describe("Phases", () => {
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a("array");
-                    res.body.should.have.lengthOf(5);
+                    res.body.should.have.lengthOf(1);
                     done();
                 });
         });
@@ -73,7 +73,7 @@ describe("Phases", () => {
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a("array");
-                    res.body.should.have.lengthOf(7);
+                    res.body.should.have.lengthOf(5);
                     done();
                 });
         });
@@ -84,7 +84,7 @@ describe("Phases", () => {
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a("array");
-                    res.body.should.have.lengthOf(6);
+                    res.body.should.have.lengthOf(7);
                     done();
                 });
         });
@@ -106,7 +106,7 @@ describe("Phases", () => {
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a("array");
-                    res.body.should.have.lengthOf(3);
+                    res.body.should.have.lengthOf(6);
                     done();
                 });
         });

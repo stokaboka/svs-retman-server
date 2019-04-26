@@ -96,15 +96,20 @@ export default class Auth {
 
         this.app.post('/register', async (req: Request, res: Response, next: NextFunction) => {
             const usersController: UsersController = new UsersController();
-            const user: any = await usersController.register(req, res, next);
-            req.login(user, {session: false}, (error) => {
-                if (error) {
-                    res.send(error);
-                }
-                // generate a signed son web token with the contents of user object and return it in the response
-                const token = jwt.sign({id: user.id}, this.secretOrKey, this.signOpts);
-                return res.json({user, token});
-            });
+            const reg: any = await usersController.register(req, res, next);
+            if (reg.error) {
+                return res.json({user: null, token: '', error: reg.error});
+            } else {
+                const user = reg.user;
+                req.login(user, {session: false}, (error) => {
+                    if (error) {
+                        res.send(error);
+                    }
+                    // generate a signed son web token with the contents of user object and return it in the response
+                    const token = jwt.sign({id: user.id}, this.secretOrKey, this.signOpts);
+                    return res.json({user, token, error: null});
+                });
+            }
         });
 
         this.app.post('/login', async (req: Request, res: Response, next: NextFunction) => {

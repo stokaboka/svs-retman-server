@@ -26,14 +26,7 @@ const routes: any[] = [
         action: 'update',
         secure: true,
     },
-    // TODO app.ts - passport auth
-    // {
-    //     method: 'post',
-    //     route: '/login',
-    //     controller: UsersController,
-    //     action: 'login',
-    //     secure: true,
-    // },
+
     {
         method: 'post',
         route: '/logout',
@@ -41,13 +34,6 @@ const routes: any[] = [
         action: 'logout',
         secure: true,
     },
-    // {
-    //     method: 'post',
-    //     route: '/register',
-    //     controller: UsersController,
-    //     action: 'register',
-    //     secure: false,
-    // },
 
     {
         method: 'delete',

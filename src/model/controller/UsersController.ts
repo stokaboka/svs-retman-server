@@ -135,8 +135,20 @@ export default class UsersController extends DBController {
      * @param next
      */
     public async register(request: Request, response: Response, next: NextFunction) {
-        const out = await this.repository.save(request.body);
-        return UsersController.fixObject(out);
+        let user: any = null;
+        try {
+
+            user = await this.repository.findOne({where: {login: request.body.login}});
+            if (user) {
+                return {user: null, error: 'Пользователь с таким именем уже зарегистрирован'};
+            } else {
+                user = await this.repository.save(request.body);
+                user = UsersController.fixObject(user);
+                return {user, error: null};
+            }
+        } catch (e) {
+            return {user, error: e};
+        }
     }
 
     /**
@@ -146,8 +158,14 @@ export default class UsersController extends DBController {
      * @param next
      */
     public async update(request: Request, response: Response, next: NextFunction) {
-        const out = await super.update(request, response, next);
-        return UsersController.fixObject(out);
+        try {
+            console.log('update', request.body);
+            const out = await super.update(request, response, next);
+            return UsersController.fixObject(out);
+        } catch (e) {
+            console.log(e);
+            return null;
+        }
     }
 
     /**

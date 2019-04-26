@@ -63,6 +63,7 @@ export class FillDictionary1545136894786 implements MigrationInterface {
     private users = [
         {login: 'admin', password: '=0987654321', firstName: 'Administrator', role: 'admin'},
         {login: 'operator', password: '1234567890', firstName: 'Operator', role: 'operator'},
+        {login: 'test', password: 'test', firstName: 'Test', role: 'admin'},
     ];
 
     private usersResults = [

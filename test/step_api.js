@@ -25,7 +25,7 @@ describe("Step", () => {
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a("array");
-                res.body.should.have.lengthOf(9);
+                res.body.should.have.lengthOf(10);
                 done();
             });
         });
