@@ -1,0 +1,20 @@
+{
+   "type": "mysql",
+   "host": "db",
+   "port": 3306,
+   "username": "root",
+   "password": "123456789",
+   "database": "svsbeginners",
+   "synchronize": false,
+   "logging": true,
+   "entities": [
+      "model/entity/**/*.js"
+   ],
+   "migrations": [
+      "migration/**/*.js"
+   ],
+   "cli": {
+      "entitiesDir": "entity",
+      "migrationsDir": "migration"
+   }
+}
